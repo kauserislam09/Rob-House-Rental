@@ -1,0 +1,848 @@
+=== com\rob\houserental\AddBillActivity.java (17) ===
+  L 84: "ELECTRICITY" in `private String selectedBillType = "ELECTRICITY";`
+  L 92: "yyyy-MM" in `private static final SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L101: "default_billing_month" in `String defaultMonth = getIntent().getStringExtra("default_billing_month");`
+  L165: "ELECTRICITY" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L165: "WATER" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L165: "GAS" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L165: "INTERNET" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L165: "SERVICE_CHARGE" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L165: "OTHER" in `String[] billTypeKeys = {"ELECTRICITY", "WATER", "GAS", "INTERNET", "SERVICE_CHARGE", "OTHER"};`
+  L191: "ELECTRICITY" in `if ("ELECTRICITY".equalsIgnoreCase(selectedBillType)) {`
+  L194: "WATER" in `} else if ("WATER".equalsIgnoreCase(selectedBillType)) {`
+  L197: "GAS" in `} else if ("GAS".equalsIgnoreCase(selectedBillType)) {`
+  L267: "%.2f" in `etBillAmount.setText(String.format(Locale.US, "%.2f", total));`
+  L324: "Unit " in `unitNames.add("Unit " + u.getUnitNumber() + " (Floor " + u.getFloor() + ")");`
+  L324: " (Floor " in `unitNames.add("Unit " + u.getUnitNumber() + " (Floor " + u.getFloor() + ")");`
+  L364: "👤 Current Tenant: " in `tvOccupiedTenantInfo.setText("👤 Current Tenant: " + activeTenancy.tenant.getFullName() +`
+  L627: "UNPAID" in `"UNPAID",`
+=== com\rob\houserental\AddDocumentActivity.java (23) ===
+  L 70: "PROPERTY" in `private String selectedDocType = "PROPERTY";`
+  L 71: "DEED" in `private String selectedCategory = "DEED";`
+  L139: "PROPERTY" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L139: "TENANT" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L139: "EXPENSE" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L139: "RENT_PAYMENT" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L139: "UTILITY_BILL" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L139: "GENERAL" in `"PROPERTY", "TENANT", "EXPENSE", "RENT_PAYMENT", "UTILITY_BILL", "GENERAL"`
+  L166: "GENERAL" in `if ("GENERAL".equalsIgnoreCase(docType)) {`
+  L171: "TENANT" in `} else if ("TENANT".equalsIgnoreCase(docType) || "RENT_PAYMENT".equalsIgnoreCase(docType)) {`
+  L171: "RENT_PAYMENT" in `} else if ("TENANT".equalsIgnoreCase(docType) || "RENT_PAYMENT".equalsIgnoreCase(docType)) {`
+  L183: "DEED" in `"DEED", "TAX_RECORD", "NID", "PASSPORT", "AGREEMENT",`
+  L183: "TAX_RECORD" in `"DEED", "TAX_RECORD", "NID", "PASSPORT", "AGREEMENT",`
+  L183: "NID" in `"DEED", "TAX_RECORD", "NID", "PASSPORT", "AGREEMENT",`
+  L183: "PASSPORT" in `"DEED", "TAX_RECORD", "NID", "PASSPORT", "AGREEMENT",`
+  L183: "AGREEMENT" in `"DEED", "TAX_RECORD", "NID", "PASSPORT", "AGREEMENT",`
+  L184: "VOUCHER" in `"VOUCHER", "PAYMENT_SLIP", "BILL_RECEIPT", "POLICE_FORM", "OTHER"`
+  L184: "PAYMENT_SLIP" in `"VOUCHER", "PAYMENT_SLIP", "BILL_RECEIPT", "POLICE_FORM", "OTHER"`
+  L184: "BILL_RECEIPT" in `"VOUCHER", "PAYMENT_SLIP", "BILL_RECEIPT", "POLICE_FORM", "OTHER"`
+  L184: "POLICE_FORM" in `"VOUCHER", "PAYMENT_SLIP", "BILL_RECEIPT", "POLICE_FORM", "OTHER"`
+  L184: "OTHER" in `"VOUCHER", "PAYMENT_SLIP", "BILL_RECEIPT", "POLICE_FORM", "OTHER"`
+  L300: "documents" in `File docsDir = new File(getFilesDir(), "documents");`
+  L305: "doc_" in `String fileName = "doc_" + System.currentTimeMillis();`
+=== com\rob\houserental\AddExpenseActivity.java (32) ===
+  L 74: "REPAIR" in `private String selectedCategory = "REPAIR";`
+  L 86: "yyyy-MM" in `private static final SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L102: "default_expense_month" in `String defaultMonth = getIntent().getStringExtra("default_expense_month");`
+  L155: "REPAIR" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L155: "MAINTENANCE" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L155: "CLEANING" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L155: "SECURITY" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L156: "GENERATOR" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L156: "PLUMBING" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L156: "ELECTRICAL" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L156: "PAINTING" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L157: "RENOVATION" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L157: "PROPERTY_TAX" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L157: "SERVICE_CHARGE" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L157: "OTHER" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L258: "Unit " in `unitNames.add("Unit " + u.getUnitNumber() + " (Floor " + u.getFloor() + ")");`
+  L258: " (Floor " in `unitNames.add("Unit " + u.getUnitNumber() + " (Floor " + u.getFloor() + ")");`
+  L337: "voucher_receipt" in `attachedReceiptName = expense.getReceiptName() != null ? expense.getReceiptName() : "voucher_receipt";`
+  L361: "REPAIR" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L361: "MAINTENANCE" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L361: "CLEANING" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L361: "SECURITY" in `"REPAIR", "MAINTENANCE", "CLEANING", "SECURITY",`
+  L362: "GENERATOR" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L362: "PLUMBING" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L362: "ELECTRICAL" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L362: "PAINTING" in `"GENERATOR", "PLUMBING", "ELECTRICAL", "PAINTING",`
+  L363: "RENOVATION" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L363: "PROPERTY_TAX" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L363: "SERVICE_CHARGE" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L363: "OTHER" in `"RENOVATION", "PROPERTY_TAX", "SERVICE_CHARGE", "OTHER"`
+  L407: "expenses/receipts" in `File receiptsDir = new File(getFilesDir(), "expenses/receipts");`
+  L412: "receipt_" in `String fileName = "receipt_" + System.currentTimeMillis();`
+=== com\rob\houserental\AddPropertyActivity.java (20) ===
+  L115: "Apartment Building" in `"Apartment Building",`
+  L116: "House" in `"House",`
+  L117: "Duplex" in `"Duplex",`
+  L118: "Commercial Building" in `"Commercial Building",`
+  L119: "Shop" in `"Shop",`
+  L120: "Office" in `"Office",`
+  L121: "Other" in `"Other"`
+  L164: "Apartment Building" in `String propertyType = "Apartment Building";`
+  L301: "property_name" in `"property_name",`
+  L306: "property_address" in `"property_address",`
+  L311: "property_type" in `"property_type",`
+  L316: "property_floors" in `"property_floors",`
+  L321: "property_notes" in `"property_notes",`
+  L411: "property_name" in `"property_name"`
+  L417: "property_address" in `"property_address"`
+  L423: "property_type" in `"property_type"`
+  L429: "property_floors" in `"property_floors",`
+  L436: "property_notes" in `"property_notes"`
+  L442: "property_created_at" in `"property_created_at",`
+  L449: "property_updated_at" in `"property_updated_at",`
+=== com\rob\houserental\AddTenancyActivity.java (8) ===
+  L161: "ACTIVE" in `String[] statuses = {"ACTIVE", "ENDED", "CANCELLED"};`
+  L161: "ENDED" in `String[] statuses = {"ACTIVE", "ENDED", "CANCELLED"};`
+  L161: "CANCELLED" in `String[] statuses = {"ACTIVE", "ENDED", "CANCELLED"};`
+  L261: "VACANT" in `boolean isAvailable = "VACANT".equalsIgnoreCase(u.getStatus()) ||`
+  L417: "Unit " in `autoUnit.setText("Unit " + details.unit.getUnitNumber() + " (Floor " + details.unit.getFloor() + ")", false);`
+  L417: " (Floor " in `autoUnit.setText("Unit " + details.unit.getUnitNumber() + " (Floor " + details.unit.getFloor() + ")", false);`
+  L499: "End date cannot be before start date" in `layoutEndDate.setError("End date cannot be before start date");`
+  L597: "Unit is already occupied" in `if (exception instanceof IllegalStateException && "Unit is already occupied".equals(exception.getMessage())) {`
+=== com\rob\houserental\AddTenantActivity.java (3) ===
+  L110: "ACTIVE" in `"ACTIVE",`
+  L111: "INACTIVE" in `"INACTIVE",`
+  L112: "ARCHIVED" in `"ARCHIVED"`
+=== com\rob\houserental\AddUnitActivity.java (23) ===
+  L 86: "Apartment" in `"Apartment",`
+  L 87: "Flat" in `"Flat",`
+  L 88: "Room" in `"Room",`
+  L 89: "Shop" in `"Shop",`
+  L 90: "Office" in `"Office",`
+  L 91: "Parking" in `"Parking",`
+  L 92: "Other" in `"Other"`
+  L 96: "VACANT" in `"VACANT",`
+  L 97: "OCCUPIED" in `"OCCUPIED",`
+  L 98: "RESERVED" in `"RESERVED",`
+  L 99: "MAINTENANCE" in `"MAINTENANCE"`
+  L145: "unit_number" in `String unitNumber = getIntent().getStringExtra("unit_number");`
+  L146: "unit_floor" in `int floor = getIntent().getIntExtra("unit_floor", 0);`
+  L147: "unit_type" in `String unitType = getIntent().getStringExtra("unit_type");`
+  L148: "unit_monthly_rent" in `double monthlyRent = getIntent().getDoubleExtra("unit_monthly_rent", 0.0);`
+  L149: "unit_security_deposit" in `double securityDeposit = getIntent().getDoubleExtra("unit_security_deposit", 0.0);`
+  L150: "unit_status" in `String status = getIntent().getStringExtra("unit_status");`
+  L151: "unit_notes" in `String notes = getIntent().getStringExtra("unit_notes");`
+  L152: "unit_created_at" in `long createdAt = getIntent().getLongExtra("unit_created_at", System.currentTimeMillis());`
+  L156: "Apartment" in `editingUnit.setUnitType(unitType != null ? unitType : "Apartment");`
+  L159: "VACANT" in `editingUnit.setStatus(status != null ? status : "VACANT");`
+  L211: "Apartment" in `String unitType = "Apartment";`
+  L222: "VACANT" in `String status = "VACANT";`
+=== com\rob\houserental\BackupActivity.java (36) ===
+  L270: "Google Play Services Error " in `String message = "Google Play Services Error " + errorCode + " (DEVELOPER_ERROR).\n\n" +`
+  L270: " (DEVELOPER_ERROR).\n\n" in `String message = "Google Play Services Error " + errorCode + " (DEVELOPER_ERROR).\n\n" +`
+  L271: "To enable direct Google Drive Cloud backup, add an Android OAuth Client ID in your Google Cloud Console (project: rob-personal-stock):\n\n" in `"To enable direct Google Drive Cloud backup, add an Android OAuth Client ID in your Google Cloud Console (project: rob-personal-stock):\n\n" +`
+  L272: "• Application type: Android\n" in `"• Application type: Android\n" +`
+  L273: "• Package Name: " in `"• Package Name: " + GoogleDriveService.PACKAGE_NAME + "\n" +`
+  L273: "\n" in `"• Package Name: " + GoogleDriveService.PACKAGE_NAME + "\n" +`
+  L274: "• SHA-1 Fingerprint: " in `"• SHA-1 Fingerprint: " + GoogleDriveService.SHA1_FINGERPRINT + "\n\n" +`
+  L274: "\n\n" in `"• SHA-1 Fingerprint: " + GoogleDriveService.SHA1_FINGERPRINT + "\n\n" +`
+  L275: "💡 Note: You can use 'Export Backup' anytime to backup 100% offline to Phone Storage, SD Card, USB or PC without any cloud configuration!" in `"💡 Note: You can use 'Export Backup' anytime to backup 100% offline to Phone Storage, SD Card, USB or PC without any cloud configuration!";`
+  L282: "SHA1 Fingerprint" in `ClipData clip = ClipData.newPlainText("SHA1 Fingerprint", GoogleDriveService.SHA1_FINGERPRINT);`
+  L326: "SUCCESS" in `if ("SUCCESS".equalsIgnoreCase(status)) {`
+  L329: "FAILED" in `} else if ("FAILED".equalsIgnoreCase(status)) {`
+  L383: "IN_PROGRESS" in `"IN_PROGRESS",`
+  L384: "MANUAL" in `"MANUAL",`
+  L435: "SUCCESS" in `history.setStatus("SUCCESS");`
+  L442: "SUCCESS" in `preferences.setLastBackupStatus("SUCCESS");`
+  L444: "MANUAL" in `preferences.setLastBackupType("MANUAL");`
+  L455: "FAILED" in `history.setStatus("FAILED");`
+  L460: "FAILED" in `preferences.setLastBackupStatus("FAILED");`
+  L499: "drive_restore_download.zip" in `File tempDownloadFile = new File(getCacheDir(), "drive_restore_download.zip");`
+  L506: "GOOGLE_DRIVE" in `showRestoreConfirmationDialog(tempDownloadFile, manifest, "GOOGLE_DRIVE");`
+  L533: "RobHouseRental_Backup_" in `String exportName = "RobHouseRental_Backup_" + sdf.format(new Date()) + ".zip";`
+  L533: ".zip" in `String exportName = "RobHouseRental_Backup_" + sdf.format(new Date()) + ".zip";`
+  L557: "SUCCESS" in `"SUCCESS",`
+  L558: "EXPORT" in `"EXPORT",`
+  L589: "IMPORT" in `showRestoreConfirmationDialog(importedZip, manifest, "IMPORT");`
+  L604: "\n\n" in `String message = getString(R.string.restore_warning_msg) + "\n\n" +`
+  L605: "📅 Backup Date: " in `"📅 Backup Date: " + backupDate + "\n" +`
+  L605: "\n" in `"📅 Backup Date: " + backupDate + "\n" +`
+  L606: "💾 Size: " in `"💾 Size: " + backupSize + "\n" +`
+  L606: "\n" in `"💾 Size: " + backupSize + "\n" +`
+  L607: "📑 Documents: " in `"📑 Documents: " + manifest.getDocumentCount() + " files\n" +`
+  L607: " files\n" in `"📑 Documents: " + manifest.getDocumentCount() + " files\n" +`
+  L608: "⚙️ Database Version: " in `"⚙️ Database Version: " + manifest.getDatabaseVersion();`
+  L640: "RESTORED" in `"RESTORED",`
+  L641: "RESTORE" in `"RESTORE",`
+=== com\rob\houserental\BillDetailsActivity.java (23) ===
+  L200: "OTHER" in `String type = item.billType != null ? item.billType : "OTHER";`
+  L221: "UNPAID" in `String status = item.status != null ? item.status.trim().toUpperCase() : "UNPAID";`
+  L267: "PAID" in `if (item.remainingAmount <= 0.001 || "PAID".equalsIgnoreCase(status) || "WAIVED".equalsIgnoreCase(status)) {`
+  L267: "WAIVED" in `if (item.remainingAmount <= 0.001 || "PAID".equalsIgnoreCase(status) || "WAIVED".equalsIgnoreCase(status)) {`
+  L320: "%.2f" in `etPaymentAmount.setText(String.format(Locale.US, "%.2f", currentDisplayItem.remainingAmount));`
+  L487: "bill" in `String type = currentDisplayItem != null ? getTypeTitle(this, currentDisplayItem.billType) : "bill";`
+  L516: "ELECTRICITY" in `case "ELECTRICITY":`
+  L518: "WATER" in `case "WATER":`
+  L520: "GAS" in `case "GAS":`
+  L522: "INTERNET" in `case "INTERNET":`
+  L524: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L526: "OTHER" in `case "OTHER":`
+  L535: "ELECTRICITY" in `case "ELECTRICITY":`
+  L537: "WATER" in `case "WATER":`
+  L539: "GAS" in `case "GAS":`
+  L541: "INTERNET" in `case "INTERNET":`
+  L543: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L545: "OTHER" in `case "OTHER":`
+  L556: "PAID" in `case "PAID":`
+  L560: "PARTIAL" in `case "PARTIAL":`
+  L564: "OVERDUE" in `case "OVERDUE":`
+  L568: "WAIVED" in `case "WAIVED":`
+  L572: "UNPAID" in `case "UNPAID":`
+=== com\rob\houserental\BillsActivity.java (12) ===
+  L 57: "yyyy-MM" in `private static final SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L 58: "MMMM yyyy" in `private static final SimpleDateFormat monthDisplayFormat = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());`
+  L 63: "ALL" in `private String currentTypeFilter = "ALL";`
+  L165: "ALL" in `currentTypeFilter = "ALL";`
+  L169: "ELECTRICITY" in `currentTypeFilter = "ELECTRICITY";`
+  L171: "WATER" in `currentTypeFilter = "WATER";`
+  L173: "GAS" in `currentTypeFilter = "GAS";`
+  L175: "INTERNET" in `currentTypeFilter = "INTERNET";`
+  L177: "OTHER" in `currentTypeFilter = "OTHER";`
+  L179: "ALL" in `currentTypeFilter = "ALL";`
+  L190: "default_billing_month" in `intent.putExtra("default_billing_month", billingMonth);`
+  L253: "ALL" in `boolean typeMatches = "ALL".equalsIgnoreCase(currentTypeFilter) ||`
+=== com\rob\houserental\DocumentDetailsActivity.java (4) ===
+  L157: "\n" in `entity.append("\n");`
+  L182: "file" in `tvDocDetailsFileName.setText(item.fileName != null ? item.fileName : "file");`
+  L200: ".fileprovider" in `getPackageName() + ".fileprovider",`
+  L271: "this document" in `String name = currentDisplayItem.displayName != null ? currentDisplayItem.displayName : "this document";`
+=== com\rob\houserental\DocumentsActivity.java (12) ===
+  L 55: "ALL" in `private String currentTypeFilter = "ALL";`
+  L136: "ALL" in `currentTypeFilter = "ALL";`
+  L140: "PROPERTY" in `currentTypeFilter = "PROPERTY";`
+  L142: "TENANT" in `currentTypeFilter = "TENANT";`
+  L144: "EXPENSE" in `currentTypeFilter = "EXPENSE";`
+  L146: "RENT_PAYMENT" in `currentTypeFilter = "RENT_PAYMENT";`
+  L148: "UTILITY_BILL" in `currentTypeFilter = "UTILITY_BILL";`
+  L150: "GENERAL" in `currentTypeFilter = "GENERAL";`
+  L152: "ALL" in `currentTypeFilter = "ALL";`
+  L228: "ALL" in `boolean typeMatches = "ALL".equalsIgnoreCase(currentTypeFilter) ||`
+  L317: ".fileprovider" in `getPackageName() + ".fileprovider",`
+  L377: "this document" in `String name = item.displayName != null ? item.displayName : "this document";`
+=== com\rob\houserental\ExpenseDetailsActivity.java (2) ===
+  L149: "OTHER" in `String cat = item.category != null ? item.category : "OTHER";`
+  L206: ".fileprovider" in `getPackageName() + ".fileprovider",`
+=== com\rob\houserental\ExpensesActivity.java (16) ===
+  L 53: "yyyy-MM" in `private static final SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L 54: "MMMM yyyy" in `private static final SimpleDateFormat monthDisplayFormat = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());`
+  L 59: "ALL" in `private String currentCategoryFilter = "ALL";`
+  L158: "ALL" in `currentCategoryFilter = "ALL";`
+  L162: "REPAIR" in `currentCategoryFilter = "REPAIR";`
+  L164: "MAINTENANCE" in `currentCategoryFilter = "MAINTENANCE";`
+  L166: "CLEANING" in `currentCategoryFilter = "CLEANING";`
+  L168: "ELECTRICAL" in `currentCategoryFilter = "ELECTRICAL";`
+  L170: "PLUMBING" in `currentCategoryFilter = "PLUMBING";`
+  L172: "PAINTING" in `currentCategoryFilter = "PAINTING";`
+  L174: "SECURITY" in `currentCategoryFilter = "SECURITY";`
+  L176: "PROPERTY_TAX" in `currentCategoryFilter = "PROPERTY_TAX";`
+  L178: "OTHER" in `currentCategoryFilter = "OTHER";`
+  L180: "ALL" in `currentCategoryFilter = "ALL";`
+  L191: "default_expense_month" in `intent.putExtra("default_expense_month", billingMonth);`
+  L248: "ALL" in `boolean catMatches = "ALL".equalsIgnoreCase(currentCategoryFilter) ||`
+=== com\rob\houserental\PropertiesActivity.java (5) ===
+  L117: "property_name" in `"property_name",`
+  L122: "property_address" in `"property_address",`
+  L127: "property_type" in `"property_type",`
+  L132: "property_floors" in `"property_floors",`
+  L137: "property_notes" in `"property_notes",`
+=== com\rob\houserental\PropertyDetailsActivity.java (55) ===
+  L 84: "property_name" in `tvPropertyName.setText(data.getStringExtra("property_name"));`
+  L 85: "property_address" in `tvPropertyAddress.setText(data.getStringExtra("property_address"));`
+  L 86: "property_type" in `tvPropertyType.setText(PropertyAdapter.getPropertyTypeDisplay(this, data.getStringExtra("property_type")));`
+  L 87: "property_floors" in `tvPropertyFloors.setText(String.valueOf(data.getIntExtra("property_floors", 0)));`
+  L 89: "property_notes" in `String notes = data.getStringExtra("property_notes");`
+  L178: "property_name" in `intent.putExtra("property_name", getIntent().getStringExtra("property_name"));`
+  L178: "property_name" in `intent.putExtra("property_name", getIntent().getStringExtra("property_name"));`
+  L179: "property_address" in `intent.putExtra("property_address", getIntent().getStringExtra("property_address"));`
+  L179: "property_address" in `intent.putExtra("property_address", getIntent().getStringExtra("property_address"));`
+  L180: "property_type" in `intent.putExtra("property_type", getIntent().getStringExtra("property_type"));`
+  L180: "property_type" in `intent.putExtra("property_type", getIntent().getStringExtra("property_type"));`
+  L181: "property_floors" in `intent.putExtra("property_floors", getIntent().getIntExtra("property_floors", 0));`
+  L181: "property_floors" in `intent.putExtra("property_floors", getIntent().getIntExtra("property_floors", 0));`
+  L182: "property_notes" in `intent.putExtra("property_notes", getIntent().getStringExtra("property_notes"));`
+  L182: "property_notes" in `intent.putExtra("property_notes", getIntent().getStringExtra("property_notes"));`
+  L183: "property_created_at" in `intent.putExtra("property_created_at", getIntent().getLongExtra("property_created_at", 0));`
+  L183: "property_created_at" in `intent.putExtra("property_created_at", getIntent().getLongExtra("property_created_at", 0));`
+  L184: "property_updated_at" in `intent.putExtra("property_updated_at", getIntent().getLongExtra("property_updated_at", 0));`
+  L184: "property_updated_at" in `intent.putExtra("property_updated_at", getIntent().getLongExtra("property_updated_at", 0));`
+  L246: "unit_number" in `intent.putExtra("unit_number", unit.getUnitNumber());`
+  L247: "unit_floor" in `intent.putExtra("unit_floor", unit.getFloor());`
+  L248: "unit_type" in `intent.putExtra("unit_type", unit.getUnitType());`
+  L249: "unit_monthly_rent" in `intent.putExtra("unit_monthly_rent", unit.getMonthlyRent());`
+  L250: "unit_security_deposit" in `intent.putExtra("unit_security_deposit", unit.getSecurityDeposit());`
+  L251: "unit_status" in `intent.putExtra("unit_status", unit.getStatus());`
+  L252: "unit_notes" in `intent.putExtra("unit_notes", unit.getNotes());`
+  L253: "unit_created_at" in `intent.putExtra("unit_created_at", unit.getCreatedAt());`
+  L258: "VACANT" in `String[] statuses = {"VACANT", "OCCUPIED", "RESERVED", "MAINTENANCE"};`
+  L258: "OCCUPIED" in `String[] statuses = {"VACANT", "OCCUPIED", "RESERVED", "MAINTENANCE"};`
+  L258: "RESERVED" in `String[] statuses = {"VACANT", "OCCUPIED", "RESERVED", "MAINTENANCE"};`
+  L258: "MAINTENANCE" in `String[] statuses = {"VACANT", "OCCUPIED", "RESERVED", "MAINTENANCE"};`
+  L335: "\n" in `details.append(getString(R.string.unit_number)).append(": ").append(unit.getUnitNumber()).append("\n");`
+  L337: "\n" in `details.append(getString(R.string.floor)).append(": ").append(unit.getFloor()).append("\n");`
+  L340: "\n" in `details.append(getString(R.string.unit_type)).append(": ").append(UnitAdapter.getUnitTypeDisplay(this, unit.getUnitType())).append("\n");`
+  L342: "\n" in `details.append(getString(R.string.unit_status)).append(": ").append(UnitAdapter.getStatusDisplay(this, unit.getStatus())).append("\n");`
+  L343: "\n" in `details.append(getString(R.string.monthly_rent)).append(": ").append(currencySymbol).append(" ").append(currencyFormat.format(unit.getMonthlyRent())).append(" ").append(perMonth).append("\n");`
+  L346: "\n" in `details.append(getString(R.string.security_deposit)).append(": ").append(currencySymbol).append(" ").append(currencyFormat.format(unit.getSecurityDeposit())).append("\n");`
+  L350: "\n━━━━━━━━━━━━━━━━━━━━\n" in `details.append("\n━━━━━━━━━━━━━━━━━━━━\n");`
+  L351: ":\n" in `details.append(getString(R.string.current_tenant)).append(":\n");`
+  L352: "\n" in `details.append("👤 ").append(activeTenancy.tenant.getFullName()).append("\n");`
+  L354: "\n" in `details.append("📞 ").append(activeTenancy.tenant.getPhoneNumber()).append("\n");`
+  L357: "\n" in `details.append("📅 ").append(getString(R.string.prefix_started_format, activeTenancy.tenancy.getStartDate())).append("\n");`
+  L358: "\n" in `details.append("💰 ").append(getString(R.string.agreed_rent)).append(": ").append(currencySymbol).append(currencyFormat.format(activeTenancy.tenancy.getMonthlyRent())).append(" ").append(perMonth).append("\n");`
+  L360: "VACANT" in `} else if ("VACANT".equalsIgnoreCase(unit.getStatus())) {`
+  L361: "\n(" in `details.append("\n(").append(getString(R.string.currently_vacant)).append(")\n");`
+  L361: ")\n" in `details.append("\n(").append(getString(R.string.currently_vacant)).append(")\n");`
+  L365: "\n" in `details.append("\n").append(getString(R.string.notes)).append(":\n").append(unit.getNotes().trim()).append("\n");`
+  L365: ":\n" in `details.append("\n").append(getString(R.string.notes)).append(":\n").append(unit.getNotes().trim()).append("\n");`
+  L365: "\n" in `details.append("\n").append(getString(R.string.notes)).append(":\n").append(unit.getNotes().trim()).append("\n");`
+  L391: "yyyy-MM" in `SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L430: "property_name" in `name = intent.getStringExtra("property_name");`
+  L431: "property_address" in `address = intent.getStringExtra("property_address");`
+  L432: "property_type" in `propertyType = intent.getStringExtra("property_type");`
+  L433: "property_notes" in `notes = intent.getStringExtra("property_notes");`
+  L434: "property_floors" in `numberOfFloors = intent.getIntExtra("property_floors", 0);`
+=== com\rob\houserental\RentActivity.java (13) ===
+  L 57: "yyyy-MM" in `private static final SimpleDateFormat monthFormat = new SimpleDateFormat("yyyy-MM", Locale.getDefault());`
+  L 58: "MMMM yyyy" in `private static final SimpleDateFormat monthDisplayFormat = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());`
+  L 59: "10 MMM yyyy" in `private static final SimpleDateFormat dueDateFormat = new SimpleDateFormat("10 MMM yyyy", Locale.getDefault());`
+  L 64: "ALL" in `private String currentStatusFilter = "ALL";`
+  L121: "rent_id" in `intent.putExtra("rent_id", item.id);`
+  L165: "ALL" in `currentStatusFilter = "ALL";`
+  L169: "UNPAID" in `currentStatusFilter = "UNPAID";`
+  L171: "PARTIAL" in `currentStatusFilter = "PARTIAL";`
+  L173: "PAID" in `currentStatusFilter = "PAID";`
+  L175: "OVERDUE" in `currentStatusFilter = "OVERDUE";`
+  L177: "WAIVED" in `currentStatusFilter = "WAIVED";`
+  L179: "ALL" in `currentStatusFilter = "ALL";`
+  L281: "ALL" in `boolean statusMatches = "ALL".equalsIgnoreCase(currentStatusFilter) ||`
+=== com\rob\houserental\RentDetailsActivity.java (10) ===
+  L 75: "rent_id" in `rentRecordId = getIntent().getLongExtra("rent_id", -1);`
+  L172: "UNPAID" in `String status = item.status != null ? item.status.trim().toUpperCase() : "UNPAID";`
+  L187: "PAID" in `if ("PAID".equalsIgnoreCase(status) || "WAIVED".equalsIgnoreCase(status)) {`
+  L187: "WAIVED" in `if ("PAID".equalsIgnoreCase(status) || "WAIVED".equalsIgnoreCase(status)) {`
+  L201: "PAID" in `case "PAID":`
+  L205: "PARTIAL" in `case "PARTIAL":`
+  L209: "OVERDUE" in `case "OVERDUE":`
+  L213: "WAIVED" in `case "WAIVED":`
+  L217: "UNPAID" in `case "UNPAID":`
+  L359: "Cash" in `String method = autoMethod.getText() != null ? autoMethod.getText().toString().trim() : "Cash";`
+=== com\rob\houserental\TenanciesActivity.java (7) ===
+  L 42: "ALL" in `private String currentStatusFilter = "ALL";`
+  L111: "ALL" in `currentStatusFilter = "ALL";`
+  L115: "ACTIVE" in `currentStatusFilter = "ACTIVE";`
+  L117: "ENDED" in `currentStatusFilter = "ENDED";`
+  L119: "CANCELLED" in `currentStatusFilter = "CANCELLED";`
+  L121: "ALL" in `currentStatusFilter = "ALL";`
+  L170: "ALL" in `boolean statusMatches = "ALL".equalsIgnoreCase(currentStatusFilter) ||`
+=== com\rob\houserental\TenancyDetailsActivity.java (6) ===
+  L182: "ACTIVE" in `String status = tenancy.getStatus() != null ? tenancy.getStatus().trim().toUpperCase() : "ACTIVE";`
+  L216: "ACTIVE" in `} else if ("ACTIVE".equalsIgnoreCase(status)) {`
+  L229: "ACTIVE" in `if ("ACTIVE".equalsIgnoreCase(status)) {`
+  L243: "ENDED" in `case "ENDED":`
+  L247: "CANCELLED" in `case "CANCELLED":`
+  L251: "ACTIVE" in `case "ACTIVE":`
+=== com\rob\houserental\TenantDetailsActivity.java (15) ===
+  L 78: "Other Document" in `private String selectedDocType = "Other Document";`
+  L214: "ACTIVE" in `String status = tenant.getStatus() != null ? tenant.getStatus().trim().toUpperCase() : "ACTIVE";`
+  L278: "ACTIVE" in `if ("ACTIVE".equalsIgnoreCase(item.tenancy.getStatus())) {`
+  L280: "\n" in `.append("\n").append(getString(R.string.prefix_rent_format, rent, getString(R.string.per_month)))`
+  L281: "\n" in `.append("\n").append(getString(R.string.prefix_started_format, start));`
+  L291: "\n\n" in `previousText.append("\n\n");`
+  L317: "INACTIVE" in `case "INACTIVE":`
+  L321: "ARCHIVED" in `case "ARCHIVED":`
+  L325: "ACTIVE" in `case "ACTIVE":`
+  L396: "doc_" in `String targetFileName = "doc_" + tenantId + "_" + System.currentTimeMillis() + "_" + originalName;`
+  L397: "tenant_documents" in `File savedFile = FileUtils.copyUriToPrivateStorage(this, uri, "tenant_documents", targetFileName);`
+  L444: ".fileprovider" in `getPackageName() + ".fileprovider",`
+  L492: "ACTIVE" in `String[] statuses = {"ACTIVE", "INACTIVE", "ARCHIVED"};`
+  L492: "INACTIVE" in `String[] statuses = {"ACTIVE", "INACTIVE", "ARCHIVED"};`
+  L492: "ARCHIVED" in `String[] statuses = {"ACTIVE", "INACTIVE", "ARCHIVED"};`
+=== com\rob\houserental\TenantsActivity.java (8) ===
+  L 40: "ALL" in `private String currentStatusFilter = "ALL";`
+  L108: "ALL" in `currentStatusFilter = "ALL";`
+  L112: "ACTIVE" in `currentStatusFilter = "ACTIVE";`
+  L114: "INACTIVE" in `currentStatusFilter = "INACTIVE";`
+  L116: "ARCHIVED" in `currentStatusFilter = "ARCHIVED";`
+  L118: "ALL" in `currentStatusFilter = "ALL";`
+  L150: "ALL" in `} else if (!"ALL".equals(currentStatusFilter)) {`
+  L178: "ALL" in `if (list == null || "ALL".equals(statusFilter)) {`
+=== com\rob\houserental\adapter\BackupHistoryAdapter.java (22) ===
+  L 53: "SUCCESS" in `String status = item.getStatus() != null ? item.getStatus() : "SUCCESS";`
+  L 56: "SUCCESS" in `if ("SUCCESS".equalsIgnoreCase(status)) {`
+  L 58: "FAILED" in `} else if ("FAILED".equalsIgnoreCase(status)) {`
+  L 60: "RESTORED" in `} else if ("RESTORED".equalsIgnoreCase(status)) {`
+  L 71: "FAILED" in `if (item.getErrorMessage() != null && !item.getErrorMessage().isEmpty() && "FAILED".equalsIgnoreCase(status)) {`
+  L 82: "AUTOMATIC" in `case "AUTOMATIC":`
+  L 84: "RESTORE" in `case "RESTORE":`
+  L 86: "EXPORT" in `case "EXPORT":`
+  L 88: "IMPORT" in `case "IMPORT":`
+  L 90: "MANUAL" in `case "MANUAL":`
+  L 99: "AUTOMATIC" in `case "AUTOMATIC":`
+  L101: "RESTORE" in `case "RESTORE":`
+  L103: "EXPORT" in `case "EXPORT":`
+  L105: "IMPORT" in `case "IMPORT":`
+  L107: "MANUAL" in `case "MANUAL":`
+  L116: "FAILED" in `case "FAILED":`
+  L118: "RESTORED" in `case "RESTORED":`
+  L120: "IN_PROGRESS" in `case "IN_PROGRESS":`
+  L122: "SUCCESS" in `case "SUCCESS":`
+  L129: "0 KB" in `if (bytes <= 0) return "0 KB";`
+  L132: " KB" in `return sizeFormat.format(kb) + " KB";`
+  L135: " MB" in `return sizeFormat.format(mb) + " MB";`
+=== com\rob\houserental\adapter\DocumentAdapter.java (30) ===
+  L106: "image" in `if (item.mimeType != null && item.mimeType.contains("image")) {`
+  L109: "PROPERTY" in `if ("PROPERTY".equalsIgnoreCase(item.documentType)) {`
+  L112: "TENANT" in `if ("TENANT".equalsIgnoreCase(item.documentType)) {`
+  L115: "EXPENSE" in `if ("EXPENSE".equalsIgnoreCase(item.documentType)) {`
+  L118: "RENT_PAYMENT" in `if ("RENT_PAYMENT".equalsIgnoreCase(item.documentType) || "UTILITY_BILL".equalsIgnoreCase(item.documentType)) {`
+  L118: "UTILITY_BILL" in `if ("RENT_PAYMENT".equalsIgnoreCase(item.documentType) || "UTILITY_BILL".equalsIgnoreCase(item.documentType)) {`
+  L127: "DEED" in `case "DEED":`
+  L129: "TAX_RECORD" in `case "TAX_RECORD":`
+  L131: "NID" in `case "NID":`
+  L133: "PASSPORT" in `case "PASSPORT":`
+  L135: "AGREEMENT" in `case "AGREEMENT":`
+  L137: "VOUCHER" in `case "VOUCHER":`
+  L139: "PAYMENT_SLIP" in `case "PAYMENT_SLIP":`
+  L141: "BILL_RECEIPT" in `case "BILL_RECEIPT":`
+  L143: "POLICE_FORM" in `case "POLICE_FORM":`
+  L145: "OTHER" in `case "OTHER":`
+  L152: "0 KB" in `if (bytes <= 0) return "0 KB";`
+  L155: " KB" in `return sizeFormat.format(kb) + " KB";`
+  L158: " MB" in `return sizeFormat.format(mb) + " MB";`
+  L163: "PDF" in `if (mimeType.contains("pdf")) return "PDF";`
+  L164: "JPG" in `if (mimeType.contains("jpeg") || mimeType.contains("jpg")) return "JPG";`
+  L165: "PNG" in `if (mimeType.contains("png")) return "PNG";`
+  L167: ".pdf" in `if (fileName != null && fileName.toLowerCase().endsWith(".pdf")) return "PDF";`
+  L167: "PDF" in `if (fileName != null && fileName.toLowerCase().endsWith(".pdf")) return "PDF";`
+  L168: ".jpg" in `if (fileName != null && (fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".jpeg"))) return "JPG";`
+  L168: ".jpeg" in `if (fileName != null && (fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".jpeg"))) return "JPG";`
+  L168: "JPG" in `if (fileName != null && (fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".jpeg"))) return "JPG";`
+  L169: ".png" in `if (fileName != null && fileName.toLowerCase().endsWith(".png")) return "PNG";`
+  L169: "PNG" in `if (fileName != null && fileName.toLowerCase().endsWith(".png")) return "PNG";`
+  L170: "FILE" in `return "FILE";`
+=== com\rob\houserental\adapter\ExpenseAdapter.java (25) ===
+  L 55: "OTHER" in `String cat = item.category != null ? item.category : "OTHER";`
+  L 94: "REPAIR" in `case "REPAIR":`
+  L 96: "MAINTENANCE" in `case "MAINTENANCE":`
+  L 98: "CLEANING" in `case "CLEANING":`
+  L100: "SECURITY" in `case "SECURITY":`
+  L102: "GENERATOR" in `case "GENERATOR":`
+  L104: "PLUMBING" in `case "PLUMBING":`
+  L106: "ELECTRICAL" in `case "ELECTRICAL":`
+  L108: "PAINTING" in `case "PAINTING":`
+  L110: "RENOVATION" in `case "RENOVATION":`
+  L112: "PROPERTY_TAX" in `case "PROPERTY_TAX":`
+  L114: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L116: "OTHER" in `case "OTHER":`
+  L125: "REPAIR" in `case "REPAIR":`
+  L127: "MAINTENANCE" in `case "MAINTENANCE":`
+  L129: "CLEANING" in `case "CLEANING":`
+  L131: "SECURITY" in `case "SECURITY":`
+  L133: "GENERATOR" in `case "GENERATOR":`
+  L135: "PLUMBING" in `case "PLUMBING":`
+  L137: "ELECTRICAL" in `case "ELECTRICAL":`
+  L139: "PAINTING" in `case "PAINTING":`
+  L141: "RENOVATION" in `case "RENOVATION":`
+  L143: "PROPERTY_TAX" in `case "PROPERTY_TAX":`
+  L145: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L147: "OTHER" in `case "OTHER":`
+=== com\rob\houserental\adapter\PaymentAdapter.java (8) ===
+  L 69: "CASH" in `if (m.contains("CASH")) return context.getString(R.string.payment_method_cash);`
+  L 70: "BANK" in `if (m.contains("BANK")) return context.getString(R.string.payment_method_bank_transfer);`
+  L 71: "MOBILE" in `if (m.contains("MOBILE") || m.contains("BKASH") || m.contains("NAGAD") || m.contains("ROCKET")) return context.getString(R.string.payment_method_mobile_banking);`
+  L 71: "BKASH" in `if (m.contains("MOBILE") || m.contains("BKASH") || m.contains("NAGAD") || m.contains("ROCKET")) return context.getString(R.string.payment_method_mobile_banking);`
+  L 71: "NAGAD" in `if (m.contains("MOBILE") || m.contains("BKASH") || m.contains("NAGAD") || m.contains("ROCKET")) return context.getString(R.string.payment_method_mobile_banking);`
+  L 71: "ROCKET" in `if (m.contains("MOBILE") || m.contains("BKASH") || m.contains("NAGAD") || m.contains("ROCKET")) return context.getString(R.string.payment_method_mobile_banking);`
+  L 72: "CARD" in `if (m.contains("CARD")) return context.getString(R.string.payment_method_card);`
+  L 73: "CHEQUE" in `if (m.contains("CHEQUE")) return context.getString(R.string.payment_method_cheque);`
+=== com\rob\houserental\adapter\PropertyAdapter.java (7) ===
+  L101: "Apartment Building" in `if ("Apartment Building".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_apartment_building);`
+  L102: "House" in `if ("House".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_house);`
+  L103: "Duplex" in `if ("Duplex".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_duplex);`
+  L104: "Commercial Building" in `if ("Commercial Building".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_commercial);`
+  L105: "Shop" in `if ("Shop".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_shop);`
+  L106: "Office" in `if ("Office".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_office);`
+  L107: "Other" in `if ("Other".equalsIgnoreCase(t)) return context.getString(R.string.prop_type_other);`
+=== com\rob\houserental\adapter\RentAdapter.java (12) ===
+  L 60: "UNPAID" in `String status = item.status != null ? item.status.trim().toUpperCase() : "UNPAID";`
+  L 81: "PAID" in `if ("PAID".equalsIgnoreCase(status) && item.lastPaymentDate != null && !item.lastPaymentDate.isEmpty()) {`
+  L101: "PAID" in `case "PAID":`
+  L105: "PARTIAL" in `case "PARTIAL":`
+  L109: "OVERDUE" in `case "OVERDUE":`
+  L113: "WAIVED" in `case "WAIVED":`
+  L117: "UNPAID" in `case "UNPAID":`
+  L134: "PAID" in `case "PAID":`
+  L136: "PARTIAL" in `case "PARTIAL":`
+  L138: "OVERDUE" in `case "OVERDUE":`
+  L140: "WAIVED" in `case "WAIVED":`
+  L142: "UNPAID" in `case "UNPAID":`
+=== com\rob\houserental\adapter\TenancyAdapter.java (8) ===
+  L 65: "ACTIVE" in `String status = details.tenancy.getStatus() != null ? details.tenancy.getStatus().trim().toUpperCase() : "ACTIVE";`
+  L 87: "ENDED" in `if ("ENDED".equalsIgnoreCase(status) && details.tenancy.getEndDate() != null && !details.tenancy.getEndDate().isEmpty()) {`
+  L115: "ENDED" in `case "ENDED":`
+  L119: "CANCELLED" in `case "CANCELLED":`
+  L123: "ACTIVE" in `case "ACTIVE":`
+  L140: "ENDED" in `case "ENDED":`
+  L142: "CANCELLED" in `case "CANCELLED":`
+  L144: "ACTIVE" in `case "ACTIVE":`
+=== com\rob\houserental\adapter\TenantAdapter.java (7) ===
+  L 57: "ACTIVE" in `String status = tenant.getStatus() != null ? tenant.getStatus().trim().toUpperCase() : "ACTIVE";`
+  L 98: "INACTIVE" in `case "INACTIVE":`
+  L102: "ARCHIVED" in `case "ARCHIVED":`
+  L106: "ACTIVE" in `case "ACTIVE":`
+  L123: "INACTIVE" in `case "INACTIVE":`
+  L125: "ARCHIVED" in `case "ARCHIVED":`
+  L127: "ACTIVE" in `case "ACTIVE":`
+=== com\rob\houserental\adapter\UnitAdapter.java (16) ===
+  L 80: "VACANT" in `String status = unit.getStatus() != null ? unit.getStatus().trim().toUpperCase() : "VACANT";`
+  L138: "OCCUPIED" in `case "OCCUPIED":`
+  L142: "RESERVED" in `case "RESERVED":`
+  L146: "MAINTENANCE" in `case "MAINTENANCE":`
+  L150: "VACANT" in `case "VACANT":`
+  L167: "OCCUPIED" in `case "OCCUPIED":`
+  L169: "RESERVED" in `case "RESERVED":`
+  L171: "MAINTENANCE" in `case "MAINTENANCE":`
+  L173: "VACANT" in `case "VACANT":`
+  L182: "Apartment" in `if ("Apartment".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_apartment);`
+  L183: "Flat" in `if ("Flat".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_flat);`
+  L184: "Room" in `if ("Room".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_room);`
+  L185: "Shop" in `if ("Shop".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_shop);`
+  L186: "Office" in `if ("Office".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_office);`
+  L187: "Parking" in `if ("Parking".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_parking);`
+  L188: "Other" in `if ("Other".equalsIgnoreCase(t)) return context.getString(R.string.unit_type_other);`
+=== com\rob\houserental\adapter\UtilityBillAdapter.java (24) ===
+  L 58: "OTHER" in `String type = item.billType != null ? item.billType : "OTHER";`
+  L 63: "UNPAID" in `String status = item.status != null ? item.status.trim().toUpperCase() : "UNPAID";`
+  L114: "ELECTRICITY" in `case "ELECTRICITY":`
+  L116: "WATER" in `case "WATER":`
+  L118: "GAS" in `case "GAS":`
+  L120: "INTERNET" in `case "INTERNET":`
+  L122: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L124: "OTHER" in `case "OTHER":`
+  L132: "ELECTRICITY" in `case "ELECTRICITY":`
+  L134: "WATER" in `case "WATER":`
+  L136: "GAS" in `case "GAS":`
+  L138: "INTERNET" in `case "INTERNET":`
+  L140: "SERVICE_CHARGE" in `case "SERVICE_CHARGE":`
+  L142: "OTHER" in `case "OTHER":`
+  L153: "PAID" in `case "PAID":`
+  L157: "PARTIAL" in `case "PARTIAL":`
+  L161: "OVERDUE" in `case "OVERDUE":`
+  L165: "WAIVED" in `case "WAIVED":`
+  L169: "UNPAID" in `case "UNPAID":`
+  L186: "PAID" in `case "PAID":`
+  L188: "PARTIAL" in `case "PARTIAL":`
+  L190: "OVERDUE" in `case "OVERDUE":`
+  L192: "WAIVED" in `case "WAIVED":`
+  L194: "UNPAID" in `case "UNPAID":`
+=== com\rob\houserental\backup\BackupManager.java (49) ===
+  L 33: "RobHouseRental_Backup.zip" in `public static final String BACKUP_FILE_NAME = "RobHouseRental_Backup.zip";`
+  L 64: "Checkpointing database..." in `if (listener != null) listener.onProgress("Checkpointing database...", 10);`
+  L 69: "PRAGMA wal_checkpoint(FULL)" in `Cursor cursor = db.query(new SimpleSQLiteQuery("PRAGMA wal_checkpoint(FULL)"));`
+  L 77: "backup_staging_" in `File stagingDir = new File(context.getCacheDir(), "backup_staging_" + System.currentTimeMillis());`
+  L 83: "database" in `File dbStagingDir = new File(stagingDir, "database");`
+  L 85: "documents" in `File docsStagingDir = new File(stagingDir, "documents");`
+  L 87: "metadata" in `File metaStagingDir = new File(stagingDir, "metadata");`
+  L 90: "Creating consistent database snapshot..." in `if (listener != null) listener.onProgress("Creating consistent database snapshot...", 25);`
+  L 99: "Gathering documents and receipts..." in `if (listener != null) listener.onProgress("Gathering documents and receipts...", 45);`
+  L103: "documents" in `File docsDir = new File(context.getFilesDir(), "documents");`
+  L116: "expenses/receipts" in `File expenseReceiptsDir = new File(context.getFilesDir(), "expenses/receipts");`
+  L129: "Writing backup manifest..." in `if (listener != null) listener.onProgress("Writing backup manifest...", 65);`
+  L138: "backup_manifest.json" in `File manifestFile = new File(metaStagingDir, "backup_manifest.json");`
+  L143: "Packaging and compressing backup..." in `if (listener != null) listener.onProgress("Packaging and compressing backup...", 80);`
+  L146: "backups" in `File backupsDir = new File(context.getFilesDir(), "backups");`
+  L151: "yyyy-MM-dd_HHmm" in `SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HHmm", Locale.US);`
+  L152: "RobHouseRental_Backup_" in `String timestampedName = "RobHouseRental_Backup_" + sdf.format(new Date()) + ".zip";`
+  L152: ".zip" in `String timestampedName = "RobHouseRental_Backup_" + sdf.format(new Date()) + ".zip";`
+  L164: "Backup package created successfully." in `if (listener != null) listener.onProgress("Backup package created successfully.", 100);`
+  L171: "Backup archive file is missing or empty." in `throw new IOException("Backup archive file is missing or empty.");`
+  L182: "backup_manifest.json" in `if (name.endsWith("backup_manifest.json")) {`
+  L197: "Invalid backup archive: missing backup_manifest.json" in `throw new IOException("Invalid backup archive: missing backup_manifest.json");`
+  L201: "Invalid backup archive: missing database snapshot." in `throw new IOException("Invalid backup archive: missing database snapshot.");`
+  L205: "This backup format version (" in `throw new IOException("This backup format version (" + manifest.getBackupFormatVersion() + ") requires a newer version of Rob House Rental.");`
+  L205: ") requires a newer version of Rob House Rental." in `throw new IOException("This backup format version (" + manifest.getBackupFormatVersion() + ") requires a newer version of Rob House Rental.");`
+  L213: "Validating backup archive..." in `if (listener != null) listener.onProgress("Validating backup archive...", 10);`
+  L217: "Extracting backup archive..." in `if (listener != null) listener.onProgress("Extracting backup archive...", 30);`
+  L219: "restore_staging_" in `File stagingDir = new File(context.getCacheDir(), "restore_staging_" + System.currentTimeMillis());`
+  L227: "database/" in `File restoredDbFile = new File(stagingDir, "database/" + DATABASE_NAME);`
+  L235: "Corrupt backup: database file not found in archive." in `if (callback != null) callback.onRestoreError("Corrupt backup: database file not found in archive.");`
+  L244: "Checksum mismatch: database file is corrupted." in `if (callback != null) callback.onRestoreError("Checksum mismatch: database file is corrupted.");`
+  L249: "Creating safety snapshot..." in `if (listener != null) listener.onProgress("Creating safety snapshot...", 50);`
+  L253: "pre_restore_safety_" in `File safetyCopy = new File(context.getCacheDir(), "pre_restore_safety_" + System.currentTimeMillis() + ".db");`
+  L253: ".db" in `File safetyCopy = new File(context.getCacheDir(), "pre_restore_safety_" + System.currentTimeMillis() + ".db");`
+  L258: "Restoring database..." in `if (listener != null) listener.onProgress("Restoring database...", 70);`
+  L267: "-wal" in `File walFile = new File(liveDb.getParentFile(), DATABASE_NAME + "-wal");`
+  L269: "-shm" in `File shmFile = new File(liveDb.getParentFile(), DATABASE_NAME + "-shm");`
+  L272: "Restoring application documents..." in `if (listener != null) listener.onProgress("Restoring application documents...", 85);`
+  L275: "documents" in `File restoredDocsDir = new File(stagingDir, "documents");`
+  L276: "documents" in `File appDocsDir = new File(context.getFilesDir(), "documents");`
+  L291: "Reinitializing database..." in `if (listener != null) listener.onProgress("Reinitializing database...", 95);`
+  L302: "Restore complete!" in `if (listener != null) listener.onProgress("Restore complete!", 100);`
+  L309: "Restore failed: " in `callback.onRestoreError("Restore failed: " + e.getMessage());`
+  L318: "Cannot open output stream for selected URI." in `throw new IOException("Cannot open output stream for selected URI.");`
+  L330: "import_staging" in `File stagingDir = new File(context.getCacheDir(), "import_staging");`
+  L333: "imported_backup_" in `File targetZip = new File(stagingDir, "imported_backup_" + System.currentTimeMillis() + ".zip");`
+  L333: ".zip" in `File targetZip = new File(stagingDir, "imported_backup_" + System.currentTimeMillis() + ".zip");`
+  L337: "Cannot open input stream for selected URI." in `throw new IOException("Cannot open input stream for selected URI.");`
+  L442: "SHA-256" in `MessageDigest digest = MessageDigest.getInstance("SHA-256");`
+=== com\rob\houserental\backup\BackupManifest.java (20) ===
+  L 32: "backupFormatVersion" in `json.put("backupFormatVersion", backupFormatVersion);`
+  L 33: "appVersion" in `json.put("appVersion", appVersion);`
+  L 34: "databaseVersion" in `json.put("databaseVersion", databaseVersion);`
+  L 35: "createdAt" in `json.put("createdAt", createdAt);`
+  L 36: "backupId" in `json.put("backupId", backupId != null ? backupId : "");`
+  L 37: "databaseChecksum" in `json.put("databaseChecksum", databaseChecksum != null ? databaseChecksum : "");`
+  L 38: "documentCount" in `json.put("documentCount", documentCount);`
+  L 39: "backupSizeBytes" in `json.put("backupSizeBytes", backupSizeBytes);`
+  L 40: "deviceModel" in `json.put("deviceModel", deviceModel != null ? deviceModel : "");`
+  L 41: "androidVersion" in `json.put("androidVersion", androidVersion);`
+  L 52: "backupFormatVersion" in `manifest.setBackupFormatVersion(json.optInt("backupFormatVersion", 1));`
+  L 53: "appVersion" in `manifest.setAppVersion(json.optString("appVersion", "1.0"));`
+  L 54: "databaseVersion" in `manifest.setDatabaseVersion(json.optInt("databaseVersion", 10));`
+  L 55: "createdAt" in `manifest.setCreatedAt(json.optLong("createdAt", System.currentTimeMillis()));`
+  L 56: "backupId" in `manifest.setBackupId(json.optString("backupId", ""));`
+  L 57: "databaseChecksum" in `manifest.setDatabaseChecksum(json.optString("databaseChecksum", ""));`
+  L 58: "documentCount" in `manifest.setDocumentCount(json.optInt("documentCount", 0));`
+  L 59: "backupSizeBytes" in `manifest.setBackupSizeBytes(json.optLong("backupSizeBytes", 0));`
+  L 60: "deviceModel" in `manifest.setDeviceModel(json.optString("deviceModel", ""));`
+  L 61: "androidVersion" in `manifest.setAndroidVersion(json.optInt("androidVersion", 0));`
+=== com\rob\houserental\backup\BackupPreferences.java (15) ===
+  L  8: "rob_house_rental_backup_prefs" in `private static final String PREF_NAME = "rob_house_rental_backup_prefs";`
+  L 10: "OFF" in `public static final String SCHEDULE_OFF = "OFF";`
+  L 11: "DAILY" in `public static final String SCHEDULE_DAILY = "DAILY";`
+  L 12: "EVERY_7_DAYS" in `public static final String SCHEDULE_7_DAYS = "EVERY_7_DAYS";`
+  L 13: "EVERY_15_DAYS" in `public static final String SCHEDULE_15_DAYS = "EVERY_15_DAYS";`
+  L 14: "EVERY_30_DAYS" in `public static final String SCHEDULE_30_DAYS = "EVERY_30_DAYS";`
+  L 16: "backup_schedule" in `private static final String KEY_SCHEDULE = "backup_schedule";`
+  L 17: "drive_connected" in `private static final String KEY_DRIVE_CONNECTED = "drive_connected";`
+  L 18: "account_email" in `private static final String KEY_ACCOUNT_EMAIL = "account_email";`
+  L 19: "last_backup_time" in `private static final String KEY_LAST_BACKUP_TIME = "last_backup_time";`
+  L 20: "last_backup_status" in `private static final String KEY_LAST_BACKUP_STATUS = "last_backup_status";`
+  L 21: "last_backup_size" in `private static final String KEY_LAST_BACKUP_SIZE = "last_backup_size";`
+  L 22: "last_backup_type" in `private static final String KEY_LAST_BACKUP_TYPE = "last_backup_type";`
+  L 23: "last_drive_file_id" in `private static final String KEY_LAST_DRIVE_FILE_ID = "last_drive_file_id";`
+  L 64: "NONE" in `return prefs.getString(KEY_LAST_BACKUP_STATUS, "NONE");`
+=== com\rob\houserental\backup\BackupWorker.java (10) ===
+  L 15: "rob_house_rental_auto_backup" in `public static final String UNIQUE_WORK_NAME = "rob_house_rental_auto_backup";`
+  L 36: "FAILED" in `prefs.setLastBackupStatus("FAILED");`
+  L 51: "IN_PROGRESS" in `"IN_PROGRESS",`
+  L 52: "AUTOMATIC" in `"AUTOMATIC",`
+  L 75: "Drive upload verification failed: no file ID returned." in `throw new Exception("Drive upload verification failed: no file ID returned.");`
+  L 86: "SUCCESS" in `history.setStatus("SUCCESS");`
+  L 93: "SUCCESS" in `prefs.setLastBackupStatus("SUCCESS");`
+  L 95: "AUTOMATIC" in `prefs.setLastBackupType("AUTOMATIC");`
+  L101: "FAILED" in `history.setStatus("FAILED");`
+  L106: "FAILED" in `prefs.setLastBackupStatus("FAILED");`
+=== com\rob\houserental\backup\GoogleDriveService.java (25) ===
+  L 31: "5D:FE:77:F2:22:15:BD:4F:95:8F:55:17:AB:0A:7C:5D:9D:F7:56:5D" in `public static final String SHA1_FINGERPRINT = "5D:FE:77:F2:22:15:BD:4F:95:8F:55:17:AB:0A:7C:5D:9D:F7:56:5D";`
+  L 34: "Rob House Rental" in `private static final String APP_FOLDER_NAME = "Rob House Rental";`
+  L 35: "Backups" in `private static final String BACKUPS_FOLDER_NAME = "Backups";`
+  L 52: "Rob House Rental" in `.setApplicationName("Rob House Rental")`
+  L 95: "root" in `String rootFolderId = findFolderId(APP_FOLDER_NAME, "root");`
+  L 97: "root" in `rootFolderId = createFolder(APP_FOLDER_NAME, "root");`
+  L110: "mimeType = 'application/vnd.google-apps.folder' and name = '" in `String query = "mimeType = 'application/vnd.google-apps.folder' and name = '" + folderName + "' and '" + parentId + "' in parents and trashed = false";`
+  L110: "' and '" in `String query = "mimeType = 'application/vnd.google-apps.folder' and name = '" + folderName + "' and '" + parentId + "' in parents and trashed = false";`
+  L110: "' in parents and trashed = false" in `String query = "mimeType = 'application/vnd.google-apps.folder' and name = '" + folderName + "' and '" + parentId + "' in parents and trashed = false";`
+  L113: "drive" in `.setSpaces("drive")`
+  L114: "files(id, name)" in `.setFields("files(id, name)")`
+  L126: "application/vnd.google-apps.folder" in `folderMetadata.setMimeType("application/vnd.google-apps.folder");`
+  L127: "root" in `if (!"root".equals(parentId)) {`
+  L132: "id" in `.setFields("id")`
+  L146: "backupFormatVersion" in `properties.put("backupFormatVersion", String.valueOf(manifest.getBackupFormatVersion()));`
+  L147: "databaseVersion" in `properties.put("databaseVersion", String.valueOf(manifest.getDatabaseVersion()));`
+  L148: "appVersion" in `properties.put("appVersion", manifest.getAppVersion());`
+  L149: "createdAt" in `properties.put("createdAt", String.valueOf(manifest.getCreatedAt()));`
+  L150: "checksum" in `properties.put("checksum", manifest.getDatabaseChecksum() != null ? manifest.getDatabaseChecksum() : "");`
+  L151: "documentCount" in `properties.put("documentCount", String.valueOf(manifest.getDocumentCount()));`
+  L158: "id, name, size, createdTime, appProperties" in `.setFields("id, name, size, createdTime, appProperties")`
+  L164: "' in parents and trashed = false" in `String query = "'" + parentFolderId + "' in parents and trashed = false";`
+  L168: "drive" in `.setSpaces("drive")`
+  L169: "createdTime desc" in `.setOrderBy("createdTime desc")`
+  L170: "files(id, name, size, createdTime, appProperties)" in `.setFields("files(id, name, size, createdTime, appProperties)")`
+=== com\rob\houserental\model\AppDocument.java (12) ===
+  L  9: "app_documents" in `tableName = "app_documents",`
+  L 11: "documentType" in `@Index("documentType"),`
+  L 12: "category" in `@Index("category"),`
+  L 13: "propertyId" in `@Index("propertyId"),`
+  L 14: "tenantId" in `@Index("tenantId"),`
+  L 15: "isArchived" in `@Index("isArchived")`
+  L 44: "GENERAL" in `this.documentType = "GENERAL";`
+  L 45: "OTHER" in `this.category = "OTHER";`
+  L 67: "GENERAL" in `this.documentType = documentType != null ? documentType : "GENERAL";`
+  L 68: "OTHER" in `this.category = category != null ? category : "OTHER";`
+  L 93: "GENERAL" in `return documentType != null ? documentType : "GENERAL";`
+  L101: "OTHER" in `return category != null ? category : "OTHER";`
+=== com\rob\houserental\model\BackupHistory.java (4) ===
+  L  9: "backup_history" in `tableName = "backup_history",`
+  L 11: "createdAt" in `@Index("createdAt"),`
+  L 12: "status" in `@Index("status"),`
+  L 13: "backupType" in `@Index("backupType")`
+=== com\rob\houserental\model\BillPayment.java (5) ===
+  L 10: "bill_payments" in `tableName = "bill_payments",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "billId" in `childColumns = "billId",`
+  L 20: "billId" in `@Index("billId"),`
+  L 21: "paymentDate" in `@Index("paymentDate")`
+=== com\rob\houserental\model\Expense.java (13) ===
+  L 10: "expenses" in `tableName = "expenses",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "propertyId" in `childColumns = "propertyId",`
+  L 20: "propertyId" in `@Index("propertyId"),`
+  L 21: "unitId" in `@Index("unitId"),`
+  L 22: "category" in `@Index("category"),`
+  L 23: "expenseMonth" in `@Index("expenseMonth"),`
+  L 24: "expenseDate" in `@Index("expenseDate"),`
+  L 25: "isArchived" in `@Index("isArchived")`
+  L 39: "10 Aug 2026" in `private String expenseDate; // e.g. "10 Aug 2026"`
+  L 56: "REPAIR" in `this.category = "REPAIR";`
+  L 79: "REPAIR" in `this.category = category != null ? category : "REPAIR";`
+  L118: "REPAIR" in `return category != null ? category : "REPAIR";`
+=== com\rob\houserental\model\Payment.java (5) ===
+  L 10: "payments" in `tableName = "payments",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "rentRecordId" in `childColumns = "rentRecordId",`
+  L 20: "rentRecordId" in `@Index("rentRecordId"),`
+  L 21: "paymentDate" in `@Index("paymentDate")`
+=== com\rob\houserental\model\Property.java (1) ===
+  L  6: "properties" in `@Entity(tableName = "properties")`
+=== com\rob\houserental\model\RentRecord.java (13) ===
+  L 10: "rent_records" in `tableName = "rent_records",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "tenancyId" in `childColumns = "tenancyId",`
+  L 20: "tenancyId" in `@Index(value = {"tenancyId", "billingMonth"}, unique = true),`
+  L 20: "billingMonth" in `@Index(value = {"tenancyId", "billingMonth"}, unique = true),`
+  L 21: "tenancyId" in `@Index("tenancyId"),`
+  L 22: "billingMonth" in `@Index("billingMonth"),`
+  L 23: "status" in `@Index("status")`
+  L 33: "August 2026" in `private String billingMonth; // e.g. "2026-08" or "August 2026"`
+  L 34: "10 Aug 2026" in `private String dueDate;      // e.g. "10 Aug 2026"`
+  L 51: "UNPAID" in `this.status = "UNPAID";`
+  L 75: "UNPAID" in `this.status = status != null ? status : "UNPAID";`
+  L140: "UNPAID" in `return status != null ? status : "UNPAID";`
+=== com\rob\houserental\model\Tenancy.java (11) ===
+  L 10: "tenancies" in `tableName = "tenancies",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "unitId" in `childColumns = "unitId",`
+  L 20: "id" in `parentColumns = "id",`
+  L 21: "tenantId" in `childColumns = "tenantId",`
+  L 26: "unitId" in `@Index("unitId"),`
+  L 27: "tenantId" in `@Index("tenantId"),`
+  L 28: "status" in `@Index("status")`
+  L 60: "ACTIVE" in `this.status = "ACTIVE";`
+  L 91: "ACTIVE" in `this.status = status != null ? status : "ACTIVE";`
+  L186: "ACTIVE" in `return status != null ? status : "ACTIVE";`
+=== com\rob\houserental\model\TenancyWithDetails.java (4) ===
+  L 12: "tenantId" in `parentColumn = "tenantId",`
+  L 13: "id" in `entityColumn = "id"`
+  L 18: "unitId" in `parentColumn = "unitId",`
+  L 19: "id" in `entityColumn = "id"`
+=== com\rob\houserental\model\Tenant.java (7) ===
+  L  8: "tenants" in `tableName = "tenants",`
+  L 10: "phoneNumber" in `@Index("phoneNumber"),`
+  L 11: "nidNumber" in `@Index("nidNumber"),`
+  L 12: "status" in `@Index("status")`
+  L 51: "ACTIVE" in `this.status = "ACTIVE";`
+  L 94: "ACTIVE" in `this.status = status != null ? status : "ACTIVE";`
+  L260: "ACTIVE" in `return status != null ? status : "ACTIVE";`
+=== com\rob\houserental\model\TenantDocument.java (4) ===
+  L  9: "tenant_documents" in `tableName = "tenant_documents",`
+  L 12: "id" in `parentColumns = "id",`
+  L 13: "tenantId" in `childColumns = "tenantId",`
+  L 17: "tenantId" in `@Index(value = "tenantId")`
+=== com\rob\houserental\model\Unit.java (4) ===
+  L  9: "units" in `tableName = "units",`
+  L 12: "id" in `parentColumns = "id",`
+  L 13: "propertyId" in `childColumns = "propertyId",`
+  L 17: "propertyId" in `@Index(value = "propertyId")`
+=== com\rob\houserental\model\UtilityBill.java (20) ===
+  L 10: "utility_bills" in `tableName = "utility_bills",`
+  L 14: "id" in `parentColumns = "id",`
+  L 15: "propertyId" in `childColumns = "propertyId",`
+  L 20: "propertyId" in `@Index("propertyId"),`
+  L 21: "unitId" in `@Index("unitId"),`
+  L 22: "tenancyId" in `@Index("tenancyId"),`
+  L 23: "billingMonth" in `@Index("billingMonth"),`
+  L 24: "billType" in `@Index("billType"),`
+  L 25: "status" in `@Index("status"),`
+  L 26: "propertyId" in `@Index(value = {"propertyId", "unitId", "billType", "billingMonth"}, unique = true)`
+  L 26: "unitId" in `@Index(value = {"propertyId", "unitId", "billType", "billingMonth"}, unique = true)`
+  L 26: "billType" in `@Index(value = {"propertyId", "unitId", "billType", "billingMonth"}, unique = true)`
+  L 26: "billingMonth" in `@Index(value = {"propertyId", "unitId", "billType", "billingMonth"}, unique = true)`
+  L 40: "15 Aug 2026" in `private String dueDate; // e.g. "15 Aug 2026"`
+  L 66: "UNPAID" in `this.status = "UNPAID";`
+  L 67: "ELECTRICITY" in `this.billType = "ELECTRICITY";`
+  L 99: "ELECTRICITY" in `this.billType = billType != null ? billType : "ELECTRICITY";`
+  L105: "UNPAID" in `this.status = status != null ? status : "UNPAID";`
+  L154: "ELECTRICITY" in `return billType != null ? billType : "ELECTRICITY";`
+  L202: "UNPAID" in `return status != null ? status : "UNPAID";`
+=== com\rob\houserental\repository\ExpenseRepository.java (2) ===
+  L 37: "Expense amount must be greater than zero" in `throw new IllegalArgumentException("Expense amount must be greater than zero");`
+  L 62: "Expense amount must be greater than zero" in `throw new IllegalArgumentException("Expense amount must be greater than zero");`
+=== com\rob\houserental\repository\RentRepository.java (11) ===
+  L 63: "ACTIVE" in `List<Tenancy> activeTenancies = tenancyDao.getTenanciesByStatus("ACTIVE");`
+  L 68: "ACTIVE" in `if (!"ACTIVE".equalsIgnoreCase(tenancy.getStatus())) {`
+  L 78: "UNPAID" in `String initialStatus = RentDateUtils.calculateStatus(amountDue, 0.0, amountDue, tenancyDueDate, "UNPAID");`
+  L119: "Rent record not found" in `throw new IllegalStateException("Rent record not found");`
+  L123: "Payment amount must be greater than zero" in `throw new IllegalArgumentException("Payment amount must be greater than zero");`
+  L127: "Payment amount exceeds remaining balance" in `throw new IllegalArgumentException("Payment amount exceeds remaining balance");`
+  L174: "WAIVED" in `rentRecord.setStatus("WAIVED");`
+  L177: "\n" in `String currentNotes = rentRecord.getNotes() != null ? rentRecord.getNotes() + "\n" : "";`
+  L178: "Waived: " in `rentRecord.setNotes(currentNotes + "Waived: " + waiverNote.trim());`
+  L396: "OVERDUE" in `if ("OVERDUE".equalsIgnoreCase(calculatedStatus)) {`
+  L437: "OVERDUE" in `if ("OVERDUE".equalsIgnoreCase(calculatedStatus)) {`
+=== com\rob\houserental\repository\TenancyRepository.java (10) ===
+  L 37: "Unit not found" in `throw new IllegalStateException("Unit not found");`
+  L 40: "ACTIVE" in `if ("ACTIVE".equalsIgnoreCase(tenancy.getStatus())) {`
+  L 43: "Unit is already occupied" in `throw new IllegalStateException("Unit is already occupied");`
+  L 50: "ACTIVE" in `if ("ACTIVE".equalsIgnoreCase(tenancy.getStatus())) {`
+  L 51: "OCCUPIED" in `unit.setStatus("OCCUPIED");`
+  L 72: "ENDED" in `tenancy.setStatus("ENDED");`
+  L 81: "VACANT" in `unit.setStatus("VACANT");`
+  L102: "ACTIVE" in `boolean wasActive = "ACTIVE".equalsIgnoreCase(tenancy.getStatus());`
+  L103: "CANCELLED" in `tenancy.setStatus("CANCELLED");`
+  L110: "VACANT" in `unit.setStatus("VACANT");`
+=== com\rob\houserental\repository\UtilityBillRepository.java (12) ===
+  L 49: "A " in `throw new IllegalStateException("A " + bill.getBillType() + " bill for " + bill.getBillingMonth() + " already exists for this property/unit.");`
+  L 49: " bill for " in `throw new IllegalStateException("A " + bill.getBillType() + " bill for " + bill.getBillingMonth() + " already exists for this property/unit.");`
+  L 49: " already exists for this property/unit." in `throw new IllegalStateException("A " + bill.getBillType() + " bill for " + bill.getBillingMonth() + " already exists for this property/unit.");`
+  L 66: "UNPAID" in `"UNPAID"`
+  L137: "Utility bill not found" in `throw new IllegalStateException("Utility bill not found");`
+  L141: "Payment amount must be greater than zero" in `throw new IllegalArgumentException("Payment amount must be greater than zero");`
+  L145: "Payment amount cannot exceed remaining balance" in `throw new IllegalArgumentException("Payment amount cannot exceed remaining balance");`
+  L192: "WAIVED" in `bill.setStatus("WAIVED");`
+  L195: "\n" in `String currentNotes = bill.getNotes() != null ? bill.getNotes() + "\n" : "";`
+  L196: "Waived: " in `bill.setNotes(currentNotes + "Waived: " + waiverNote.trim());`
+  L356: "OVERDUE" in `if ("OVERDUE".equalsIgnoreCase(calculatedStatus)) {`
+  L397: "OVERDUE" in `if ("OVERDUE".equalsIgnoreCase(calculatedStatus)) {`
+=== com\rob\houserental\ui\dashboard\DashboardFragment.java (2) ===
+  L110: "OCCUPIED" in `occupiedUnits += db.unitDao().getUnitCountByStatus(property.getId(), "OCCUPIED");`
+  L111: "VACANT" in `vacantUnits += db.unitDao().getUnitCountByStatus(property.getId(), "VACANT");`
+=== com\rob\houserental\utils\FileUtils.java (4) ===
+  L 19: "content" in `if ("content".equals(uri.getScheme())) {`
+  L 34: "document_" in `result = "document_" + System.currentTimeMillis();`
+  L 41: "content" in `if ("content".equals(uri.getScheme())) {`
+  L 50: "application/octet-stream" in `return mimeType != null ? mimeType : "application/octet-stream";`
+=== com\rob\houserental\utils\LanguageManager.java (5) ===
+  L 11: "rob_house_rental_language_pref" in `private static final String PREF_NAME = "rob_house_rental_language_pref";`
+  L 12: "selected_language" in `private static final String KEY_LANGUAGE = "selected_language";`
+  L 51: "English" in `return "English";`
+  L 53: "বাংলা" in `return "বাংলা";`
+  L 55: "System Default / সিস্টেম ডিফল্ট" in `return "System Default / সিস্টেম ডিফল্ট";`
+=== com\rob\houserental\utils\RentDateUtils.java (13) ===
+  L 11: "yyyy-MM" in `private static final SimpleDateFormat FORMAT_MONTH_KEY = new SimpleDateFormat("yyyy-MM", Locale.US);`
+  L 12: "MMMM yyyy" in `private static final SimpleDateFormat FORMAT_MONTH_DISPLAY = new SimpleDateFormat("MMMM yyyy", Locale.US);`
+  L 17: "d MMM yyyy" in `new SimpleDateFormat("d MMM yyyy", Locale.US),`
+  L 19: "dd-MM-yyyy" in `new SimpleDateFormat("dd-MM-yyyy", Locale.US),`
+  L 21: "MM/dd/yyyy" in `new SimpleDateFormat("MM/dd/yyyy", Locale.US),`
+  L 22: "yyyy-MM" in `new SimpleDateFormat("yyyy-MM", Locale.US),`
+  L 23: "MMMM yyyy" in `new SimpleDateFormat("MMMM yyyy", Locale.US)`
+  L 85: "WAIVED" in `if ("WAIVED".equalsIgnoreCase(currentStatus)) {`
+  L 86: "WAIVED" in `return "WAIVED";`
+  L 90: "PAID" in `return "PAID";`
+  L 96: "OVERDUE" in `return "OVERDUE";`
+  L100: "PARTIAL" in `return "PARTIAL";`
+  L103: "UNPAID" in `return "UNPAID";`

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Primary Colors (Teal) -->
+    <color name="md_theme_primary">#00695C</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#E0F2F1</color>
+    <color name="md_theme_onPrimaryContainer">#00201A</color>
+
+    <!-- Secondary Colors (Slate Blue) -->
+    <color name="md_theme_secondary">#1565C0</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#E3F2FD</color>
+    <color name="md_theme_onSecondaryContainer">#001D36</color>
+
+    <!-- Tertiary Colors (Copper) -->
+    <color name="md_theme_tertiary">#6D4C41</color>
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#EFEBE9</color>
+    <color name="md_theme_onTertiaryContainer">#25150F</color>
+
+    <!-- Backgrounds & Surfaces (Light) -->
+    <color name="md_theme_background">#F8F9FA</color>
+    <color name="md_theme_onBackground">#191C1D</color>
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="md_theme_onSurface">#191C1D</color>
+    <color name="md_theme_surfaceVariant">#F1F5F9</color>
+    <color name="md_theme_onSurfaceVariant">#475569</color>
+    <color name="md_theme_surfaceContainer">#F8FAFC</color>
+    <color name="md_theme_outline">#CBD5E1</color>
+    <color name="md_theme_outlineVariant">#E2E8F0</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Semantic Status Badge Colors -->
+    <color name="status_vacant_bg">#DCFCE7</color>
+    <color name="status_vacant_text">#15803D</color>
+
+    <color name="status_occupied_bg">#DBEAFE</color>
+    <color name="status_occupied_text">#1D4ED8</color>
+
+    <color name="status_reserved_bg">#F3E8FF</color>
+    <color name="status_reserved_text">#7E22CE</color>
+
+    <color name="status_maintenance_bg">#FFEDD5</color>
+    <color name="status_maintenance_text">#C2410C</color>
+
+    <color name="status_overdue_bg">#FFE4E6</color>
+    <color name="status_overdue_text">#BE123C</color>
+
+    <color name="status_paid_bg">#CCFBF1</color>
+    <color name="status_paid_text">#0F766E</color>
+
+    <color name="status_partial_bg">#FEF9C3</color>
+    <color name="status_partial_text">#A16207</color>
+
+    <color name="status_unpaid_bg">#FFE4E6</color>
+    <color name="status_unpaid_text">#BE123C</color>
+</resources>

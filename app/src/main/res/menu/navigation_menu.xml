@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/menu_dashboard" />
+
+        <item
+            android:id="@+id/nav_properties"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_properties" />
+
+        <item
+            android:id="@+id/nav_tenants"
+            android:icon="@drawable/ic_person"
+            android:title="@string/menu_tenants" />
+
+        <item
+            android:id="@+id/nav_tenancies"
+            android:icon="@drawable/ic_receipt"
+            android:title="@string/menu_tenancies" />
+
+        <item
+            android:id="@+id/nav_rent"
+            android:icon="@drawable/ic_payment"
+            android:title="@string/menu_rent" />
+
+        <item
+            android:id="@+id/nav_bills"
+            android:icon="@drawable/ic_receipt"
+            android:title="@string/menu_bills" />
+
+        <item
+            android:id="@+id/nav_expenses"
+            android:icon="@drawable/ic_payment"
+            android:title="@string/expenses_title" />
+
+        <item
+            android:id="@+id/nav_maintenance"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/maintenance_title" />
+
+        <item
+            android:id="@+id/nav_payments"
+            android:icon="@drawable/ic_payment"
+            android:title="@string/menu_payments" />
+
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/ic_chart"
+            android:title="@string/menu_reports" />
+
+    </group>
+
+    <item android:title="@string/menu_other">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_documents"
+                android:icon="@drawable/ic_document"
+                android:title="@string/menu_documents" />
+
+            <item
+                android:id="@+id/nav_reminders"
+                android:icon="@drawable/ic_notifications"
+                android:title="@string/menu_reminders" />
+
+            <item
+                android:id="@+id/nav_backup"
+                android:icon="@drawable/ic_cloud"
+                android:title="@string/menu_backup" />
+
+            <item
+                android:id="@+id/nav_subscription"
+                android:icon="@drawable/ic_payment"
+                android:title="@string/menu_subscription" />
+
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/menu_settings" />
+
+        </menu>
+
+    </item>
+
+</menu>
