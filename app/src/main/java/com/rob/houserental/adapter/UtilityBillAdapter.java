@@ -67,14 +67,14 @@ public class UtilityBillAdapter extends RecyclerView.Adapter<UtilityBillAdapter.
         // Property & Unit
         String propName = item.propertyName != null ? item.propertyName : context.getString(R.string.property_label);
         if (item.unitNumber != null && !item.unitNumber.isEmpty()) {
-            holder.tvBillPropertyUnit.setText("🏢 " + propName + " • " + context.getString(R.string.prefix_unit_format, item.unitNumber));
+            holder.tvBillPropertyUnit.setText(propName + " • " + context.getString(R.string.prefix_unit_format, item.unitNumber));
         } else {
-            holder.tvBillPropertyUnit.setText("🏢 " + propName + " (" + context.getString(R.string.whole_property_option) + ")");
+            holder.tvBillPropertyUnit.setText(propName + " (" + context.getString(R.string.whole_property_option) + ")");
         }
 
         // Tenant
         if (item.tenantName != null && !item.tenantName.isEmpty()) {
-            holder.tvBillTenant.setText("👤 " + item.tenantName);
+            holder.tvBillTenant.setText(item.tenantName);
             holder.tvBillTenant.setVisibility(View.VISIBLE);
         } else {
             holder.tvBillTenant.setVisibility(View.GONE);
@@ -83,7 +83,7 @@ public class UtilityBillAdapter extends RecyclerView.Adapter<UtilityBillAdapter.
         // Month & Due Date
         String month = item.billingMonth != null ? item.billingMonth : "";
         String due = item.dueDate != null ? " • " + context.getString(R.string.prefix_due_format, item.dueDate) : "";
-        holder.tvBillMonthAndDue.setText("📅 " + month + due);
+        holder.tvBillMonthAndDue.setText(month + due);
 
         // Readings if electricity or water
         if (item.unitsConsumed > 0 || item.currentReading > 0) {
@@ -112,18 +112,18 @@ public class UtilityBillAdapter extends RecyclerView.Adapter<UtilityBillAdapter.
     private String getTypeIcon(String type) {
         switch (type.toUpperCase()) {
             case "ELECTRICITY":
-                return "⚡";
+                return "";
             case "WATER":
-                return "💧";
+                return "";
             case "GAS":
-                return "🔥";
+                return "";
             case "INTERNET":
-                return "🌐";
+                return "";
             case "SERVICE_CHARGE":
-                return "⚙️";
+                return "";
             case "OTHER":
             default:
-                return "📦";
+                return "";
         }
     }
 

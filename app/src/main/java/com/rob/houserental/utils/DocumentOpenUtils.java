@@ -24,49 +24,49 @@ import java.util.Map;
  * with the same filename (e.g. Tenant A: NID.pdf, Tenant B: NID.pdf).
  *
  * Resolution order:
- *   1. Use database filePath directly if the file exists at that path.
- *   2. If filePath is stale (e.g. after restore to a new device), the caller
- *      is responsible for updating filePath in the DB. BackupManager does this
- *      during restore using the collision-safe tenant/<id>/, app/<id>/, expense/<id>/
- *      subfolders. DocumentOpenUtils does NOT guess by filename.
- *   3. If the file cannot be found at the given path, show a localized error message.
+ * 1. Use database filePath directly if the file exists at that path.
+ * 2. If filePath is stale (e.g. after restore to a new device), the caller
+ * is responsible for updating filePath in the DB. BackupManager does this
+ * during restore using the collision-safe tenant/<id>/, app/<id>/, expense/<id>/
+ * subfolders. DocumentOpenUtils does NOT guess by filename.
+ * 3. If the file cannot be found at the given path, show a localized error message.
  */
 public class DocumentOpenUtils {
 
     private static final Map<String, String> EXTENSION_MIME_MAP = new HashMap<>();
 
     static {
-        EXTENSION_MIME_MAP.put("pdf",  "application/pdf");
-        EXTENSION_MIME_MAP.put("jpg",  "image/jpeg");
+        EXTENSION_MIME_MAP.put("pdf", "application/pdf");
+        EXTENSION_MIME_MAP.put("jpg", "image/jpeg");
         EXTENSION_MIME_MAP.put("jpeg", "image/jpeg");
-        EXTENSION_MIME_MAP.put("png",  "image/png");
+        EXTENSION_MIME_MAP.put("png", "image/png");
         EXTENSION_MIME_MAP.put("webp", "image/webp");
-        EXTENSION_MIME_MAP.put("gif",  "image/gif");
-        EXTENSION_MIME_MAP.put("bmp",  "image/bmp");
-        EXTENSION_MIME_MAP.put("txt",  "text/plain");
-        EXTENSION_MIME_MAP.put("csv",  "text/csv");
-        EXTENSION_MIME_MAP.put("doc",  "application/msword");
+        EXTENSION_MIME_MAP.put("gif", "image/gif");
+        EXTENSION_MIME_MAP.put("bmp", "image/bmp");
+        EXTENSION_MIME_MAP.put("txt", "text/plain");
+        EXTENSION_MIME_MAP.put("csv", "text/csv");
+        EXTENSION_MIME_MAP.put("doc", "application/msword");
         EXTENSION_MIME_MAP.put("docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-        EXTENSION_MIME_MAP.put("xls",  "application/vnd.ms-excel");
+        EXTENSION_MIME_MAP.put("xls", "application/vnd.ms-excel");
         EXTENSION_MIME_MAP.put("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        EXTENSION_MIME_MAP.put("ppt",  "application/vnd.ms-powerpoint");
+        EXTENSION_MIME_MAP.put("ppt", "application/vnd.ms-powerpoint");
         EXTENSION_MIME_MAP.put("pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation");
-        EXTENSION_MIME_MAP.put("zip",  "application/zip");
+        EXTENSION_MIME_MAP.put("zip", "application/zip");
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
     // Primary entry point: opens a document by its database filePath.
     // NEVER performs global filename searching. If the exact path does not
     // exist, the user sees "Document file could not be found."
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
 
     /**
      * Open a document identified by its exact database {@code filePath}.
      *
-     * @param context         calling context
-     * @param filePath        absolute path as stored in the database
-     * @param storedMimeType  MIME type as stored in the database (may be null/octet-stream)
-     * @param displayName     human-readable name shown in the chooser title
+     * @param context calling context
+     * @param filePath absolute path as stored in the database
+     * @param storedMimeType MIME type as stored in the database (may be null/octet-stream)
+     * @param displayName human-readable name shown in the chooser title
      */
     public static boolean openDocument(Context context,
                                        String filePath,
@@ -138,18 +138,18 @@ public class DocumentOpenUtils {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
     // MIME resolution
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
 
     /**
      * Determine the MIME type to use when opening a file.
      *
      * Priority:
-     *   1. Use storedMimeType if it is specific (not octet-stream, not null/empty, not "*\/*").
-     *   2. Derive from the actual file extension (internal map).
-     *   3. Derive from Android's MimeTypeMap.
-     *   4. Fall back to "*\/*".
+     * 1. Use storedMimeType if it is specific (not octet-stream, not null/empty, not "*\/*").
+     * 2. Derive from the actual file extension (internal map).
+     * 3. Derive from Android's MimeTypeMap.
+     * 4. Fall back to "*\/*".
      */
     public static String resolveMimeType(File file, String storedMimeType, String displayName) {
         // Determine filename for extension extraction
@@ -184,9 +184,9 @@ public class DocumentOpenUtils {
         return "*/*";
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
     // Helpers
-    // ─────────────────────────────────────────────────────────────────────────
+    // 
 
     /** Extract the file extension from a filename, or "" if none. */
     public static String getFileExtension(String fileName) {

@@ -38,7 +38,7 @@ public class MaintenanceRecord {
 
     private String category; // PLUMBING, ELECTRICAL, PAINTING, AC, APPLIANCE, CLEANING, STRUCTURAL, SECURITY, WATER, GAS, OTHER
     private String priority; // LOW, MEDIUM, HIGH, URGENT
-    private String status;   // OPEN, SCHEDULED, IN_PROGRESS, COMPLETED, CANCELLED
+    private String status; // OPEN, SCHEDULED, IN_PROGRESS, COMPLETED, CANCELLED
 
     private double estimatedCost;
     private double actualCost;

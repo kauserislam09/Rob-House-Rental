@@ -60,7 +60,7 @@ public class TenantAdapter extends RecyclerView.Adapter<TenantAdapter.TenantView
 
         // Phone
         if (tenant.getPhoneNumber() != null && !tenant.getPhoneNumber().isEmpty()) {
-            holder.tvTenantPhone.setText("📞  " + tenant.getPhoneNumber());
+            holder.tvTenantPhone.setText(tenant.getPhoneNumber());
             holder.tvTenantPhone.setVisibility(View.VISIBLE);
         } else {
             holder.tvTenantPhone.setVisibility(View.GONE);

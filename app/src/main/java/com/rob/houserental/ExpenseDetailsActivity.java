@@ -158,13 +158,13 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
 
         String curr = getString(R.string.currency_symbol);
         tvExpenseDetailsAmount.setText(curr + currencyFormatter.format(item.amount));
-        tvExpenseDetailsDate.setText("📅 " + (item.expenseDate != null ? item.expenseDate : ""));
+        tvExpenseDetailsDate.setText((item.expenseDate != null ? item.expenseDate : ""));
 
         String propName = item.propertyName != null ? item.propertyName : getString(R.string.property_label);
         if (item.unitNumber != null && !item.unitNumber.isEmpty()) {
-            tvExpenseDetailsPropertyUnit.setText("🏢 " + propName + " • " + getString(R.string.prefix_unit_format, item.unitNumber));
+            tvExpenseDetailsPropertyUnit.setText(propName + " • " + getString(R.string.prefix_unit_format, item.unitNumber));
         } else {
-            tvExpenseDetailsPropertyUnit.setText("🏢 " + propName + " (" + getString(R.string.whole_property_option) + ")");
+            tvExpenseDetailsPropertyUnit.setText(propName + " (" + getString(R.string.whole_property_option) + ")");
         }
 
         if (item.description != null && !item.description.trim().isEmpty()) {

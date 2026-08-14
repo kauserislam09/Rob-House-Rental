@@ -18,12 +18,12 @@
     <string name="menu_backup">Backup &amp; Restore</string>
     <string name="menu_settings">Settings</string>
 
-    <string name="dashboard_welcome">Welcome 👋</string>
+    <string name="dashboard_welcome">Welcome </string>
     <string name="dashboard_subtitle">Manage your properties easily.</string>
 
-    <string name="greeting_morning">Good Morning ☀️</string>
-    <string name="greeting_afternoon">Good Afternoon 🌤️</string>
-    <string name="greeting_evening">Good Evening 🌙</string>
+    <string name="greeting_morning">Good Morning </string>
+    <string name="greeting_afternoon">Good Afternoon </string>
+    <string name="greeting_evening">Good Evening </string>
 
     <string name="section_cashflow">Monthly Cash Flow</string>
     <string name="label_collected">Collected</string>
@@ -45,12 +45,12 @@
     <string name="dashboard_occupied">Occupied</string>
     <string name="dashboard_vacant">Vacant</string>
 
-    <string name="action_collect_rent">💰 Collect Rent</string>
-    <string name="action_add_tenant">👤 Add Tenant</string>
-    <string name="action_add_bill">🧾 Add Bill</string>
-    <string name="action_add_unit_btn">🔑 Add Unit</string>
-    <string name="action_add_expense_btn">💸 Log Expense</string>
-    <string name="action_view_reports_btn">📊 Financials</string>
+    <string name="action_collect_rent"> Collect Rent</string>
+    <string name="action_add_tenant"> Add Tenant</string>
+    <string name="action_add_bill"> Add Bill</string>
+    <string name="action_add_unit_btn"> Add Unit</string>
+    <string name="action_add_expense_btn"> Log Expense</string>
+    <string name="action_view_reports_btn"> Financials</string>
     <string name="search_dashboard_hint">Search property, unit, or tenant...</string>
 
     <!-- Unit Management Strings -->
@@ -263,12 +263,12 @@
     <string name="edit_bill_title">Edit Utility Bill</string>
     <string name="bill_details_title">Bill Details</string>
     <string name="bill_type">Bill Type</string>
-    <string name="bill_type_electricity">⚡ Electricity</string>
-    <string name="bill_type_water">💧 Water</string>
-    <string name="bill_type_gas">🔥 Gas</string>
-    <string name="bill_type_internet">🌐 Internet</string>
-    <string name="bill_type_service">⚙️ Service Charge</string>
-    <string name="bill_type_other">📦 Other Utility</string>
+    <string name="bill_type_electricity"> Electricity</string>
+    <string name="bill_type_water"> Water</string>
+    <string name="bill_type_gas"> Gas</string>
+    <string name="bill_type_internet"> Internet</string>
+    <string name="bill_type_service"> Service Charge</string>
+    <string name="bill_type_other"> Other Utility</string>
     <string name="meter_number">Meter Number</string>
     <string name="meter_number_hint">e.g. MET-88392</string>
     <string name="previous_reading">Previous Meter Reading</string>
@@ -279,7 +279,7 @@
     <string name="vat_tax">VAT / Govt Duty (৳)</string>
     <string name="bill_number">Bill / Account Number</string>
     <string name="bill_number_hint">e.g. INV-2026-001 or Consumer #</string>
-    <string name="whole_property_option">🏢 Whole Property (Entire Building)</string>
+    <string name="whole_property_option"> Whole Property (Entire Building)</string>
     <string name="select_bill_type">Select Bill Type</string>
     <string name="bill_created_success">Utility bill created successfully.</string>
     <string name="bill_updated_success">Utility bill updated successfully.</string>
@@ -290,13 +290,13 @@
     <string name="search_bills_hint">Search property, unit, bill #, type...</string>
     <string name="no_bills_yet">No Utility Bills Yet</string>
     <string name="add_first_bill_desc">Record electricity, water, gas and internet bills to track dues and payments.</string>
-    <string name="filter_electricity">⚡ Electricity</string>
-    <string name="filter_water">💧 Water</string>
-    <string name="filter_gas">🔥 Gas</string>
-    <string name="filter_internet">🌐 Internet</string>
-    <string name="filter_other">⚙️ Other</string>
+    <string name="filter_electricity"> Electricity</string>
+    <string name="filter_water"> Water</string>
+    <string name="filter_gas"> Gas</string>
+    <string name="filter_internet"> Internet</string>
+    <string name="filter_other"> Other</string>
     <string name="bill_breakdown">Utility Breakdown</string>
-    <string name="reading_units_label">Units: %1$.1f (%2$.1f → %3$.1f)</string>
+    <string name="reading_units_label">Units: %1$.1f (%2$.1f %3$.1f)</string>
     <string name="waive_bill">Waive Bill</string>
     <string name="waive_bill_confirm">Are you sure you want to waive the remaining balance of %1$s for this bill?</string>
     <string name="bill_waived_success">Bill balance waived successfully.</string>
@@ -311,18 +311,18 @@
     <string name="expense_date">Expense Date</string>
     <string name="total_expenses">Total Expenses</string>
     <string name="this_month_expenses">This Month\'s Expenses</string>
-    <string name="expense_cat_repair">🔧 Repair</string>
-    <string name="expense_cat_maintenance">🛠️ Maintenance</string>
-    <string name="expense_cat_cleaning">🧹 Cleaning</string>
-    <string name="expense_cat_security">🛡️ Security</string>
-    <string name="expense_cat_generator">⚡ Generator / Fuel</string>
-    <string name="expense_cat_plumbing">🚰 Plumbing</string>
-    <string name="expense_cat_electrical">💡 Electrical</string>
-    <string name="expense_cat_painting">🎨 Painting</string>
-    <string name="expense_cat_renovation">🏛️ Renovation</string>
-    <string name="expense_cat_tax">🏢 Property / Municipal Tax</string>
-    <string name="expense_cat_service">⚙️ Service Charge</string>
-    <string name="expense_cat_other">📦 Other Expense</string>
+    <string name="expense_cat_repair"> Repair</string>
+    <string name="expense_cat_maintenance"> Maintenance</string>
+    <string name="expense_cat_cleaning"> Cleaning</string>
+    <string name="expense_cat_security"> Security</string>
+    <string name="expense_cat_generator"> Generator / Fuel</string>
+    <string name="expense_cat_plumbing"> Plumbing</string>
+    <string name="expense_cat_electrical"> Electrical</string>
+    <string name="expense_cat_painting"> Painting</string>
+    <string name="expense_cat_renovation"> Renovation</string>
+    <string name="expense_cat_tax"> Property / Municipal Tax</string>
+    <string name="expense_cat_service"> Service Charge</string>
+    <string name="expense_cat_other"> Other Expense</string>
     <string name="attach_receipt">Attach Receipt / Voucher (Optional)</string>
     <string name="receipt_attached">Receipt Attached: %1$s</string>
     <string name="view_receipt">View Receipt</string>
@@ -357,12 +357,12 @@
     <string name="storage_zero">0 KB</string>
     <string name="total_documents_count">%1$d Documents</string>
     <string name="type_all">All</string>
-    <string name="type_property">🏠 Property</string>
-    <string name="type_tenant">👤 Tenant</string>
-    <string name="type_expense">💸 Expense</string>
-    <string name="type_rent">💰 Rent Receipt</string>
-    <string name="type_utility">🧾 Utility Bill</string>
-    <string name="type_general">📂 General</string>
+    <string name="type_property"> Property</string>
+    <string name="type_tenant"> Tenant</string>
+    <string name="type_expense"> Expense</string>
+    <string name="type_rent"> Rent Receipt</string>
+    <string name="type_utility"> Utility Bill</string>
+    <string name="type_general"> General</string>
     <string name="doc_cat_deed">Title Deed / Ownership</string>
     <string name="doc_cat_tax">Holding Tax / Land Tax</string>
     <string name="doc_cat_nid">National ID Card (NID)</string>
@@ -516,7 +516,7 @@
     <string name="prefix_note">Note: %1$s</string>
     <string name="prefix_ref">Ref: %1$s</string>
     <string name="prefix_meter_number">Meter Number: %1$s</string>
-    <string name="prefix_readings">Readings: %1$.1f → %2$.1f (%3$.1f Units)</string>
+    <string name="prefix_readings">Readings: %1$.1f %2$.1f (%3$.1f Units)</string>
     <string name="prefix_rate_per_unit">Rate per Unit: %1$s</string>
     <string name="prefix_fixed_charge">Fixed Charge: %1$s</string>
     <string name="prefix_vat_tax">VAT / Tax: %1$s</string>
@@ -536,7 +536,7 @@
     <string name="prefix_paid_format">Paid: %1$s</string>
     <string name="prefix_due_format">Due: %1$s</string>
     <string name="prefix_meter_format">Meter: %1$s</string>
-    <string name="prefix_units_summary_format">Units: %1$.1f (%2$.1f → %3$.1f)</string>
+    <string name="prefix_units_summary_format">Units: %1$.1f (%2$.1f %3$.1f)</string>
     <string name="prefix_account">Account: %1$s</string>
     <string name="prefix_backup_size">Backup Size: %1$s</string>
     <string name="prefix_error">Error: %1$s</string>
@@ -558,7 +558,7 @@
     <string name="select_image_or_pdf">+ Select Image or PDF Document</string>
     <string name="attach_image_or_pdf">+ Attach Image / PDF</string>
     <string name="add_unit_button">+ Add Unit</string>
-    <string name="view_tenant_profile">👤 View Tenant Profile</string>
+    <string name="view_tenant_profile"> View Tenant Profile</string>
     <string name="save_property">Save Property</string>
     <string name="update_property">Update Property</string>
     <string name="copy_sha1">Copy SHA-1</string>
@@ -611,9 +611,9 @@
     <string name="payment_method_bank_transfer">Bank Transfer</string>
     <string name="payment_method_mobile_banking">Mobile Banking</string>
     <string name="payment_method_cheque">Cheque</string>
-    <string name="meter_section_electricity">⚡ Electricity Meter &amp; Consumption Details</string>
-    <string name="meter_section_water">💧 Water Meter Details (Optional)</string>
-    <string name="meter_section_gas">🔥 Gas Meter Details (Optional)</string>
+    <string name="meter_section_electricity"> Electricity Meter &amp; Consumption Details</string>
+    <string name="meter_section_water"> Water Meter Details (Optional)</string>
+    <string name="meter_section_gas"> Gas Meter Details (Optional)</string>
     <string name="billing_month_required">Billing month is required</string>
     <string name="due_date_required">Due date is required</string>
     <string name="expense_date_required">Expense date is required</string>
@@ -845,7 +845,7 @@
     <string name="priority_low">Low</string>
     <string name="priority_medium">Medium</string>
     <string name="priority_high">High</string>
-    <string name="priority_urgent">Urgent 🚨</string>
+    <string name="priority_urgent">Urgent </string>
     <string name="status_maint_open">Open</string>
     <string name="status_maint_scheduled">Scheduled</string>
     <string name="status_maint_in_progress">In Progress</string>
@@ -861,7 +861,7 @@
     <string name="select_unit_optional">Select Unit (Optional)</string>
     <string name="add_to_expenses">Add to Expenses</string>
     <string name="add_to_expenses_confirm">Convert this maintenance actual cost (%1$s) into an Expense record?</string>
-    <string name="added_to_expenses_already">Converted to Expense ✅</string>
+    <string name="added_to_expenses_already">Converted to Expense</string>
     <string name="added_to_expenses_success">Maintenance cost added to Expenses successfully.</string>
     <string name="delete_maintenance_title">Delete Maintenance Record?</string>
     <string name="delete_maintenance_confirm">Are you sure you want to delete this maintenance record?</string>
@@ -902,7 +902,7 @@
     <string name="renew_premium">Renew Premium</string>
     <string name="select_plan">Select Subscription Plan</string>
     <string name="plan_monthly_title">Monthly Premium</string>
-    <string name="plan_monthly_desc">৳199 / 30 Days</string>
+    <string name="plan_monthly_desc">৳199= / 30 Days</string>
     <string name="plan_six_months_title">6 Months Premium</string>
     <string name="plan_six_months_desc">৳999 / 180 Days</string>
     <string name="plan_yearly_title">Yearly Premium</string>
@@ -916,7 +916,7 @@
     <string name="order_instructions_header">Payment Instructions</string>
     <string name="send_money_to">Send Money To:</string>
     <string name="amount_to_send">Amount to Send:</string>
-    <string name="exact_amount_warning">⚠️ Please send EXACTLY the displayed amount via Send Money to ensure instant verification.</string>
+    <string name="exact_amount_warning"> Please send EXACTLY the displayed amount via Send Money to ensure instant verification.</string>
     <string name="order_id_label">Order ID:</string>
     <string name="transaction_id_hint">Enter bKash/Nagad/Rocket Transaction ID (TrxID)</string>
     <string name="submit_payment">Submit Payment for Review</string>
@@ -928,8 +928,8 @@
     <string name="no_orders_desc">Purchase a Premium subscription to unlock advanced property reports and unlimited features.</string>
     <string name="order_status_pending">Pending Payment</string>
     <string name="order_status_submitted">Under Review</string>
-    <string name="order_status_approved">Approved ✅</string>
-    <string name="order_status_rejected">Rejected ❌</string>
+    <string name="order_status_approved">Approved</string>
+    <string name="order_status_rejected">Rejected</string>
     <string name="order_status_expired">Expired</string>
     <string name="dev_admin_console">Simulate Admin Verification (DEV)</string>
     <string name="dev_admin_dialog_title">Simulate Admin Approval / Rejection</string>

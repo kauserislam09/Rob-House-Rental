@@ -107,7 +107,7 @@ public class ReminderSchedulerUtils {
 
     public static long calculateTriggerTimeMillis(String dateStr, String timeStr) {
         try {
-            String combined = dateStr + " " + (timeStr != null ? timeStr : "09:00");
+            String combined = dateStr + (timeStr != null ? timeStr : "09:00");
             Date d = dateTimeFormat.parse(combined);
             return d != null ? d.getTime() : System.currentTimeMillis() + 60000;
         } catch (Exception e) {

@@ -43,7 +43,7 @@ public class BackupManifest {
 
     public BackupManifest() {
         this.createdAt = System.currentTimeMillis();
-        this.deviceModel = Build.MANUFACTURER + " " + Build.MODEL;
+        this.deviceModel = Build.MANUFACTURER + Build.MODEL;
         this.androidVersion = Build.VERSION.SDK_INT;
     }
 

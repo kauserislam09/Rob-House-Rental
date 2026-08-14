@@ -59,8 +59,8 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
             holder.tvDescription.setVisibility(View.GONE);
         }
 
-        String dtText = "📅 " + (reminder.getReminderDate() != null ? reminder.getReminderDate() : "") +
-                "  ⏰ " + (reminder.getReminderTime() != null ? reminder.getReminderTime() : "");
+        String dtText = (reminder.getReminderDate() != null ? reminder.getReminderDate() : "") +
+                (reminder.getReminderTime() != null ? reminder.getReminderTime() : "");
         holder.tvDateTime.setText(dtText);
 
         holder.tvTypeBadge.setText(getTypeDisplay(context, reminder.getReminderType()));

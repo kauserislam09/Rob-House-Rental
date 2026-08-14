@@ -49,10 +49,10 @@ public class AppDocumentAdapter extends RecyclerView.Adapter<AppDocumentAdapter.
     public void onBindViewHolder(@NonNull DocumentViewHolder holder, int position) {
         AppDocument doc = documentList.get(position);
 
-        String icon = "📄";
+        String icon = "";
         if (doc.getMimeType() != null) {
-            if (doc.getMimeType().contains("pdf")) icon = "📕";
-            else if (doc.getMimeType().contains("image")) icon = "🖼️";
+            if (doc.getMimeType().contains("pdf")) icon = "";
+            else if (doc.getMimeType().contains("image")) icon = "";
         }
 
         holder.tvIcon.setText(icon);

@@ -147,7 +147,7 @@ public class DocumentDetailsActivity extends AppCompatActivity {
         // Linked entity
         StringBuilder entity = new StringBuilder();
         if (item.propertyName != null && !item.propertyName.isEmpty()) {
-            entity.append("🏢 ").append(item.propertyName);
+            entity.append("").append(item.propertyName);
             if (item.unitNumber != null && !item.unitNumber.isEmpty()) {
                 entity.append(" • ").append(getString(R.string.prefix_unit_format, item.unitNumber));
             }
@@ -156,22 +156,22 @@ public class DocumentDetailsActivity extends AppCompatActivity {
             if (entity.length() > 0) {
                 entity.append("\n");
             }
-            entity.append("👤 ").append(item.tenantFullName);
+            entity.append("").append(item.tenantFullName);
             if (item.tenantPhone != null && !item.tenantPhone.isEmpty()) {
                 entity.append(" (").append(item.tenantPhone).append(")");
             }
         }
         if (entity.length() == 0) {
-            entity.append("📂 ").append(getString(R.string.type_general));
+            entity.append("").append(getString(R.string.type_general));
         }
         tvDocDetailsLinkedEntity.setText(entity.toString());
 
         // File info
         String sizeFormatted = DocumentAdapter.formatFileSize(item.fileSize);
         String formatFormatted = DocumentAdapter.formatMimeType(item.mimeType, item.fileName);
-        tvDocDetailsFileInfo.setText("💾 " + getString(R.string.prefix_size_format, sizeFormatted) + " • " + formatFormatted);
+        tvDocDetailsFileInfo.setText(getString(R.string.prefix_size_format, sizeFormatted) + " • " + formatFormatted);
 
-        tvDocDetailsDate.setText("📅 " + (item.createdAt > 0 ? dateFormat.format(new Date(item.createdAt)) : ""));
+        tvDocDetailsDate.setText((item.createdAt > 0 ? dateFormat.format(new Date(item.createdAt)) : ""));
 
         if (item.notes != null && !item.notes.trim().isEmpty()) {
             tvDocDetailsNotes.setText(getString(R.string.prefix_notes, item.notes.trim()));

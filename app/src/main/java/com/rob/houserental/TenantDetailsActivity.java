@@ -286,7 +286,7 @@ public class TenantDetailsActivity extends AppCompatActivity {
             String start = item.tenancy.getStartDate() != null ? item.tenancy.getStartDate() : getString(R.string.unknown_value);
 
             if ("ACTIVE".equalsIgnoreCase(item.tenancy.getStatus())) {
-                activeText.append("🏢 ").append(unitName)
+                activeText.append("").append(unitName)
                         .append("\n").append(getString(R.string.prefix_rent_format, rent, getString(R.string.per_month)))
                         .append("\n").append(getString(R.string.prefix_started_format, start));
 
@@ -301,7 +301,7 @@ public class TenantDetailsActivity extends AppCompatActivity {
                     previousText.append("\n\n");
                 }
                 previousText.append("• ").append(unitName)
-                        .append(" (").append(start).append(" → ").append(end).append(")")
+                        .append(" (").append(start).append("").append(end).append(")")
                         .append(" [").append(TenancyAdapter.getStatusDisplay(this, item.tenancy.getStatus())).append("]");
             }
         }

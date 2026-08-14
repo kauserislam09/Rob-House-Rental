@@ -116,7 +116,7 @@ public class ReportExportUtils {
 
                 canvas.drawText(prop.getPropertyName() + " (" + context.getString(R.string.reports_total_units) + ": " + prop.getTotalUnits() + ", " + context.getString(R.string.reports_occupied_units) + ": " + prop.getOccupiedUnits() + ")", 40, y, boldPaint);
                 y += 16;
-                canvas.drawText("  " + context.getString(R.string.reports_expected_rent) + ": " + curr + currencyFormatter.format(prop.getExpectedRent()) +
+                canvas.drawText(context.getString(R.string.reports_expected_rent) + ": " + curr + currencyFormatter.format(prop.getExpectedRent()) +
                         " | " + context.getString(R.string.reports_collected_rent) + ": " + curr + currencyFormatter.format(prop.getCollectedRent()) +
                         " | " + context.getString(R.string.reports_net_income) + ": " + curr + currencyFormatter.format(prop.getNetIncome()), 40, y, textPaint);
                 y += 20;

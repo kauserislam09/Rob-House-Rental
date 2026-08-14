@@ -50,7 +50,7 @@ public class PaymentOrderAdapter extends RecyclerView.Adapter<PaymentOrderAdapte
         SubscriptionPlan plan = PlanConfig.getPlan(order.getPlanCode());
         holder.tvPlanName.setText(plan.getDisplayName());
 
-        holder.tvOrderId.setText(context.getString(R.string.order_id_label) + " " + order.getOrderId());
+        holder.tvOrderId.setText(context.getString(R.string.order_id_label) + order.getOrderId());
         holder.tvAmount.setText(context.getString(R.string.amount_to_send) + " ৳" + currencyFormat.format(order.getAmountMinor() / 100.0));
         holder.tvMethod.setText(context.getString(R.string.select_payment_method) + ": " + getMethodDisplay(context, order.getPaymentMethod()));
 

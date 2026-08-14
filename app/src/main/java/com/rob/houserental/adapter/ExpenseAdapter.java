@@ -61,12 +61,12 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
 
         String propName = item.propertyName != null ? item.propertyName : context.getString(R.string.property_label);
         if (item.unitNumber != null && !item.unitNumber.isEmpty()) {
-            holder.tvExpensePropertyUnit.setText("🏢 " + propName + " • " + context.getString(R.string.prefix_unit_format, item.unitNumber));
+            holder.tvExpensePropertyUnit.setText(propName + " • " + context.getString(R.string.prefix_unit_format, item.unitNumber));
         } else {
-            holder.tvExpensePropertyUnit.setText("🏢 " + propName + " (" + context.getString(R.string.whole_property_option) + ")");
+            holder.tvExpensePropertyUnit.setText(propName + " (" + context.getString(R.string.whole_property_option) + ")");
         }
 
-        holder.tvExpenseDate.setText("📅 " + (item.expenseDate != null ? item.expenseDate : ""));
+        holder.tvExpenseDate.setText((item.expenseDate != null ? item.expenseDate : ""));
 
         if (item.receiptPath != null && !item.receiptPath.isEmpty()) {
             holder.tvExpenseReceiptBadge.setVisibility(View.VISIBLE);
@@ -89,33 +89,33 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseV
     }
 
     public static String getCategoryIcon(String category) {
-        if (category == null) return "📦";
+        if (category == null) return "";
         switch (category.toUpperCase()) {
             case "REPAIR":
-                return "🔧";
+                return "";
             case "MAINTENANCE":
-                return "🛠️";
+                return "";
             case "CLEANING":
-                return "🧹";
+                return "";
             case "SECURITY":
-                return "🛡️";
+                return "";
             case "GENERATOR":
-                return "⚡";
+                return "";
             case "PLUMBING":
-                return "🚰";
+                return "";
             case "ELECTRICAL":
-                return "💡";
+                return "";
             case "PAINTING":
-                return "🎨";
+                return "";
             case "RENOVATION":
-                return "🏛️";
+                return "";
             case "PROPERTY_TAX":
-                return "🏢";
+                return "";
             case "SERVICE_CHARGE":
-                return "⚙️";
+                return "";
             case "OTHER":
             default:
-                return "📦";
+                return "";
         }
     }
 

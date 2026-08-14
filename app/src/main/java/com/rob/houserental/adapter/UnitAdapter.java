@@ -61,10 +61,10 @@ public class UnitAdapter extends RecyclerView.Adapter<UnitAdapter.UnitViewHolder
         holder.tvUnitNumber.setText(unit.getUnitNumber());
 
         // Floor and Type
-        String floorText = unit.getFloor() > 0 ? context.getString(R.string.floor) + " " + unit.getFloor() : "";
+        String floorText = unit.getFloor() > 0 ? context.getString(R.string.floor) + unit.getFloor() : "";
         String typeText = getUnitTypeDisplay(context, unit.getUnitType());
         if (!floorText.isEmpty() && !typeText.isEmpty()) {
-            holder.tvUnitFloorAndType.setText(floorText + "  •  " + typeText);
+            holder.tvUnitFloorAndType.setText(floorText + " • " + typeText);
             holder.tvUnitFloorAndType.setVisibility(View.VISIBLE);
         } else if (!floorText.isEmpty()) {
             holder.tvUnitFloorAndType.setText(floorText);
@@ -84,12 +84,12 @@ public class UnitAdapter extends RecyclerView.Adapter<UnitAdapter.UnitViewHolder
         // Monthly Rent
         String currencySymbol = context.getString(R.string.currency_symbol);
         String perMonth = context.getString(R.string.per_month);
-        String rentFormatted = currencySymbol + " " + currencyFormat.format(unit.getMonthlyRent()) + " " + perMonth;
+        String rentFormatted = currencySymbol + currencyFormat.format(unit.getMonthlyRent()) + perMonth;
         holder.tvUnitRent.setText(rentFormatted);
 
         // Security Deposit
         if (unit.getSecurityDeposit() > 0) {
-            String depositText = context.getString(R.string.prefix_deposit_format, currencySymbol + " " + currencyFormat.format(unit.getSecurityDeposit()));
+            String depositText = context.getString(R.string.prefix_deposit_format, currencySymbol + currencyFormat.format(unit.getSecurityDeposit()));
             holder.tvUnitDeposit.setText(depositText);
             holder.tvUnitDeposit.setVisibility(View.VISIBLE);
         } else {

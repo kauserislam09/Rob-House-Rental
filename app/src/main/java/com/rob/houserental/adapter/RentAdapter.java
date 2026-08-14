@@ -66,10 +66,10 @@ public class RentAdapter extends RecyclerView.Adapter<RentAdapter.RentViewHolder
         String propUnit = item.unitNumber != null && !item.unitNumber.isEmpty()
                 ? propName + " • " + context.getString(R.string.prefix_unit_format, item.unitNumber)
                 : propName;
-        holder.tvRentPropertyUnit.setText("🏢 " + propUnit);
+        holder.tvRentPropertyUnit.setText(propUnit);
 
         // Month
-        holder.tvRentBillingMonth.setText("📅 " + (item.billingMonth != null ? item.billingMonth : ""));
+        holder.tvRentBillingMonth.setText((item.billingMonth != null ? item.billingMonth : ""));
 
         // Amounts
         String curr = context.getString(R.string.currency_symbol);

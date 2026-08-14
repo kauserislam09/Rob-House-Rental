@@ -19,12 +19,12 @@
     <string name="menu_backup">ব্যাকআপ ও রিস্টোর</string>
     <string name="menu_settings">সেটিংস</string>
 
-    <string name="dashboard_welcome">স্বাগতম 👋</string>
+    <string name="dashboard_welcome">স্বাগতম</string>
     <string name="dashboard_subtitle">আপনার সম্পত্তি সহজে পরিচালনা করুন।</string>
 
-    <string name="greeting_morning">শুভ সকাল ☀️</string>
-    <string name="greeting_afternoon">শুভ অপরাহ্ন 🌤️</string>
-    <string name="greeting_evening">শুভ সন্ধ্যা 🌙</string>
+    <string name="greeting_morning">শুভ সকাল </string>
+    <string name="greeting_afternoon">শুভ অপরাহ্ন </string>
+    <string name="greeting_evening">শুভ সন্ধ্যা </string>
 
     <string name="section_cashflow">মাসিক ক্যাশ ফ্লো</string>
     <string name="label_collected">সংগৃহীত</string>
@@ -46,12 +46,12 @@
     <string name="dashboard_occupied">ভাড়া দেওয়া</string>
     <string name="dashboard_vacant">খালি</string>
 
-    <string name="action_collect_rent">💰  ভাড়া সংগ্রহ করুন</string>
-    <string name="action_add_tenant">👤  ভাড়াটিয়া যোগ করুন</string>
-    <string name="action_add_bill">🧾  বিল যোগ করুন</string>
-    <string name="action_add_unit_btn">🔑  ইউনিট যোগ করুন</string>
-    <string name="action_add_expense_btn">💸  খরচ যোগ করুন</string>
-    <string name="action_view_reports_btn">📊  আর্থিক রিপোর্ট</string>
+    <string name="action_collect_rent">ভাড়া সংগ্রহ করুন</string>
+    <string name="action_add_tenant">ভাড়াটিয়া যোগ করুন</string>
+    <string name="action_add_bill">বিল যোগ করুন</string>
+    <string name="action_add_unit_btn">ইউনিট যোগ করুন</string>
+    <string name="action_add_expense_btn">খরচ যোগ করুন</string>
+    <string name="action_view_reports_btn">আর্থিক রিপোর্ট</string>
     <string name="search_dashboard_hint">প্রপার্টি, ইউনিট বা ভাড়াটিয়া খুঁজুন...</string>
 
     <!-- Unit Management Strings (Bangla) -->
@@ -264,12 +264,12 @@
     <string name="edit_bill_title">বিল সংশোধন করুন</string>
     <string name="bill_details_title">বিলের বিস্তারিত</string>
     <string name="bill_type">বিলের ধরন</string>
-    <string name="bill_type_electricity">⚡ বিদ্যুৎ বিল (Electricity)</string>
-    <string name="bill_type_water">💧 পানি বিল (Water)</string>
-    <string name="bill_type_gas">🔥 গ্যাস বিল (Gas)</string>
-    <string name="bill_type_internet">🌐 ইন্টারনেট বিল (Internet)</string>
-    <string name="bill_type_service">⚙️ সার্ভিস চার্জ (Service)</string>
-    <string name="bill_type_other">📦 অন্যান্য বিল (Other)</string>
+    <string name="bill_type_electricity">বিদ্যুৎ বিল (Electricity)</string>
+    <string name="bill_type_water">পানি বিল (Water)</string>
+    <string name="bill_type_gas">গ্যাস বিল (Gas)</string>
+    <string name="bill_type_internet">ইন্টারনেট বিল (Internet)</string>
+    <string name="bill_type_service">সার্ভিস চার্জ (Service)</string>
+    <string name="bill_type_other">অন্যান্য বিল (Other)</string>
     <string name="meter_number">মিটার নম্বর</string>
     <string name="meter_number_hint">যেমন: MET-88392</string>
     <string name="previous_reading">পূর্বের মিটার রিডিং</string>
@@ -280,7 +280,7 @@
     <string name="vat_tax">ভ্যাট / কর (৳)</string>
     <string name="bill_number">বিল / হিসাব নম্বর</string>
     <string name="bill_number_hint">যেমন: INV-2026-001 বা গ্রাহক নং</string>
-    <string name="whole_property_option">🏢 সমগ্র সম্পত্তি (পুরো ভবন)</string>
+    <string name="whole_property_option">সমগ্র সম্পত্তি (পুরো ভবন)</string>
     <string name="select_bill_type">বিলের ধরন নির্বাচন করুন</string>
     <string name="bill_created_success">ইউটিলিটি বিল সফলভাবে তৈরি হয়েছে।</string>
     <string name="bill_updated_success">ইউটিলিটি বিল সফলভাবে আপডেট হয়েছে।</string>
@@ -291,13 +291,13 @@
     <string name="search_bills_hint">বাড়ি, ইউনিট, বিল নম্বর দিয়ে খুঁজুন...</string>
     <string name="no_bills_yet">এখনও কোনো ইউটিলিটি বিল নেই</string>
     <string name="add_first_bill_desc">বকেয়া ও পেমেন্ট ট্র্যাক করতে বিদ্যুৎ, পানি, গ্যাস এবং ইন্টারনেট বিল যুক্ত করুন।</string>
-    <string name="filter_electricity">⚡ বিদ্যুৎ</string>
-    <string name="filter_water">💧 পানি</string>
-    <string name="filter_gas">🔥 গ্যাস</string>
-    <string name="filter_internet">🌐 ইন্টারনেট</string>
-    <string name="filter_other">⚙️ অন্যান্য</string>
+    <string name="filter_electricity">বিদ্যুৎ</string>
+    <string name="filter_water">পানি</string>
+    <string name="filter_gas">গ্যাস</string>
+    <string name="filter_internet">ইন্টারনেট</string>
+    <string name="filter_other">অন্যান্য</string>
     <string name="bill_breakdown">বিলের বিবরণ</string>
-    <string name="reading_units_label">ইউনিট: %1$.1f (%2$.1f → %3$.1f)</string>
+    <string name="reading_units_label">ইউনিট: %1$.1f (%2$.1f %3$.1f)</string>
     <string name="waive_bill">বিল মওকুফ করুন</string>
     <string name="waive_bill_confirm">আপনি কি এই বিলের অবশিষ্ট বকেয়া %1$s মওকুফ করতে চান?</string>
     <string name="bill_waived_success">বিলের বকেয়া সফলভাবে মওকুফ করা হয়েছে।</string>
@@ -312,18 +312,18 @@
     <string name="expense_date">খরচের তারিখ</string>
     <string name="total_expenses">মোট খরচ</string>
     <string name="this_month_expenses">চলতি মাসের খরচ</string>
-    <string name="expense_cat_repair">🔧 মেরামত (Repair)</string>
-    <string name="expense_cat_maintenance">🛠️ রক্ষণাবেক্ষণ (Maintenance)</string>
-    <string name="expense_cat_cleaning">🧹 পরিষ্কার-পরিচ্ছন্নতা (Cleaning)</string>
-    <string name="expense_cat_security">🛡️ নিরাপত্তা প্রহরী (Security)</string>
-    <string name="expense_cat_generator">⚡ জেনারেটর / জ্বালানী</string>
-    <string name="expense_cat_plumbing">🚰 প্লাম্বিং / পাইপলাইন</string>
-    <string name="expense_cat_electrical">💡 বৈদ্যুতিক কাজ (Electrical)</string>
-    <string name="expense_cat_painting">🎨 রঙ করা (Painting)</string>
-    <string name="expense_cat_renovation">🏛️ সংস্কার / আধুনিকীকরণ</string>
-    <string name="expense_cat_tax">🏢 পৌরসভা / হোল্ডিং ট্যাক্স</string>
-    <string name="expense_cat_service">⚙️ সার্ভিস চার্জ (Service)</string>
-    <string name="expense_cat_other">📦 অন্যান্য খরচ (Other)</string>
+    <string name="expense_cat_repair">মেরামত (Repair)</string>
+    <string name="expense_cat_maintenance">রক্ষণাবেক্ষণ (Maintenance)</string>
+    <string name="expense_cat_cleaning">পরিষ্কার-পরিচ্ছন্নতা (Cleaning)</string>
+    <string name="expense_cat_security">নিরাপত্তা প্রহরী (Security)</string>
+    <string name="expense_cat_generator">জেনারেটর / জ্বালানী</string>
+    <string name="expense_cat_plumbing">প্লাম্বিং / পাইপলাইন</string>
+    <string name="expense_cat_electrical">বৈদ্যুতিক কাজ (Electrical)</string>
+    <string name="expense_cat_painting">রঙ করা (Painting)</string>
+    <string name="expense_cat_renovation">সংস্কার / আধুনিকীকরণ</string>
+    <string name="expense_cat_tax">পৌরসভা / হোল্ডিং ট্যাক্স</string>
+    <string name="expense_cat_service">সার্ভিস চার্জ (Service)</string>
+    <string name="expense_cat_other">অন্যান্য খরচ (Other)</string>
     <string name="attach_receipt">রসিদ / ভাউচার সংযুক্ত করুন (ঐচ্ছিক)</string>
     <string name="receipt_attached">রসিদ সংযুক্ত: %1$s</string>
     <string name="view_receipt">রসিদ দেখুন</string>
@@ -358,12 +358,12 @@
     <string name="storage_zero">০ কেবি</string>
     <string name="total_documents_count">%1$d টি ডকুমেন্ট</string>
     <string name="type_all">সকল</string>
-    <string name="type_property">🏠 বাড়ি / সম্পত্তি</string>
-    <string name="type_tenant">👤 ভাড়াটিয়া</string>
-    <string name="type_expense">💸 খরচের ভাউচার</string>
-    <string name="type_rent">💰 ভাড়ার রসিদ</string>
-    <string name="type_utility">🧾 ইউটিলিটি বিল</string>
-    <string name="type_general">📂 সাধারণ</string>
+    <string name="type_property"> বাড়ি / সম্পত্তি</string>
+    <string name="type_tenant">ভাড়াটিয়া</string>
+    <string name="type_expense">খরচের ভাউচার</string>
+    <string name="type_rent">ভাড়ার রসিদ</string>
+    <string name="type_utility">ইউটিলিটি বিল</string>
+    <string name="type_general">সাধারণ</string>
     <string name="doc_cat_deed">মালিকানা দলিল / খতিয়ান</string>
     <string name="doc_cat_tax">হোল্ডিং ট্যাক্স / খাজনা রসিদ</string>
     <string name="doc_cat_nid">জাতীয় পরিচয়পত্র (NID)</string>
@@ -516,7 +516,7 @@
     <string name="prefix_note">নোট: %1$s</string>
     <string name="prefix_ref">রেফারেন্স: %1$s</string>
     <string name="prefix_meter_number">মিটার নম্বর: %1$s</string>
-    <string name="prefix_readings">রিডিং: %1$.1f → %2$.1f (%3$.1f ইউনিট)</string>
+    <string name="prefix_readings">রিডিং: %1$.1f %2$.1f (%3$.1f ইউনিট)</string>
     <string name="prefix_rate_per_unit">প্রতি ইউনিট রেট: %1$s</string>
     <string name="prefix_fixed_charge">নির্দিষ্ট চার্জ: %1$s</string>
     <string name="prefix_vat_tax">ভ্যাট / ট্যাক্স: %1$s</string>
@@ -536,7 +536,7 @@
     <string name="prefix_paid_format">পরিশোধিত: %1$s</string>
     <string name="prefix_due_format">বকেয়া: %1$s</string>
     <string name="prefix_meter_format">মিটার: %1$s</string>
-    <string name="prefix_units_summary_format">ইউনিট: %1$.1f (%2$.1f → %3$.1f)</string>
+    <string name="prefix_units_summary_format">ইউনিট: %1$.1f (%2$.1f %3$.1f)</string>
     <string name="prefix_account">অ্যাকাউন্ট: %1$s</string>
     <string name="prefix_backup_size">ব্যাকআপ সাইজ: %1$s</string>
     <string name="prefix_error">ত্রুটি: %1$s</string>
@@ -558,7 +558,7 @@
     <string name="select_image_or_pdf">+ ছবি বা পিডিএফ ডকুমেন্ট নির্বাচন করুন</string>
     <string name="attach_image_or_pdf">+ ছবি / পিডিএফ যুক্ত করুন</string>
     <string name="add_unit_button">+ ইউনিট যুক্ত করুন</string>
-    <string name="view_tenant_profile">👤 ভাড়াটিয়ার প্রোফাইল দেখুন</string>
+    <string name="view_tenant_profile">ভাড়াটিয়ার প্রোফাইল দেখুন</string>
     <string name="save_property">প্রপার্টি সংরক্ষণ করুন</string>
     <string name="update_property">প্রপার্টি আপডেট করুন</string>
     <string name="copy_sha1">SHA-1 কপি করুন</string>
@@ -611,9 +611,9 @@
     <string name="payment_method_bank_transfer">ব্যাংক ট্রান্সফার</string>
     <string name="payment_method_mobile_banking">মোবাইল ব্যাংকিং (বিকাশ/নগদ)</string>
     <string name="payment_method_cheque">চেক</string>
-    <string name="meter_section_electricity">⚡ বিদ্যুৎ মিটার ও ব্যবহারের বিবরণ</string>
-    <string name="meter_section_water">💧 পানি মিটার বিবরণ (ঐচ্ছিক)</string>
-    <string name="meter_section_gas">🔥 গ্যাস মিটার বিবরণ (ঐচ্ছিক)</string>
+    <string name="meter_section_electricity">বিদ্যুৎ মিটার ও ব্যবহারের বিবরণ</string>
+    <string name="meter_section_water">পানি মিটার বিবরণ (ঐচ্ছিক)</string>
+    <string name="meter_section_gas">গ্যাস মিটার বিবরণ (ঐচ্ছিক)</string>
     <string name="billing_month_required">বিলিং মাস আবশ্যক</string>
     <string name="due_date_required">পরিশোধের শেষ তারিখ আবশ্যক</string>
     <string name="expense_date_required">খরচের তারিখ আবশ্যক</string>
@@ -845,7 +845,7 @@
     <string name="priority_low">নিম্ন</string>
     <string name="priority_medium">মাঝারি</string>
     <string name="priority_high">উচ্চ</string>
-    <string name="priority_urgent">জরুরি 🚨</string>
+    <string name="priority_urgent">জরুরি </string>
     <string name="status_maint_open">উন্মুক্ত</string>
     <string name="status_maint_scheduled">নির্ধারিত</string>
     <string name="status_maint_in_progress">চলমান</string>
@@ -861,7 +861,7 @@
     <string name="select_unit_optional">ইউনিট নির্বাচন করুন (ঐচ্ছিক)</string>
     <string name="add_to_expenses">খরচে অন্তর্ভুক্ত করুন</string>
     <string name="add_to_expenses_confirm">এই মেরামতের প্রকৃত খরচ (%1$s) খরচের রেকর্ডে অন্তর্ভুক্ত করতে চান?</string>
-    <string name="added_to_expenses_already">খরচে অন্তর্ভুক্ত করা হয়েছে ✅</string>
+    <string name="added_to_expenses_already">খরচে অন্তর্ভুক্ত করা হয়েছে</string>
     <string name="added_to_expenses_success">মেরামত খরচ সফলভাবে খরচের তালিকায় যুক্ত হয়েছে।</string>
     <string name="delete_maintenance_title">মেরামত রেকর্ড মুছবেন?</string>
     <string name="delete_maintenance_confirm">আপনি কি নিশ্চিতভাবে এই মেরামতের রেকর্ডটি মুছে ফেলতে চান?</string>
@@ -916,7 +916,7 @@
     <string name="order_instructions_header">পেমেন্ট নির্দেশাবলী</string>
     <string name="send_money_to">টাকা পাঠানোর নম্বর:</string>
     <string name="amount_to_send">পাঠানোর পরিমাণ:</string>
-    <string name="exact_amount_warning">⚠️ দ্রুত পেমেন্ট যাচাইকরণের জন্য সঠিকভাবে প্রদর্শিত পরিমাণ টাকা Send Money করুন।</string>
+    <string name="exact_amount_warning"> দ্রুত পেমেন্ট যাচাইকরণের জন্য সঠিকভাবে প্রদর্শিত পরিমাণ টাকা Send Money করুন।</string>
     <string name="order_id_label">অর্ডার আইডি:</string>
     <string name="transaction_id_hint">বিকাশ/নগদ/রকেট ট্রানজেকশন আইডি (TrxID) লিখুন</string>
     <string name="submit_payment">পেমেন্ট জমা দিন</string>
@@ -928,8 +928,8 @@
     <string name="no_orders_desc">উন্নত রিপোর্ট ও আনলিমিটেড ফিচারের সুবিধা পেতে প্রিমিয়াম সাবস্ক্রিপশন নিন।</string>
     <string name="order_status_pending">পেমেন্ট বাকি</string>
     <string name="order_status_submitted">যাচাইকরণের অপেক্ষায়</string>
-    <string name="order_status_approved">অনুমোদিত ✅</string>
-    <string name="order_status_rejected">বাতিল ❌</string>
+    <string name="order_status_approved">অনুমোদিত</string>
+    <string name="order_status_rejected">বাতিল</string>
     <string name="order_status_expired">মেয়াদ উত্তীর্ণ</string>
     <string name="dev_admin_console">অ্যাডমিন যাচাইকরণ সিমুলেটর (DEV)</string>
     <string name="dev_admin_dialog_title">অ্যাডমিন পেমেন্ট অনুমোদন / বাতিলকরণ</string>

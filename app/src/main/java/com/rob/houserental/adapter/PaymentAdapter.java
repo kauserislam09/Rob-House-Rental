@@ -46,7 +46,7 @@ public class PaymentAdapter extends RecyclerView.Adapter<PaymentAdapter.PaymentV
         String curr = context.getString(R.string.currency_symbol);
         holder.tvPaymentAmount.setText(curr + currencyFormatter.format(payment.getAmount()));
         holder.tvPaymentMethod.setText(getPaymentMethodDisplay(context, payment.getPaymentMethod()));
-        holder.tvPaymentDate.setText("📅 " + (payment.getPaymentDate() != null ? payment.getPaymentDate() : ""));
+        holder.tvPaymentDate.setText((payment.getPaymentDate() != null ? payment.getPaymentDate() : ""));
 
         if (payment.getReference() != null && !payment.getReference().trim().isEmpty()) {
             holder.tvPaymentReference.setText(context.getString(R.string.prefix_ref, payment.getReference().trim()));

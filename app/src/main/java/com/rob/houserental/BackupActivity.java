@@ -532,14 +532,14 @@ public class BackupActivity extends AppCompatActivity {
             String dateFormatted = timestamp > 0 ? dateFormat.format(new Date(timestamp)) : "Unknown Date";
 
             StringBuilder sb = new StringBuilder();
-            sb.append("📅 ").append(dateFormatted);
+            sb.append("").append(dateFormatted);
             if (propSummary != null && !propSummary.isEmpty()) {
-                sb.append("\n🏠 ").append(propSummary);
+                sb.append("\n ").append(propSummary);
             }
             if (tenantCountStr != null && !tenantCountStr.isEmpty()) {
-                sb.append(" • 👥 ").append(tenantCountStr).append(" Tenants");
+                sb.append(" • ").append(tenantCountStr).append(" Tenants");
             }
-            sb.append("\n💾 ").append(formattedSize);
+            sb.append("\n ").append(formattedSize);
 
             displayItems[i] = sb.toString();
         }
@@ -668,22 +668,22 @@ public class BackupActivity extends AppCompatActivity {
         String backupSize = BackupHistoryAdapter.formatFileSize(preview.backupSizeBytes);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("📅 ").append(backupDate).append("\n");
-        sb.append("💾 ").append(backupSize).append("\n\n");
+        sb.append("").append(backupDate).append("\n");
+        sb.append("").append(backupSize).append("\n\n");
 
         sb.append(getString(R.string.restore_preview_properties, preview.propertyCount)).append("\n");
         if (preview.propertyNames != null && !preview.propertyNames.isEmpty()) {
             for (String pName : preview.propertyNames) {
-                sb.append("  • ").append(pName).append("\n");
+                sb.append(" • ").append(pName).append("\n");
             }
         } else {
-            sb.append("  (None)\n");
+            sb.append(" (None)\n");
         }
 
-        sb.append("\n👥 ").append(getString(R.string.restore_preview_tenants, preview.tenantCount)).append("\n");
-        sb.append("🚪 ").append(getString(R.string.restore_preview_units, preview.unitCount)).append("\n");
-        sb.append("📑 ").append(getString(R.string.restore_preview_documents, preview.documentCount)).append("\n\n");
-        sb.append("⚠️ ").append(getString(R.string.restore_preview_warning));
+        sb.append("\n ").append(getString(R.string.restore_preview_tenants, preview.tenantCount)).append("\n");
+        sb.append("").append(getString(R.string.restore_preview_units, preview.unitCount)).append("\n");
+        sb.append("").append(getString(R.string.restore_preview_documents, preview.documentCount)).append("\n\n");
+        sb.append("").append(getString(R.string.restore_preview_warning));
 
         new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.restore_preview_title)

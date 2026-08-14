@@ -75,7 +75,7 @@ public class TenancyAdapter extends RecyclerView.Adapter<TenancyAdapter.TenancyV
                 unitText = context.getString(R.string.prefix_unit_format, details.unit.getUnitNumber());
             }
         }
-        holder.tvTenancyPropertyUnit.setText("🚪 " + unitText);
+        holder.tvTenancyPropertyUnit.setText(unitText);
 
         // Rent
         String rentFormatted = currencyFormatter.format(details.tenancy.getMonthlyRent());

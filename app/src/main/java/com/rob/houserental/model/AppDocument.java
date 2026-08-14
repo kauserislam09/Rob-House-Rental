@@ -21,7 +21,7 @@ public class AppDocument {
     private long id;
 
     private String documentType; // PROPERTY, TENANT, EXPENSE, RENT_PAYMENT, UTILITY_BILL, GENERAL
-    private String category;     // DEED, NID, PASSPORT, AGREEMENT, VOUCHER, BILL_RECEIPT, PAYMENT_SLIP, TAX_RECORD, POLICE_FORM, OTHER
+    private String category; // DEED, NID, PASSPORT, AGREEMENT, VOUCHER, BILL_RECEIPT, PAYMENT_SLIP, TAX_RECORD, POLICE_FORM, OTHER
 
     private String displayName;
     private String fileName;
@@ -30,8 +30,8 @@ public class AppDocument {
     private long fileSize; // bytes
 
     private long propertyId; // 0 if not linked
-    private long unitId;     // 0 if whole property / not linked
-    private long tenantId;   // 0 if not linked
+    private long unitId; // 0 if whole property / not linked
+    private long tenantId; // 0 if not linked
     private long relatedRecordId; // optional link to expenseId, rentRecordId, billId, paymentId
 
     private String notes;

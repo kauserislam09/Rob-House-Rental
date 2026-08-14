@@ -187,7 +187,7 @@ public class RentDetailsActivity extends AppCompatActivity {
                 ? propName + " • " + getString(R.string.prefix_unit_format, item.unitNumber)
                 : propName;
         tvRentDetailsPropertyUnit.setText(propUnit);
-        tvRentDetailsBillingMonth.setText("📅 " + (item.billingMonth != null ? item.billingMonth : ""));
+        tvRentDetailsBillingMonth.setText((item.billingMonth != null ? item.billingMonth : ""));
 
         // Status Badge
         String status = item.status != null ? item.status.trim().toUpperCase() : "UNPAID";

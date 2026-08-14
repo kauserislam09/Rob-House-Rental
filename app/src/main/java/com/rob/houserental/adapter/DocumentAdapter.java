@@ -64,7 +64,7 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.Docume
         // Linked Entity Label
         StringBuilder entityLabel = new StringBuilder();
         if (item.propertyName != null && !item.propertyName.isEmpty()) {
-            entityLabel.append("🏢 ").append(item.propertyName);
+            entityLabel.append("").append(item.propertyName);
             if (item.unitNumber != null && !item.unitNumber.isEmpty()) {
                 entityLabel.append(" • ").append(context.getString(R.string.prefix_unit_format, item.unitNumber));
             }
@@ -73,16 +73,16 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.Docume
             if (entityLabel.length() > 0) {
                 entityLabel.append(" • ");
             }
-            entityLabel.append("👤 ").append(item.tenantFullName);
+            entityLabel.append("").append(item.tenantFullName);
         }
         if (entityLabel.length() == 0) {
-            entityLabel.append("📂 ").append(context.getString(R.string.type_general));
+            entityLabel.append("").append(context.getString(R.string.type_general));
         }
         holder.tvDocLinkedEntity.setText(entityLabel.toString());
 
         // File size and format
         holder.tvDocFileSize.setText(formatFileSize(item.fileSize));
-        holder.tvDocDate.setText("📅 " + (item.createdAt > 0 ? dateFormat.format(new Date(item.createdAt)) : ""));
+        holder.tvDocDate.setText((item.createdAt > 0 ? dateFormat.format(new Date(item.createdAt)) : ""));
         holder.tvDocFormatBadge.setText(formatMimeType(item.mimeType, item.fileName));
 
         holder.itemView.setOnClickListener(v -> {
@@ -99,26 +99,26 @@ public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.Docume
     }
 
     public static String getDocumentIcon(AppDocumentDisplayItem item) {
-        if (item == null) return "📄";
+        if (item == null) return "";
         if (item.mimeType != null && item.mimeType.contains("pdf")) {
-            return "📕";
+            return "";
         }
         if (item.mimeType != null && item.mimeType.contains("image")) {
-            return "🖼️";
+            return "";
         }
         if ("PROPERTY".equalsIgnoreCase(item.documentType)) {
-            return "🏛️";
+            return "";
         }
         if ("TENANT".equalsIgnoreCase(item.documentType)) {
-            return "🪪";
+            return "";
         }
         if ("EXPENSE".equalsIgnoreCase(item.documentType)) {
-            return "💸";
+            return "";
         }
         if ("RENT_PAYMENT".equalsIgnoreCase(item.documentType) || "UTILITY_BILL".equalsIgnoreCase(item.documentType)) {
-            return "🧾";
+            return "";
         }
-        return "📄";
+        return "";
     }
 
     public static String getCategoryTitle(Context context, String category) {

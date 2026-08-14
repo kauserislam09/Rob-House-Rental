@@ -11,23 +11,23 @@ import com.rob.houserental.R;
  * This class normalises legacy values and provides canonical display labels.
  *
  * New method codes (stored going forward):
- *   CASH, BANK_TRANSFER, BKASH, NAGAD, ROCKET, CARD, OTHER
+ * CASH, BANK_TRANSFER, BKASH, NAGAD, ROCKET, CARD, OTHER
  *
  * Legacy stored values handled:
- *   "Mobile Banking (bKash/Nagad/Rocket)" → displayed as "Mobile Banking"
- *   "MOBILE_BANKING"                      → displayed as "Mobile Banking"
- *   Any value containing BKASH/NAGAD/ROCKET/MOBILE → displayed as "Mobile Banking"
+ * "Mobile Banking (bKash/Nagad/Rocket)" displayed as "Mobile Banking"
+ * "MOBILE_BANKING" displayed as "Mobile Banking"
+ * Any value containing BKASH/NAGAD/ROCKET/MOBILE displayed as "Mobile Banking"
  */
 public class PaymentMethodUtils {
 
     // Internal storage codes (written to DB for NEW payments)
-    public static final String CODE_CASH          = "CASH";
+    public static final String CODE_CASH = "CASH";
     public static final String CODE_BANK_TRANSFER = "BANK_TRANSFER";
-    public static final String CODE_BKASH         = "BKASH";
-    public static final String CODE_NAGAD         = "NAGAD";
-    public static final String CODE_ROCKET        = "ROCKET";
-    public static final String CODE_CARD          = "CARD";
-    public static final String CODE_OTHER         = "OTHER";
+    public static final String CODE_BKASH = "BKASH";
+    public static final String CODE_NAGAD = "NAGAD";
+    public static final String CODE_ROCKET = "ROCKET";
+    public static final String CODE_CARD = "CARD";
+    public static final String CODE_OTHER = "OTHER";
 
     /**
      * Returns the ordered list of storage codes for the 7 payment methods.
@@ -65,7 +65,7 @@ public class PaymentMethodUtils {
      * Returns a localised display name for any stored payment method value.
      * Handles both new codes and legacy free-text strings stored before this utility existed.
      *
-     * @param context     Android context for string resource access
+     * @param context Android context for string resource access
      * @param storedValue The raw value retrieved from the database
      * @return Localised display string; falls back to storedValue if unrecognised
      */
@@ -77,23 +77,23 @@ public class PaymentMethodUtils {
         String upper = storedValue.trim().toUpperCase();
 
         // Exact new codes
-        if (upper.equals(CODE_CASH))          return context.getString(R.string.payment_method_cash);
+        if (upper.equals(CODE_CASH)) return context.getString(R.string.payment_method_cash);
         if (upper.equals(CODE_BANK_TRANSFER)) return context.getString(R.string.payment_method_bank);
-        if (upper.equals(CODE_BKASH))         return context.getString(R.string.payment_method_bkash);
-        if (upper.equals(CODE_NAGAD))         return context.getString(R.string.payment_method_nagad);
-        if (upper.equals(CODE_ROCKET))        return context.getString(R.string.payment_method_rocket);
-        if (upper.equals(CODE_CARD))          return context.getString(R.string.payment_method_card);
-        if (upper.equals(CODE_OTHER))         return context.getString(R.string.payment_method_other);
+        if (upper.equals(CODE_BKASH)) return context.getString(R.string.payment_method_bkash);
+        if (upper.equals(CODE_NAGAD)) return context.getString(R.string.payment_method_nagad);
+        if (upper.equals(CODE_ROCKET)) return context.getString(R.string.payment_method_rocket);
+        if (upper.equals(CODE_CARD)) return context.getString(R.string.payment_method_card);
+        if (upper.equals(CODE_OTHER)) return context.getString(R.string.payment_method_other);
 
         // Legacy pattern matching
-        if (upper.contains("CASH"))   return context.getString(R.string.payment_method_cash);
+        if (upper.contains("CASH")) return context.getString(R.string.payment_method_cash);
         if (upper.contains("BKASH")) return context.getString(R.string.payment_method_bkash);
         if (upper.contains("NAGAD")) return context.getString(R.string.payment_method_nagad);
         if (upper.contains("ROCKET")) return context.getString(R.string.payment_method_rocket);
-        // "Mobile Banking (bKash/Nagad/Rocket)" and "MOBILE_BANKING" → generic Mobile Banking
+        // "Mobile Banking (bKash/Nagad/Rocket)" and "MOBILE_BANKING" generic Mobile Banking
         if (upper.contains("MOBILE")) return context.getString(R.string.payment_method_mobile);
-        if (upper.contains("BANK"))   return context.getString(R.string.payment_method_bank);
-        if (upper.contains("CARD"))   return context.getString(R.string.payment_method_card);
+        if (upper.contains("BANK")) return context.getString(R.string.payment_method_bank);
+        if (upper.contains("CARD")) return context.getString(R.string.payment_method_card);
         if (upper.contains("CHEQUE")) return context.getString(R.string.payment_method_cheque);
 
         // Unknown legacy value – return as-is
@@ -112,11 +112,11 @@ public class PaymentMethodUtils {
             if (codes[i].equals(upper)) return i;
         }
         // Legacy fallback
-        if (upper.contains("BANK"))   return 1; // BANK_TRANSFER
+        if (upper.contains("BANK")) return 1; // BANK_TRANSFER
         if (upper.contains("BKASH")) return 2;
         if (upper.contains("NAGAD")) return 3;
         if (upper.contains("ROCKET")) return 4;
-        if (upper.contains("CARD"))  return 5;
+        if (upper.contains("CARD")) return 5;
         return 0; // Default to Cash
     }
 }

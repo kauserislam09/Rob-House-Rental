@@ -211,11 +211,11 @@ public class SubscriptionActivity extends AppCompatActivity {
             cardOrderDetails.setVisibility(View.VISIBLE);
         }
         if (tvOrderId != null) {
-            tvOrderId.setText(getString(R.string.order_id_label) + " " + order.getOrderId());
+            tvOrderId.setText(getString(R.string.order_id_label) + order.getOrderId());
         }
         if (tvSendMoneyNumber != null) {
             String destNum = PaymentDestinationConfig.getDestinationNumber(order.getPaymentMethod());
-            tvSendMoneyNumber.setText(getString(R.string.send_money_to) + " " + destNum + " (" + order.getPaymentMethod() + ")");
+            tvSendMoneyNumber.setText(getString(R.string.send_money_to) + destNum + " (" + order.getPaymentMethod() + ")");
         }
         if (tvAmountToSend != null) {
             tvAmountToSend.setText(getString(R.string.amount_to_send) + " ৳" + currencyFormat.format(order.getAmountMinor() / 100.0));

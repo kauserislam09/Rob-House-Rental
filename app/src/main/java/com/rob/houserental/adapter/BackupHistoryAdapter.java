@@ -66,9 +66,9 @@ public class BackupHistoryAdapter extends RecyclerView.Adapter<BackupHistoryAdap
         }
 
         long time = item.getCompletedAt() > 0 ? item.getCompletedAt() : item.getCreatedAt();
-        holder.tvBackupDate.setText("📅 " + (time > 0 ? dateFormat.format(new Date(time)) : ""));
+        holder.tvBackupDate.setText((time > 0 ? dateFormat.format(new Date(time)) : ""));
 
-        holder.tvBackupSize.setText("💾 " + formatFileSize(item.getSizeBytes()));
+        holder.tvBackupSize.setText(formatFileSize(item.getSizeBytes()));
 
         if (item.getErrorMessage() != null && !item.getErrorMessage().isEmpty() && "FAILED".equalsIgnoreCase(status)) {
             holder.tvBackupError.setVisibility(View.VISIBLE);
@@ -79,19 +79,19 @@ public class BackupHistoryAdapter extends RecyclerView.Adapter<BackupHistoryAdap
     }
 
     private String getIconForType(String type) {
-        if (type == null) return "☁️";
+        if (type == null) return "";
         switch (type.toUpperCase()) {
             case "AUTOMATIC":
-                return "⏰";
+                return "";
             case "RESTORE":
-                return "🔄";
+                return "";
             case "EXPORT":
-                return "💾";
+                return "";
             case "IMPORT":
-                return "📥";
+                return "";
             case "MANUAL":
             default:
-                return "☁️";
+                return "";
         }
     }
 
@@ -99,7 +99,7 @@ public class BackupHistoryAdapter extends RecyclerView.Adapter<BackupHistoryAdap
         if (type == null) return context.getString(R.string.type_manual);
         switch (type.toUpperCase()) {
             case "AUTOMATIC":
-                return context.getString(R.string.type_automatic) + " " + context.getString(R.string.backup_and_restore_title);
+                return context.getString(R.string.type_automatic) + context.getString(R.string.backup_and_restore_title);
             case "RESTORE":
                 return context.getString(R.string.type_restore);
             case "EXPORT":
@@ -108,7 +108,7 @@ public class BackupHistoryAdapter extends RecyclerView.Adapter<BackupHistoryAdap
                 return context.getString(R.string.type_import);
             case "MANUAL":
             default:
-                return context.getString(R.string.type_manual) + " " + context.getString(R.string.backup_and_restore_title);
+                return context.getString(R.string.type_manual) + context.getString(R.string.backup_and_restore_title);
         }
     }
 

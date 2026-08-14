@@ -361,7 +361,7 @@ public class AddBillActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     if (activeTenancy != null && activeTenancy.tenant != null) {
                         selectedTenancyId = activeTenancy.tenancy.getId();
-                        tvOccupiedTenantInfo.setText("👤 " + getString(R.string.prefix_current_tenant, activeTenancy.tenant.getFullName()) +
+                        tvOccupiedTenantInfo.setText(getString(R.string.prefix_current_tenant, activeTenancy.tenant.getFullName()) +
                                 (activeTenancy.tenant.getPhoneNumber() != null ? " (" + activeTenancy.tenant.getPhoneNumber() + ")" : ""));
                         tvOccupiedTenantInfo.setVisibility(View.VISIBLE);
                     } else {

@@ -127,17 +127,17 @@ public class ReminderDetailsActivity extends AppCompatActivity {
                         }
                     }
 
-                    String dt = getString(R.string.date) + ": " + reminder.getReminderDate() + "  |  " + getString(R.string.hint_time) + ": " + reminder.getReminderTime();
+                    String dt = getString(R.string.date) + ": " + reminder.getReminderDate() + " | " + getString(R.string.hint_time) + ": " + reminder.getReminderTime();
                     if (tvDateTime != null) tvDateTime.setText(dt);
 
                     String repeatStr = getString(R.string.hint_repeat) + ": " + reminder.getRepeatType();
                     if ("CUSTOM".equalsIgnoreCase(reminder.getRepeatType())) {
-                        repeatStr += " (" + reminder.getRepeatInterval() + " " + getString(R.string.minutes) + ")";
+                        repeatStr += " (" + reminder.getRepeatInterval() + getString(R.string.minutes) + ")";
                     }
                     if (tvRepeat != null) tvRepeat.setText(repeatStr);
 
                     if (tvType != null) {
-                        String typeStr = getString(R.string.reminder) + " " + getString(R.string.status_label) + ": " + ReminderAdapter.getTypeDisplay(ReminderDetailsActivity.this, reminder.getReminderType());
+                        String typeStr = getString(R.string.reminder) + getString(R.string.status_label) + ": " + ReminderAdapter.getTypeDisplay(ReminderDetailsActivity.this, reminder.getReminderType());
                         tvType.setText(typeStr);
                         resolveAndDisplayRelatedEntityName(reminder);
                     }
@@ -298,7 +298,7 @@ public class ReminderDetailsActivity extends AppCompatActivity {
             runOnUiThread(() -> {
                 if (tvType != null && !finalResolved.isEmpty()) {
                     String currentText = tvType.getText().toString();
-                    tvType.setText(currentText + "\n📌 Related To: " + entityType + ": " + finalResolved + " (#" + entityId + ")");
+                    tvType.setText(currentText + "\n Related To: " + entityType + ": " + finalResolved + " (#" + entityId + ")");
                 }
             });
         });

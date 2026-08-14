@@ -75,7 +75,7 @@ public class PropertyPerformanceAdapter extends RecyclerView.Adapter<PropertyPer
             String curr = context.getString(R.string.currency_symbol);
 
             tvPropName.setText(item.getPropertyName());
-            tvPropUnits.setText("🏢 " + context.getString(R.string.reports_total_units) + ": " + item.getTotalUnits() +
+            tvPropUnits.setText(context.getString(R.string.reports_total_units) + ": " + item.getTotalUnits() +
                     " | " + context.getString(R.string.reports_occupied_units) + ": " + item.getOccupiedUnits() +
                     " | " + context.getString(R.string.reports_vacant_units) + ": " + item.getVacantUnits());
 

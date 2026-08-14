@@ -21,9 +21,9 @@ public class FinancialTrendChartView extends View {
     private Paint textPaint;
     private Paint gridPaint;
 
-    private int incomeColor = Color.parseColor("#2E7D32");  // Green
+    private int incomeColor = Color.parseColor("#2E7D32"); // Green
     private int expenseColor = Color.parseColor("#C62828"); // Red
-    private int netColor = Color.parseColor("#1565C0");     // Blue
+    private int netColor = Color.parseColor("#1565C0"); // Blue
 
     public FinancialTrendChartView(Context context) {
         super(context);

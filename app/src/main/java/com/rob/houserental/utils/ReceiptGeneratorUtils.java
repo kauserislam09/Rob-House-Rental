@@ -97,10 +97,10 @@ public class ReceiptGeneratorUtils {
         // Status Stamp
         if ("PAID".equalsIgnoreCase(item.status)) {
             stampPaint.setColor(Color.parseColor("#2E7D32"));
-            canvas.drawText("★ " + context.getString(R.string.receipt_paid_stamp) + " ★", 380, y, stampPaint);
+            canvas.drawText(context.getString(R.string.receipt_paid_stamp), 380, y, stampPaint);
         } else if ("OVERDUE".equalsIgnoreCase(item.status)) {
             stampPaint.setColor(Color.parseColor("#C62828"));
-            canvas.drawText("⚠ " + context.getString(R.string.receipt_overdue_stamp) + " ⚠", 380, y, stampPaint);
+            canvas.drawText(context.getString(R.string.receipt_overdue_stamp), 380, y, stampPaint);
         } else {
             stampPaint.setColor(Color.parseColor("#EF6C00"));
             canvas.drawText("• " + context.getString(R.string.receipt_partial_stamp) + " •", 380, y, stampPaint);

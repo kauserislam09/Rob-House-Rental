@@ -1,0 +1,248 @@
+Total emoji matches found: 247
+java\com\rob\houserental\ReportsActivity.java:230 -> ~ -> btnPeriodFilter.setText(startD + " ~ " + endD);
+java\com\rob\houserental\data\AppDatabase.java:80 -> ` -> database.execSQL("ALTER TABLE `tenants` ADD COLUMN `status` TEXT DEFAULT 'ACTIVE'");
+java\com\rob\houserental\data\AppDatabase.java:81 -> ` -> database.execSQL("ALTER TABLE `tenants` ADD COLUMN `createdAt` INTEGER NOT NULL DEFAULT 0");
+java\com\rob\houserental\data\AppDatabase.java:82 -> ` -> database.execSQL("ALTER TABLE `tenants` ADD COLUMN `updatedAt` INTEGER NOT NULL DEFAULT 0");
+java\com\rob\houserental\data\AppDatabase.java:83 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_tenants_status` ON `tenants` (`status`)");
+java\com\rob\houserental\data\AppDatabase.java:86 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `tenant_documents` (" +
+java\com\rob\houserental\data\AppDatabase.java:87 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:88 -> ` -> "`tenantId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:89 -> ` -> "`documentType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:90 -> ` -> "`displayName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:91 -> ` -> "`filePath` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:92 -> ` -> "`mimeType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:93 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:94 -> ` -> "`updatedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:95 -> ` -> "FOREIGN KEY(`tenantId`) REFERENCES `tenants`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE" +
+java\com\rob\houserental\data\AppDatabase.java:98 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_tenant_documents_tenantId` ON `tenant_documents` (`tenantId`)");
+java\com\rob\houserental\data\AppDatabase.java:106 -> ` -> database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `createdAt` INTEGER NOT NULL DEFAULT 0");
+java\com\rob\houserental\data\AppDatabase.java:107 -> ` -> database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `updatedAt` INTEGER NOT NULL DEFAULT 0");
+java\com\rob\houserental\data\AppDatabase.java:108 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_tenancies_status` ON `tenancies` (`status`)");
+java\com\rob\houserental\data\AppDatabase.java:116 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `rent_records` (" +
+java\com\rob\houserental\data\AppDatabase.java:117 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:118 -> ` -> "`tenancyId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:119 -> ` -> "`billingMonth` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:120 -> ` -> "`dueDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:121 -> ` -> "`amountDue` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:122 -> ` -> "`amountPaid` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:123 -> ` -> "`remainingAmount` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:124 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:125 -> ` -> "`lastPaymentDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:126 -> ` -> "`paymentMethod` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:127 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:128 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:129 -> ` -> "`updatedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:130 -> ` -> "FOREIGN KEY(`tenancyId`) REFERENCES `tenancies`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT" +
+java\com\rob\houserental\data\AppDatabase.java:133 -> ` -> database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_rent_records_tenancyId_billingMonth` ON `rent_records` (`tenancyId`, `billingMonth`)");
+java\com\rob\houserental\data\AppDatabase.java:134 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_rent_records_tenancyId` ON `rent_records` (`tenancyId`)");
+java\com\rob\houserental\data\AppDatabase.java:135 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_rent_records_billingMonth` ON `rent_records` (`billingMonth`)");
+java\com\rob\houserental\data\AppDatabase.java:136 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_rent_records_status` ON `rent_records` (`status`)");
+java\com\rob\houserental\data\AppDatabase.java:139 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `payments` (" +
+java\com\rob\houserental\data\AppDatabase.java:140 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:141 -> ` -> "`rentRecordId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:142 -> ` -> "`amount` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:143 -> ` -> "`paymentDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:144 -> ` -> "`paymentMethod` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:145 -> ` -> "`reference` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:146 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:147 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:148 -> ` -> "FOREIGN KEY(`rentRecordId`) REFERENCES `rent_records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE" +
+java\com\rob\houserental\data\AppDatabase.java:151 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_payments_rentRecordId` ON `payments` (`rentRecordId`)");
+java\com\rob\houserental\data\AppDatabase.java:152 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_payments_paymentDate` ON `payments` (`paymentDate`)");
+java\com\rob\houserental\data\AppDatabase.java:160 -> ` -> database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `rentDueDay` INTEGER NOT NULL DEFAULT 10");
+java\com\rob\houserental\data\AppDatabase.java:168 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `utility_bills` (" +
+java\com\rob\houserental\data\AppDatabase.java:169 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:170 -> ` -> "`propertyId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:171 -> ` -> "`unitId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:172 -> ` -> "`tenancyId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:173 -> ` -> "`billType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:174 -> ` -> "`billingMonth` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:175 -> ` -> "`dueDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:176 -> ` -> "`amountDue` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:177 -> ` -> "`amountPaid` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:178 -> ` -> "`remainingAmount` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:179 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:180 -> ` -> "`meterNumber` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:181 -> ` -> "`previousReading` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:182 -> ` -> "`currentReading` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:183 -> ` -> "`unitsConsumed` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:184 -> ` -> "`ratePerUnit` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:185 -> ` -> "`fixedCharge` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:186 -> ` -> "`vatOrTax` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:187 -> ` -> "`billNumber` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:188 -> ` -> "`lastPaymentDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:189 -> ` -> "`paymentMethod` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:190 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:191 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:192 -> ` -> "`updatedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:193 -> ` -> "FOREIGN KEY(`propertyId`) REFERENCES `properties`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT" +
+java\com\rob\houserental\data\AppDatabase.java:196 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_propertyId` ON `utility_bills` (`propertyId`)");
+java\com\rob\houserental\data\AppDatabase.java:197 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_unitId` ON `utility_bills` (`unitId`)");
+java\com\rob\houserental\data\AppDatabase.java:198 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_tenancyId` ON `utility_bills` (`tenancyId`)");
+java\com\rob\houserental\data\AppDatabase.java:199 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_billingMonth` ON `utility_bills` (`billingMonth`)");
+java\com\rob\houserental\data\AppDatabase.java:200 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_billType` ON `utility_bills` (`billType`)");
+java\com\rob\houserental\data\AppDatabase.java:201 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_utility_bills_status` ON `utility_bills` (`status`)");
+java\com\rob\houserental\data\AppDatabase.java:204 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `bill_payments` (" +
+java\com\rob\houserental\data\AppDatabase.java:205 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:206 -> ` -> "`billId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:207 -> ` -> "`amount` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:208 -> ` -> "`paymentDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:209 -> ` -> "`paymentMethod` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:210 -> ` -> "`reference` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:211 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:212 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:213 -> ` -> "FOREIGN KEY(`billId`) REFERENCES `utility_bills`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE" +
+java\com\rob\houserental\data\AppDatabase.java:216 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_bill_payments_billId` ON `bill_payments` (`billId`)");
+java\com\rob\houserental\data\AppDatabase.java:217 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_bill_payments_paymentDate` ON `bill_payments` (`paymentDate`)");
+java\com\rob\houserental\data\AppDatabase.java:225 -> ` -> database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_utility_bills_propertyId_unitId_billType_billingMonth` ON `utility_bills` (`propertyId`, `unitId`, `billType`, `billingMonth`)");
+java\com\rob\houserental\data\AppDatabase.java:233 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `expenses` (" +
+java\com\rob\houserental\data\AppDatabase.java:234 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:235 -> ` -> "`propertyId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:236 -> ` -> "`unitId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:237 -> ` -> "`category` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:238 -> ` -> "`amount` REAL NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:239 -> ` -> "`expenseDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:240 -> ` -> "`expenseMonth` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:241 -> ` -> "`description` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:242 -> ` -> "`receiptPath` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:243 -> ` -> "`receiptName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:244 -> ` -> "`receiptMimeType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:245 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:246 -> ` -> "`isArchived` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:247 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:248 -> ` -> "`updatedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:249 -> ` -> "FOREIGN KEY(`propertyId`) REFERENCES `properties`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT" +
+java\com\rob\houserental\data\AppDatabase.java:252 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_propertyId` ON `expenses` (`propertyId`)");
+java\com\rob\houserental\data\AppDatabase.java:253 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_unitId` ON `expenses` (`unitId`)");
+java\com\rob\houserental\data\AppDatabase.java:254 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_category` ON `expenses` (`category`)");
+java\com\rob\houserental\data\AppDatabase.java:255 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_expenseMonth` ON `expenses` (`expenseMonth`)");
+java\com\rob\houserental\data\AppDatabase.java:256 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_expenseDate` ON `expenses` (`expenseDate`)");
+java\com\rob\houserental\data\AppDatabase.java:257 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_expenses_isArchived` ON `expenses` (`isArchived`)");
+java\com\rob\houserental\data\AppDatabase.java:265 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `app_documents` (" +
+java\com\rob\houserental\data\AppDatabase.java:266 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:267 -> ` -> "`documentType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:268 -> ` -> "`category` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:269 -> ` -> "`displayName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:270 -> ` -> "`fileName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:271 -> ` -> "`filePath` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:272 -> ` -> "`mimeType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:273 -> ` -> "`fileSize` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:274 -> ` -> "`propertyId` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:275 -> ` -> "`unitId` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:276 -> ` -> "`tenantId` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:277 -> ` -> "`relatedRecordId` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:278 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:279 -> ` -> "`isArchived` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:280 -> ` -> "`createdAt` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:281 -> ` -> "`updatedAt` INTEGER NOT NULL DEFAULT 0" +
+java\com\rob\houserental\data\AppDatabase.java:284 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_app_documents_documentType` ON `app_documents` (`documentType`);");
+java\com\rob\houserental\data\AppDatabase.java:285 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_app_documents_category` ON `app_documents` (`category`);");
+java\com\rob\houserental\data\AppDatabase.java:286 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_app_documents_propertyId` ON `app_documents` (`propertyId`);");
+java\com\rob\houserental\data\AppDatabase.java:287 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_app_documents_tenantId` ON `app_documents` (`tenantId`);");
+java\com\rob\houserental\data\AppDatabase.java:288 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_app_documents_isArchived` ON `app_documents` (`isArchived`);");
+java\com\rob\houserental\data\AppDatabase.java:296 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `backup_history` (" +
+java\com\rob\houserental\data\AppDatabase.java:297 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:298 -> ` -> "`backupId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:299 -> ` -> "`fileName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:300 -> ` -> "`driveFileId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:301 -> ` -> "`createdAt` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:302 -> ` -> "`completedAt` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:303 -> ` -> "`sizeBytes` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:304 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:305 -> ` -> "`backupType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:306 -> ` -> "`errorMessage` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:307 -> ` -> "`checksum` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:308 -> ` -> "`appVersion` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:309 -> ` -> "`documentCount` INTEGER NOT NULL DEFAULT 0" +
+java\com\rob\houserental\data\AppDatabase.java:312 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_backup_history_createdAt` ON `backup_history` (`createdAt`);");
+java\com\rob\houserental\data\AppDatabase.java:313 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_backup_history_status` ON `backup_history` (`status`);");
+java\com\rob\houserental\data\AppDatabase.java:314 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_backup_history_backupType` ON `backup_history` (`backupType`);");
+java\com\rob\houserental\data\AppDatabase.java:346 -> ` -> database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_units_propertyId_unitNumber` ON `units` (`propertyId`, `unitNumber`)");
+java\com\rob\houserental\data\AppDatabase.java:354 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `maintenance_records` (" +
+java\com\rob\houserental\data\AppDatabase.java:355 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:356 -> ` -> "`propertyId` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:357 -> ` -> "`unitId` INTEGER, " + // Nullable Long: NULL = Property-wide maintenance
+java\com\rob\houserental\data\AppDatabase.java:358 -> ` -> "`title` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:359 -> ` -> "`description` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:360 -> ` -> "`category` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:361 -> ` -> "`priority` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:362 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:363 -> ` -> "`estimatedCost` REAL NOT NULL DEFAULT 0.0, " +
+java\com\rob\houserental\data\AppDatabase.java:364 -> ` -> "`actualCost` REAL NOT NULL DEFAULT 0.0, " +
+java\com\rob\houserental\data\AppDatabase.java:365 -> ` -> "`expenseId` INTEGER, " + // Nullable Long: ID of converted expense
+java\com\rob\houserental\data\AppDatabase.java:366 -> ` -> "`vendorName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:367 -> ` -> "`vendorPhone` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:368 -> ` -> "`scheduledDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:369 -> ` -> "`completedDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:370 -> ` -> "`notes` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:371 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:372 -> ` -> "`updatedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:373 -> ` -> "FOREIGN KEY(`propertyId`) REFERENCES `properties`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT" +
+java\com\rob\houserental\data\AppDatabase.java:376 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_propertyId` ON `maintenance_records` (`propertyId`)");
+java\com\rob\houserental\data\AppDatabase.java:377 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_unitId` ON `maintenance_records` (`unitId`)");
+java\com\rob\houserental\data\AppDatabase.java:378 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_category` ON `maintenance_records` (`category`)");
+java\com\rob\houserental\data\AppDatabase.java:379 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_priority` ON `maintenance_records` (`priority`)");
+java\com\rob\houserental\data\AppDatabase.java:380 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_status` ON `maintenance_records` (`status`)");
+java\com\rob\houserental\data\AppDatabase.java:381 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_scheduledDate` ON `maintenance_records` (`scheduledDate`)");
+java\com\rob\houserental\data\AppDatabase.java:382 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_maintenance_records_completedDate` ON `maintenance_records` (`completedDate`)");
+java\com\rob\houserental\data\AppDatabase.java:385 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `reminders` (" +
+java\com\rob\houserental\data\AppDatabase.java:386 -> ` -> "`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:387 -> ` -> "`title` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:388 -> ` -> "`description` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:389 -> ` -> "`reminderType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:390 -> ` -> "`relatedEntityType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:391 -> ` -> "`relatedEntityId` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:392 -> ` -> "`reminderDate` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:393 -> ` -> "`reminderTime` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:394 -> ` -> "`repeatType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:395 -> ` -> "`repeatInterval` INTEGER NOT NULL DEFAULT 1, " +
+java\com\rob\houserental\data\AppDatabase.java:396 -> ` -> "`isEnabled` INTEGER NOT NULL DEFAULT 1, " +
+java\com\rob\houserental\data\AppDatabase.java:397 -> ` -> "`isCompleted` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:398 -> ` -> "`lastTriggeredAt` INTEGER NOT NULL DEFAULT 0, " +
+java\com\rob\houserental\data\AppDatabase.java:399 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:400 -> ` -> "`updatedAt` INTEGER NOT NULL" +
+java\com\rob\houserental\data\AppDatabase.java:403 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_reminderType` ON `reminders` (`reminderType`)");
+java\com\rob\houserental\data\AppDatabase.java:404 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_relatedEntityType` ON `reminders` (`relatedEntityType`)");
+java\com\rob\houserental\data\AppDatabase.java:405 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_relatedEntityId` ON `reminders` (`relatedEntityId`)");
+java\com\rob\houserental\data\AppDatabase.java:406 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_reminderDate` ON `reminders` (`reminderDate`)");
+java\com\rob\houserental\data\AppDatabase.java:407 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_isEnabled` ON `reminders` (`isEnabled`)");
+java\com\rob\houserental\data\AppDatabase.java:408 -> ` -> database.execSQL("CREATE INDEX IF NOT EXISTS `index_reminders_isCompleted` ON `reminders` (`isCompleted`)");
+java\com\rob\houserental\data\AppDatabase.java:415 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `user_accounts` (" +
+java\com\rob\houserental\data\AppDatabase.java:416 -> ` -> "`userId` TEXT PRIMARY KEY NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:417 -> ` -> "`emailOrPhone` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:418 -> ` -> "`fullName` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:419 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:420 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:421 -> ` -> "`updatedAt` INTEGER NOT NULL" +
+java\com\rob\houserental\data\AppDatabase.java:424 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `subscription_entitlements` (" +
+java\com\rob\houserental\data\AppDatabase.java:425 -> ` -> "`entitlementId` TEXT PRIMARY KEY NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:426 -> ` -> "`userId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:427 -> ` -> "`entitlementType` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:428 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:429 -> ` -> "`planCode` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:430 -> ` -> "`startedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:431 -> ` -> "`expiresAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:432 -> ` -> "`graceUntil` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:433 -> ` -> "`source` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:434 -> ` -> "`orderId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:435 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:436 -> ` -> "`updatedAt` INTEGER NOT NULL" +
+java\com\rob\houserental\data\AppDatabase.java:439 -> ` -> database.execSQL("CREATE TABLE IF NOT EXISTS `payment_orders` (" +
+java\com\rob\houserental\data\AppDatabase.java:440 -> ` -> "`orderId` TEXT PRIMARY KEY NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:441 -> ` -> "`userId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:442 -> ` -> "`planCode` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:443 -> ` -> "`amountMinor` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:444 -> ` -> "`currency` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:445 -> ` -> "`paymentMethod` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:446 -> ` -> "`status` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:447 -> ` -> "`createdAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:448 -> ` -> "`expiresAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:449 -> ` -> "`submittedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:450 -> ` -> "`verifiedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:451 -> ` -> "`rejectedAt` INTEGER NOT NULL, " +
+java\com\rob\houserental\data\AppDatabase.java:452 -> ` -> "`transactionId` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:453 -> ` -> "`rejectionReason` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:454 -> ` -> "`verifiedBy` TEXT, " +
+java\com\rob\houserental\data\AppDatabase.java:455 -> ` -> "`entitlementId` TEXT" +
+java\com\rob\houserental\utils\ReceiptGeneratorUtils.java:139 -> ^ -> String cleanPhone = phoneNumber != null ? phoneNumber.replaceAll("[^0-9+]", "") : "";
+res\layout\item_app_document.xml:68 -> ⋮ -> android:text="⋮"

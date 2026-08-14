@@ -57,7 +57,7 @@
                             android:layout_marginEnd="16dp"
                             android:background="@drawable/bg_stat_circle_blue"
                             android:gravity="center"
-                            android:text="🌐"
+                            android:text=""
                             android:textSize="22sp" />
 
                         <LinearLayout
@@ -213,7 +213,7 @@
                             android:layout_marginEnd="16dp"
                             android:background="@drawable/bg_stat_circle_green"
                             android:gravity="center"
-                            android:text="☁️"
+                            android:text=""
                             android:textSize="22sp" />
 
                         <LinearLayout

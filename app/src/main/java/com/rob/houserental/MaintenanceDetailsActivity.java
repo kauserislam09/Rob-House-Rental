@@ -209,8 +209,8 @@ public class MaintenanceDetailsActivity extends AppCompatActivity {
                         if (tvTitle != null) tvTitle.setText(record.getTitle() != null ? record.getTitle() : "");
 
                         String propName = prop != null ? prop.getName() : "";
-                        String unitName = unit != null ? " • " + getString(R.string.unit_number) + " " + unit.getUnitNumber() : " • " + getString(R.string.property_wide_entire_building);
-                        if (tvPropertyUnit != null) tvPropertyUnit.setText("🏠 " + propName + unitName);
+                        String unitName = unit != null ? " • " + getString(R.string.unit_number) + unit.getUnitNumber() : " • " + getString(R.string.property_wide_entire_building);
+                        if (tvPropertyUnit != null) tvPropertyUnit.setText(propName + unitName);
 
                         if (tvCategory != null) tvCategory.setText(getString(R.string.category) + ": " + MaintenanceAdapter.getCategoryDisplay(MaintenanceDetailsActivity.this, record.getCategory()));
                         if (tvPriority != null) tvPriority.setText(getString(R.string.priority) + ": " + MaintenanceAdapter.getPriorityDisplay(MaintenanceDetailsActivity.this, record.getPriority()));
@@ -218,14 +218,14 @@ public class MaintenanceDetailsActivity extends AppCompatActivity {
 
                         String curr = getString(R.string.currency_symbol);
                         String costStr = getString(R.string.estimated_cost) + ": " + curr + currencyFormat.format(record.getEstimatedCost()) +
-                                "  |  " + getString(R.string.actual_cost) + ": " + curr + currencyFormat.format(record.getActualCost());
+                                " | " + getString(R.string.actual_cost) + ": " + curr + currencyFormat.format(record.getActualCost());
                         if (tvCosts != null) tvCosts.setText(costStr);
 
                         if (tvVendor != null) {
                             if (record.getVendorName() != null && !record.getVendorName().isEmpty()) {
                                 String vendorStr = getString(R.string.vendor_name) + ": " + record.getVendorName();
                                 if (record.getVendorPhone() != null && !record.getVendorPhone().isEmpty()) {
-                                    vendorStr += " (📞 " + record.getVendorPhone() + ")";
+                                    vendorStr += " ( " + record.getVendorPhone() + ")";
                                     tvVendor.setOnClickListener(v -> {
                                         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + record.getVendorPhone()));
                                         startActivity(intent);
@@ -241,7 +241,7 @@ public class MaintenanceDetailsActivity extends AppCompatActivity {
                         if (tvDates != null) {
                             String datesStr = getString(R.string.scheduled_date_optional) + ": " + (record.getScheduledDate() != null && !record.getScheduledDate().isEmpty() ? record.getScheduledDate() : "-");
                             if (record.getCompletedDate() != null && !record.getCompletedDate().isEmpty()) {
-                                datesStr += "  |  " + getString(R.string.status_maint_completed) + ": " + record.getCompletedDate();
+                                datesStr += " | " + getString(R.string.status_maint_completed) + ": " + record.getCompletedDate();
                             }
                             tvDates.setText(datesStr);
                         }

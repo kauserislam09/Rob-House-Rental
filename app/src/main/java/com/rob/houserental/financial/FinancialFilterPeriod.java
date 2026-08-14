@@ -12,9 +12,9 @@ public class FinancialFilterPeriod {
 
     private Type type;
     private String startDate; // yyyy-MM-dd
-    private String endDate;   // yyyy-MM-dd
+    private String endDate; // yyyy-MM-dd
     private String startMonth; // yyyy-MM
-    private String endMonth;   // yyyy-MM
+    private String endMonth; // yyyy-MM
 
     public FinancialFilterPeriod(Type type) {
         this.type = type;

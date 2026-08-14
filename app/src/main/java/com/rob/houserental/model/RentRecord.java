@@ -31,7 +31,7 @@ public class RentRecord {
     private long tenancyId;
 
     private String billingMonth; // e.g. "2026-08" or "August 2026"
-    private String dueDate;      // e.g. "10 Aug 2026"
+    private String dueDate; // e.g. "10 Aug 2026"
 
     private double amountDue;
     private double amountPaid;

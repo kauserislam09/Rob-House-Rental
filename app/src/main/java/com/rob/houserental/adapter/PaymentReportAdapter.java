@@ -46,7 +46,7 @@ public class PaymentReportAdapter extends RecyclerView.Adapter<PaymentReportAdap
         String curr = context.getString(R.string.currency_symbol);
         holder.tvAmount.setText(curr + currencyFormatter.format(item.amount));
         holder.tvMethod.setText(PaymentMethodUtils.getDisplayName(context, item.paymentMethod));
-        holder.tvDate.setText("📅 " + (item.paymentDate != null ? item.paymentDate : ""));
+        holder.tvDate.setText((item.paymentDate != null ? item.paymentDate : ""));
 
         String details = (item.tenantName != null ? item.tenantName : "") + " • " +
                 (item.propertyName != null ? item.propertyName : "") + " (" + (item.unitNumber != null ? item.unitNumber : "") + ")";

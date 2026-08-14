@@ -524,21 +524,21 @@ public class PropertyDetailsActivity extends AppCompatActivity {
                     }
                     details.append(getString(R.string.property_type)).append(": ").append(currentProperty != null && currentProperty.getName() != null ? currentProperty.getName() : "").append("\n");
                     details.append(getString(R.string.unit_status)).append(": ").append(UnitAdapter.getStatusDisplay(this, unit.getStatus())).append("\n");
-                    details.append(getString(R.string.monthly_rent)).append(": ").append(curr).append(currencyFormat.format(unit.getMonthlyRent())).append(" ").append(perMonth).append("\n");
+                    details.append(getString(R.string.monthly_rent)).append(": ").append(curr).append(currencyFormat.format(unit.getMonthlyRent())).append("").append(perMonth).append("\n");
 
                     if (outstandingRent > 0) {
                         details.append(getString(R.string.reports_outstanding_rent)).append(": ").append(curr).append(currencyFormat.format(outstandingRent)).append("\n");
                     }
 
-                    details.append("\n🛠️ ").append(getString(R.string.maintenance_title)).append(":\n");
+                    details.append("\n ").append(getString(R.string.maintenance_title)).append(":\n");
                     details.append("Total: ").append(unitMaintCount).append(" | Recent: ").append(finalRecentMaint).append(" | Cost: ").append(curr).append(currencyFormat.format(finalUnitCost)).append("\n");
 
                     if (activeTenancy != null && activeTenancy.tenant != null) {
-                        details.append("\n━━━━━━━━━━━━━━━━━━━━\n");
+                        details.append("\n\n");
                         details.append(getString(R.string.current_tenant)).append(":\n");
-                        details.append("👤 ").append(activeTenancy.tenant.getFullName()).append("\n");
+                        details.append("").append(activeTenancy.tenant.getFullName()).append("\n");
                         if (activeTenancy.tenant.getPhoneNumber() != null) {
-                            details.append("📞 ").append(activeTenancy.tenant.getPhoneNumber()).append("\n");
+                            details.append("").append(activeTenancy.tenant.getPhoneNumber()).append("\n");
                         }
                     } else {
                         details.append("\n(").append(getString(R.string.currently_vacant)).append(")\n");
