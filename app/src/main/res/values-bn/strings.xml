@@ -892,6 +892,7 @@
     <!-- Commercial & Premium Subscription Strings (Bangla) -->
     <string name="subscription_title">প্রিমিয়াম সাবস্ক্রিপশন</string>
     <string name="menu_subscription">সাবস্ক্রিপশন ও প্রিমিয়াম</string>
+    <string name="coming_soon_message">শীঘ্রই আসছে...</string>
     <string name="current_status">বর্তমান স্ট্যাটাস</string>
     <string name="status_sub_free">ফ্রি প্ল্যান</string>
     <string name="status_sub_active">প্রিমিয়াম সক্রিয়</string>

@@ -71,11 +71,12 @@ public class SubscriptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscription);
 
-        subscriptionRepository = new SubscriptionRepository(this);
-
-        initializeViews();
-        setupToolbar();
-        setupListeners();
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.menu_subscription)
+                .setMessage(R.string.coming_soon_message)
+                .setPositiveButton(R.string.close, (dialog, which) -> finish())
+                .setOnCancelListener(dialog -> finish())
+                .show();
     }
 
     private void initializeViews() {

@@ -892,6 +892,7 @@
     <!-- Commercial & Premium Subscription Strings -->
     <string name="subscription_title">Premium Subscription</string>
     <string name="menu_subscription">Subscription &amp; Premium</string>
+    <string name="coming_soon_message">Coming Soon...</string>
     <string name="current_status">Current Status</string>
     <string name="status_sub_free">Free Plan</string>
     <string name="status_sub_active">Premium Active</string>

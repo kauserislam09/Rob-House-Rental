@@ -199,10 +199,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
-            // Subscription & Premium
+            // Subscription & Premium (Paused - Coming Soon)
             if (id == R.id.nav_subscription) {
-                Intent intent = new Intent(MainActivity.this, SubscriptionActivity.class);
-                startActivity(intent);
+                new com.google.android.material.dialog.MaterialAlertDialogBuilder(MainActivity.this)
+                        .setTitle(R.string.menu_subscription)
+                        .setMessage(R.string.coming_soon_message)
+                        .setPositiveButton(R.string.close, null)
+                        .show();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
