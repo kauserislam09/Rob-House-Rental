@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="18dp">
 
-        <!-- Hero Banner Card -->
+        <!-- Dynamic Header Banner Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="24dp">
+                android:padding="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -34,106 +34,358 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvWelcome"
+                        android:id="@+id/tvGreetingTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_welcome"
+                        android:text="@string/greeting_morning"
                         android:textColor="@color/md_theme_onPrimaryContainer"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvCurrentDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="@string/dashboard_subtitle"
                         android:textColor="@color/md_theme_onSurfaceVariant"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
-                <ImageView
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/imgHeroIcon"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_home"
-                    app:tint="@color/md_theme_primary" />
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/md_theme_primary">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_home"
+                        app:tint="@color/md_theme_onPrimary" />
+
+                </com.google.android.material.card.MaterialCardView>
 
             </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Overview Section Header -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="12dp"
-            android:text="@string/menu_dashboard"
-            android:textColor="@color/md_theme_onSurface"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <!-- Total Units Metric Card -->
-        <com.google.android.material.card.MaterialCardView
+        <!-- Quick Search Bar -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDashboardSearch"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:startIconDrawable="@drawable/ic_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDashboardSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_dashboard_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Cash Flow Widget -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCashFlow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="1dp"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/md_theme_outlineVariant">
+            app:strokeColor="@color/md_theme_outlineVariant"
+            app:cardBackgroundColor="@color/md_theme_surface">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="20dp">
+                android:orientation="vertical"
+                android:padding="18dp">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp"
-                    app:cardBackgroundColor="@color/md_theme_primaryContainer">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_building"
-                        app:tint="@color/md_theme_primary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/section_cashflow"
+                        android:textColor="@color/md_theme_onSurface"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:id="@+id/btnViewFinancials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/view_financials"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <!-- Collected -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_collected"
+                            android:textColor="@color/md_theme_onSurfaceVariant"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvMonthlyCollected"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="৳0"
+                            android:textColor="@color/status_paid_text"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Pending Due -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_pending_due"
+                            android:textColor="@color/md_theme_onSurfaceVariant"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvMonthlyPending"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="৳0"
+                            android:textColor="@color/status_overdue_text"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Section: Needs Attention (Alerts Feed) -->
+        <LinearLayout
+            android:id="@+id/layoutNeedsAttention"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/section_needs_attention"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOverdueAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/status_overdue_text"
+                app:cardBackgroundColor="@color/status_overdue_bg">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/btnSendReminderAlert"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/alert_overdue_title"
+                            android:textColor="@color/status_overdue_text"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvOverdueAlertMsg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSendReminderAlert"
+                        style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/dashboard_total_units"
-                        android:textColor="@color/md_theme_onSurfaceVariant"
-                        android:textSize="14sp" />
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:minHeight="36dp"
+                        android:paddingHorizontal="10dp"
+                        android:text="@string/btn_send_reminder"
+                        android:textSize="12sp" />
 
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Overview Section Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/menu_dashboard"
+            android:textColor="@color/md_theme_onSurface"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Total Units Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTotalUnits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="1dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/md_theme_outlineVariant"
+            app:cardBackgroundColor="@color/md_theme_surface">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp"
+                        app:cardBackgroundColor="@color/md_theme_primaryContainer">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_building"
+                            app:tint="@color/md_theme_primary" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dashboard_total_units"
+                            android:textColor="@color/md_theme_onSurfaceVariant"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalUnits"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="0"
+                            android:textColor="@color/md_theme_onSurface"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Occupancy Badge -->
                     <TextView
-                        android:id="@+id/tvTotalUnits"
+                        android:id="@+id/tvOccupancyPercentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="0"
-                        android:textColor="@color/md_theme_onSurface"
-                        android:textSize="28sp"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="0% Occupied"
+                        android:textColor="@color/md_theme_primary"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
+                <!-- Occupancy Rate Linear Progress -->
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/pbOccupancyRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:trackCornerRadius="4dp"
+                    app:trackThickness="6dp" />
 
             </LinearLayout>
 
@@ -143,37 +395,41 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <!-- Occupied Units -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOccupiedUnits"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
-                app:cardCornerRadius="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
                 app:cardElevation="1dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/md_theme_outlineVariant">
+                app:strokeColor="@color/md_theme_outlineVariant"
+                app:cardBackgroundColor="@color/md_theme_surface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:cardCornerRadius="12dp"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp"
                         app:cardBackgroundColor="@color/status_occupied_bg">
 
                         <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_person"
                             app:tint="@color/status_occupied_text" />
@@ -183,10 +439,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/dashboard_occupied"
                         android:textColor="@color/md_theme_onSurfaceVariant"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvOccupied"
@@ -195,7 +451,7 @@
                         android:layout_marginTop="2dp"
                         android:text="0"
                         android:textColor="@color/status_occupied_text"
-                        android:textSize="26sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -204,32 +460,36 @@
 
             <!-- Vacant Units -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVacantUnits"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="5dp"
                 android:layout_weight="1"
-                app:cardCornerRadius="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="18dp"
                 app:cardElevation="1dp"
                 app:strokeWidth="1dp"
-                app:strokeColor="@color/md_theme_outlineVariant">
+                app:strokeColor="@color/md_theme_outlineVariant"
+                app:cardBackgroundColor="@color/md_theme_surface">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="14dp">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:cardCornerRadius="12dp"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp"
                         app:cardBackgroundColor="@color/status_vacant_bg">
 
                         <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:src="@drawable/ic_unit_key"
                             app:tint="@color/status_vacant_text" />
@@ -239,10 +499,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="10dp"
                         android:text="@string/dashboard_vacant"
                         android:textColor="@color/md_theme_onSurfaceVariant"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvVacant"
@@ -251,7 +511,7 @@
                         android:layout_marginTop="2dp"
                         android:text="0"
                         android:textColor="@color/status_vacant_text"
-                        android:textSize="26sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -264,58 +524,96 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/menu_dashboard"
             android:textColor="@color/md_theme_onSurface"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Quick Actions -->
+        <!-- Row 1 Quick Actions -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCollectRent"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="52dp"
             android:text="@string/action_collect_rent"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:cornerRadius="16dp"
             app:icon="@drawable/ic_payment"
-            app:iconPadding="12dp"
-            app:iconSize="22dp" />
+            app:iconPadding="10dp"
+            app:iconSize="20dp" />
 
+        <!-- Row 2 Quick Actions -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddTenant"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginEnd="5dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
                 android:layout_weight="1"
                 android:text="@string/action_add_tenant"
-                android:textSize="14sp"
-                app:cornerRadius="14dp"
+                android:textSize="13sp"
+                app:cornerRadius="12dp"
                 app:icon="@drawable/ic_person"
-                app:iconPadding="8dp"
-                app:iconSize="20dp" />
+                app:iconPadding="6dp"
+                app:iconSize="18dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddBill"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="5dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
                 android:text="@string/action_add_bill"
-                android:textSize="14sp"
-                app:cornerRadius="14dp"
+                android:textSize="13sp"
+                app:cornerRadius="12dp"
                 app:icon="@drawable/ic_bill_utility"
-                app:iconPadding="8dp"
-                app:iconSize="20dp" />
+                app:iconPadding="6dp"
+                app:iconSize="18dp" />
+
+        </LinearLayout>
+
+        <!-- Row 3 Quick Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddExpense"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:text="@string/action_add_expense_btn"
+                android:textSize="13sp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_receipt"
+                app:iconPadding="6dp"
+                app:iconSize="18dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnViewReports"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:text="@string/action_view_reports_btn"
+                android:textSize="13sp"
+                app:cornerRadius="12dp"
+                app:icon="@drawable/ic_chart"
+                app:iconPadding="6dp"
+                app:iconSize="18dp" />
 
         </LinearLayout>
 

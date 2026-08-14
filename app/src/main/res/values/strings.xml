@@ -21,13 +21,33 @@
     <string name="dashboard_welcome">Welcome 👋</string>
     <string name="dashboard_subtitle">Manage your properties easily.</string>
 
+    <string name="greeting_morning">Good Morning ☀️</string>
+    <string name="greeting_afternoon">Good Afternoon 🌤️</string>
+    <string name="greeting_evening">Good Evening 🌙</string>
+
+    <string name="section_cashflow">Monthly Cash Flow</string>
+    <string name="label_collected">Collected</string>
+    <string name="label_pending_due">Pending Due</string>
+    <string name="view_financials">Financials ›</string>
+
+    <string name="section_needs_attention">Needs Attention</string>
+    <string name="alert_overdue_title">Overdue Rent Records</string>
+    <string name="alert_overdue_msg">%1$d tenant(s) have overdue rent this month.</string>
+    <string name="btn_send_reminder">Send Reminder</string>
+
+    <string name="occupancy_rate">Occupancy Rate</string>
+
     <string name="dashboard_total_units">Total Units</string>
     <string name="dashboard_occupied">Occupied</string>
     <string name="dashboard_vacant">Vacant</string>
 
-    <string name="action_collect_rent">💰  Collect Rent</string>
-    <string name="action_add_tenant">👤  Add Tenant</string>
-    <string name="action_add_bill">🧾  Add Bill</string>
+    <string name="action_collect_rent">💰 Collect Rent</string>
+    <string name="action_add_tenant">👤 Add Tenant</string>
+    <string name="action_add_bill">🧾 Add Bill</string>
+    <string name="action_add_unit_btn">🔑 Add Unit</string>
+    <string name="action_add_expense_btn">💸 Log Expense</string>
+    <string name="action_view_reports_btn">📊 Financials</string>
+    <string name="search_dashboard_hint">Search property, unit, or tenant...</string>
 
     <!-- Unit Management Strings -->
     <string name="add_unit_title">Add Unit</string>
