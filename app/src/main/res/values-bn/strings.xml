@@ -260,6 +260,18 @@
 
     <!-- Utility Bill Management Strings (Bangla) -->
     <string name="bills_title">ইউটিলিটি বিলসমূহ</string>
+    <string name="select_file_prompt">ফাইল নির্বাচন করুন (ছবি / পিডিএফ)</string>
+    <string name="choose_attachment_source">ডকুমেন্ট সংগ্রহের মাধ্যম নির্বাচন করুন</string>
+    <string name="option_open_camera">ক্যামেরা দিয়ে ছবি তুলুন</string>
+    <string name="option_choose_file">ফাইল বা গ্যালারি থেকে নিন</string>
+    <string name="nid_front_side">এনআইডি সামনের দিক</string>
+    <string name="nid_back_side">এনআইডি পেছনের দিক</string>
+    <string name="capture_front">সামনের দিকের ছবি তুলুন</string>
+    <string name="capture_back">পেছনের দিকের ছবি তুলুন</string>
+    <string name="both_sides_required">অনুগ্রহ করে এনআইডি-র সামনের ও পেছনের দুই দিকের ছবিই যুক্ত করুন।</string>
+    <string name="camera_permission_required">ক্যামেরা দিয়ে ছবি তুলতে ক্যামেরার পারমিশন প্রয়োজন।</string>
+    <string name="nid_front_label">এনআইডি সামনের দিক</string>
+    <string name="nid_back_label">এনআইডি পেছনের দিক</string>
     <string name="add_bill_title">নতুন বিল যোগ করুন</string>
     <string name="edit_bill_title">বিল সংশোধন করুন</string>
     <string name="bill_details_title">বিলের বিস্তারিত</string>
@@ -374,7 +386,6 @@
     <string name="doc_cat_bill_copy">ইউটিলিটি বিলের কপি</string>
     <string name="doc_cat_police">পুলিশ ভেরিফিকেশন ফরম</string>
     <string name="doc_cat_other">অন্যান্য ডকুমেন্ট</string>
-    <string name="select_file_prompt">ফাইল নির্বাচন করুন (ছবি / পিডিএফ)</string>
     <string name="file_attached_success">ফাইল সংযুক্ত হয়েছে: %1$s</string>
     <string name="document_name_required">ডকুমেন্টের নাম লিখুন।</string>
     <string name="file_selection_required">সংযুক্ত করার জন্য একটি ফাইল নির্বাচন করুন।</string>

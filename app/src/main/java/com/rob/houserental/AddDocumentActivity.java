@@ -1,19 +1,27 @@
 package com.rob.houserental;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -23,6 +31,7 @@ import com.rob.houserental.model.AppDocument;
 import com.rob.houserental.model.Property;
 import com.rob.houserental.model.Tenant;
 import com.rob.houserental.repository.DocumentRepository;
+import com.rob.houserental.utils.ImageMergeUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,11 +58,22 @@ public class AddDocumentActivity extends AppCompatActivity {
     private TextInputLayout layoutDocCategory;
     private MaterialAutoCompleteTextView autoDocCategory;
 
+    private MaterialCardView cardSingleFileAttachment;
     private MaterialButton btnChooseDocumentFile;
     private View layoutAttachedFilePreview;
     private TextView tvAttachedFileName;
     private TextView tvAttachedFileSize;
     private MaterialButton btnRemoveAttachedFile;
+
+    // NID Dual-Side Controls
+    private MaterialCardView cardNidDualCapture;
+    private ImageView imgNidFrontPreview;
+    private TextView tvNidFrontStatus;
+    private MaterialButton btnCaptureNidFront;
+
+    private ImageView imgNidBackPreview;
+    private TextView tvNidBackStatus;
+    private MaterialButton btnCaptureNidBack;
 
     private TextInputEditText etDocumentNotes;
     private MaterialButton btnSaveDocument;
@@ -75,10 +95,34 @@ public class AddDocumentActivity extends AppCompatActivity {
     private String attachedMimeType;
     private long attachedFileSize = 0;
 
+    // NID Dual-side paths
+    private String nidFrontPath;
+    private String nidBackPath;
+
+    // Camera & File target state
+    private String activeAttachmentTarget = "SINGLE"; // "SINGLE", "NID_FRONT", "NID_BACK"
+    private Uri currentTempCameraUri;
+
     private final ActivityResultLauncher<String> filePickerLauncher =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
                 if (uri != null) {
-                    saveFileLocally(uri);
+                    processPickedUri(uri);
+                }
+            });
+
+    private final ActivityResultLauncher<Uri> cameraLauncher =
+            registerForActivityResult(new ActivityResultContracts.TakePicture(), success -> {
+                if (success && currentTempCameraUri != null) {
+                    processCameraUri(currentTempCameraUri);
+                }
+            });
+
+    private final ActivityResultLauncher<String> cameraPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    launchCamera();
+                } else {
+                    Toast.makeText(this, R.string.camera_permission_required, Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -119,11 +163,22 @@ public class AddDocumentActivity extends AppCompatActivity {
         layoutDocCategory = findViewById(R.id.layoutDocCategory);
         autoDocCategory = findViewById(R.id.autoDocCategory);
 
+        cardSingleFileAttachment = findViewById(R.id.cardSingleFileAttachment);
         btnChooseDocumentFile = findViewById(R.id.btnChooseDocumentFile);
         layoutAttachedFilePreview = findViewById(R.id.layoutAttachedFilePreview);
         tvAttachedFileName = findViewById(R.id.tvAttachedFileName);
         tvAttachedFileSize = findViewById(R.id.tvAttachedFileSize);
         btnRemoveAttachedFile = findViewById(R.id.btnRemoveAttachedFile);
+
+        // NID Dual-side controls
+        cardNidDualCapture = findViewById(R.id.cardNidDualCapture);
+        imgNidFrontPreview = findViewById(R.id.imgNidFrontPreview);
+        tvNidFrontStatus = findViewById(R.id.tvNidFrontStatus);
+        btnCaptureNidFront = findViewById(R.id.btnCaptureNidFront);
+
+        imgNidBackPreview = findViewById(R.id.imgNidBackPreview);
+        tvNidBackStatus = findViewById(R.id.tvNidBackStatus);
+        btnCaptureNidBack = findViewById(R.id.btnCaptureNidBack);
 
         etDocumentNotes = findViewById(R.id.etDocumentNotes);
         btnSaveDocument = findViewById(R.id.btnSaveDocument);
@@ -204,10 +259,22 @@ public class AddDocumentActivity extends AppCompatActivity {
         autoDocCategory.setAdapter(adapter);
         autoDocCategory.setText(catLabels[0], false);
         selectedCategory = catKeys[0];
+        updateAttachmentMode(selectedCategory);
 
         autoDocCategory.setOnItemClickListener((parent, view, position, id) -> {
             selectedCategory = catKeys[position];
+            updateAttachmentMode(selectedCategory);
         });
+    }
+
+    private void updateAttachmentMode(String category) {
+        if ("NID".equalsIgnoreCase(category)) {
+            cardSingleFileAttachment.setVisibility(View.GONE);
+            cardNidDualCapture.setVisibility(View.VISIBLE);
+        } else {
+            cardSingleFileAttachment.setVisibility(View.VISIBLE);
+            cardNidDualCapture.setVisibility(View.GONE);
+        }
     }
 
     private void loadProperties() {
@@ -278,7 +345,11 @@ public class AddDocumentActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        btnChooseDocumentFile.setOnClickListener(v -> filePickerLauncher.launch("*/*"));
+        btnChooseDocumentFile.setOnClickListener(v -> showSourceSelectionDialog("SINGLE"));
+
+        btnCaptureNidFront.setOnClickListener(v -> showSourceSelectionDialog("NID_FRONT"));
+
+        btnCaptureNidBack.setOnClickListener(v -> showSourceSelectionDialog("NID_BACK"));
 
         btnRemoveAttachedFile.setOnClickListener(v -> {
             attachedFilePath = null;
@@ -291,7 +362,85 @@ public class AddDocumentActivity extends AppCompatActivity {
         btnSaveDocument.setOnClickListener(v -> saveDocument());
     }
 
-    private void saveFileLocally(Uri uri) {
+    private void showSourceSelectionDialog(String target) {
+        this.activeAttachmentTarget = target;
+        CharSequence[] options = new CharSequence[]{
+                getString(R.string.option_open_camera),
+                getString(R.string.option_choose_file)
+        };
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.choose_attachment_source)
+                .setItems(options, (dialog, which) -> {
+                    if (which == 0) {
+                        checkCameraPermissionAndLaunch();
+                    } else {
+                        filePickerLauncher.launch("*/*");
+                    }
+                })
+                .show();
+    }
+
+    private void checkCameraPermissionAndLaunch() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            launchCamera();
+        } else {
+            cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
+        }
+    }
+
+    private void launchCamera() {
+        try {
+            File cameraDir = new File(getCacheDir(), "camera");
+            if (!cameraDir.exists()) {
+                cameraDir.mkdirs();
+            }
+            File tempFile = new File(cameraDir, "cam_" + System.currentTimeMillis() + ".jpg");
+            currentTempCameraUri = FileProvider.getUriForFile(
+                    this,
+                    getPackageName() + ".fileprovider",
+                    tempFile
+            );
+            cameraLauncher.launch(currentTempCameraUri);
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.save_failed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void processCameraUri(Uri cameraUri) {
+        executor.execute(() -> {
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(cameraUri);
+                if (inputStream == null) return;
+
+                File docsDir = new File(getFilesDir(), "documents");
+                if (!docsDir.exists()) {
+                    docsDir.mkdirs();
+                }
+
+                String fileName = "cam_" + System.currentTimeMillis() + ".jpg";
+                File targetFile = new File(docsDir, fileName);
+
+                FileOutputStream outputStream = new FileOutputStream(targetFile);
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+                long totalBytes = 0;
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                    totalBytes += bytesRead;
+                }
+                outputStream.flush();
+                outputStream.close();
+                inputStream.close();
+
+                handleFileCaptured(targetFile.getAbsolutePath(), fileName, "image/jpeg", totalBytes);
+            } catch (Exception e) {
+                runOnUiThread(() -> Toast.makeText(AddDocumentActivity.this, R.string.file_attach_failed, Toast.LENGTH_SHORT).show());
+            }
+        });
+    }
+
+    private void processPickedUri(Uri uri) {
         executor.execute(() -> {
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -317,22 +466,37 @@ public class AddDocumentActivity extends AppCompatActivity {
                 outputStream.close();
                 inputStream.close();
 
-                attachedFilePath = targetFile.getAbsolutePath();
-                attachedFileName = fileName;
-                attachedMimeType = getContentResolver().getType(uri);
-                attachedFileSize = totalBytes;
-
-                runOnUiThread(() -> {
-                    tvAttachedFileName.setText(fileName);
-                    tvAttachedFileSize.setText(DocumentAdapter.formatFileSize(attachedFileSize) + " • " + DocumentAdapter.formatMimeType(attachedMimeType, fileName));
-                    layoutAttachedFilePreview.setVisibility(View.VISIBLE);
-
-                    if (TextUtils.isEmpty(getText(etDocumentDisplayName))) {
-                        etDocumentDisplayName.setText(DocumentAdapter.getCategoryTitle(AddDocumentActivity.this, selectedCategory));
-                    }
-                });
+                String mimeType = getContentResolver().getType(uri);
+                handleFileCaptured(targetFile.getAbsolutePath(), fileName, mimeType, totalBytes);
             } catch (Exception e) {
                 runOnUiThread(() -> Toast.makeText(AddDocumentActivity.this, R.string.file_attach_failed, Toast.LENGTH_SHORT).show());
+            }
+        });
+    }
+
+    private void handleFileCaptured(String path, String name, String mimeType, long size) {
+        runOnUiThread(() -> {
+            if ("NID_FRONT".equals(activeAttachmentTarget)) {
+                nidFrontPath = path;
+                tvNidFrontStatus.setText(R.string.active);
+                imgNidFrontPreview.setImageBitmap(BitmapFactory.decodeFile(path));
+            } else if ("NID_BACK".equals(activeAttachmentTarget)) {
+                nidBackPath = path;
+                tvNidBackStatus.setText(R.string.active);
+                imgNidBackPreview.setImageBitmap(BitmapFactory.decodeFile(path));
+            } else {
+                attachedFilePath = path;
+                attachedFileName = name;
+                attachedMimeType = mimeType;
+                attachedFileSize = size;
+
+                tvAttachedFileName.setText(name);
+                tvAttachedFileSize.setText(DocumentAdapter.formatFileSize(attachedFileSize) + " • " + DocumentAdapter.formatMimeType(attachedMimeType, name));
+                layoutAttachedFilePreview.setVisibility(View.VISIBLE);
+            }
+
+            if (TextUtils.isEmpty(getText(etDocumentDisplayName))) {
+                etDocumentDisplayName.setText(DocumentAdapter.getCategoryTitle(AddDocumentActivity.this, selectedCategory));
             }
         });
     }
@@ -347,11 +511,43 @@ public class AddDocumentActivity extends AppCompatActivity {
             return;
         }
 
-        if (attachedFilePath == null || attachedFilePath.isEmpty()) {
-            Toast.makeText(this, R.string.file_selection_required, Toast.LENGTH_SHORT).show();
-            return;
-        }
+        btnSaveDocument.setEnabled(false);
 
+        if ("NID".equalsIgnoreCase(selectedCategory)) {
+            if (nidFrontPath == null || nidBackPath == null) {
+                btnSaveDocument.setEnabled(true);
+                Toast.makeText(this, R.string.both_sides_required, Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // Stitch Front and Back NID images into single composite document image
+            executor.execute(() -> {
+                try {
+                    File mergedFile = ImageMergeUtils.mergeNidImages(getApplicationContext(), nidFrontPath, nidBackPath);
+                    attachedFilePath = mergedFile.getAbsolutePath();
+                    attachedFileName = mergedFile.getName();
+                    attachedMimeType = "image/jpeg";
+                    attachedFileSize = mergedFile.length();
+
+                    executeSaveDocumentRecord(displayName);
+                } catch (Exception e) {
+                    runOnUiThread(() -> {
+                        btnSaveDocument.setEnabled(true);
+                        Toast.makeText(AddDocumentActivity.this, R.string.save_failed, Toast.LENGTH_SHORT).show();
+                    });
+                }
+            });
+        } else {
+            if (attachedFilePath == null || attachedFilePath.isEmpty()) {
+                btnSaveDocument.setEnabled(true);
+                Toast.makeText(this, R.string.file_selection_required, Toast.LENGTH_SHORT).show();
+                return;
+            }
+            executeSaveDocumentRecord(displayName);
+        }
+    }
+
+    private void executeSaveDocumentRecord(String displayName) {
         String notes = getText(etDocumentNotes);
         long propertyId = selectedProperty != null ? selectedProperty.getId() : 0;
         long tenantId = selectedTenant != null ? selectedTenant.getId() : 0;
@@ -374,8 +570,6 @@ public class AddDocumentActivity extends AppCompatActivity {
                 currentTime,
                 currentTime
         );
-
-        btnSaveDocument.setEnabled(false);
 
         repository.saveDocument(document, new DocumentRepository.DatabaseCallback<Long>() {
             @Override

@@ -374,6 +374,17 @@
     <string name="doc_cat_police">Police Verification Form</string>
     <string name="doc_cat_other">Other Document</string>
     <string name="select_file_prompt">Select File (Image / PDF)</string>
+    <string name="choose_attachment_source">Select Document Source</string>
+    <string name="option_open_camera">Capture with Camera</string>
+    <string name="option_choose_file">Choose from Files / Gallery</string>
+    <string name="nid_front_side">NID Front Side</string>
+    <string name="nid_back_side">NID Back Side</string>
+    <string name="capture_front">Capture Front Side</string>
+    <string name="capture_back">Capture Back Side</string>
+    <string name="both_sides_required">Please attach both Front and Back sides of NID.</string>
+    <string name="camera_permission_required">Camera permission is required to capture document photos.</string>
+    <string name="nid_front_label">NID FRONT SIDE</string>
+    <string name="nid_back_label">NID BACK SIDE</string>
     <string name="file_attached_success">File attached: %1$s</string>
     <string name="document_name_required">Please enter a document name.</string>
     <string name="file_selection_required">Please select a file to attach.</string>
