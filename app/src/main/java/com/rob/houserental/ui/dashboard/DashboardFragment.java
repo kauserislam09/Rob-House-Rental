@@ -1,5 +1,6 @@
 package com.rob.houserental.ui.dashboard;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -215,13 +216,17 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onSuccess(List<Property> properties) {
                 AppExecutors.runOnDatabase(() -> {
+                    if (!isAdded() || getContext() == null) {
+                        return;
+                    }
                     try {
                         int totalUnits = 0;
                         int occupiedUnits = 0;
                         int vacantUnits = 0;
 
+                        Context context = getContext();
                         if (properties != null && !properties.isEmpty()) {
-                            AppDatabase db = AppDatabase.getInstance(getContext());
+                            AppDatabase db = AppDatabase.getInstance(context);
                             for (Property property : properties) {
                                 totalUnits += db.unitDao().getUnitCount(property.getId());
                                 occupiedUnits += db.unitDao().getUnitCountByStatus(property.getId(), "OCCUPIED");
@@ -230,7 +235,7 @@ public class DashboardFragment extends Fragment {
                         }
 
                         // Calculate Financials & Overdue records
-                        AppDatabase db = AppDatabase.getInstance(getContext());
+                        AppDatabase db = AppDatabase.getInstance(context);
                         List<RentRecord> allRentRecords = db.rentDao().getAllRentRecords();
                         
                         double totalPaid = 0;
@@ -239,6 +244,15 @@ public class DashboardFragment extends Fragment {
 
                         if (allRentRecords != null) {
                             for (RentRecord record : allRentRecords) {
+                                com.rob.houserental.model.Tenancy tenancy = db.tenancyDao().getTenancyById(record.getTenancyId());
+                                if (tenancy != null && com.rob.houserental.utils.RentDateUtils.isBillingMonthBeforeTenancyStart(record.getBillingMonth(), tenancy.getStartDate())) {
+                                    // Delete erroneous pre-tenancy rent record if no payment made
+                                    if (record.getAmountPaid() <= 0) {
+                                        db.rentDao().delete(record);
+                                    }
+                                    continue;
+                                }
+
                                 totalPaid += record.getAmountPaid();
                                 double remaining = record.getAmountDue() - record.getAmountPaid();
                                 if (remaining > 0) {
@@ -246,7 +260,7 @@ public class DashboardFragment extends Fragment {
                                 }
                                 String status = record.getStatus();
                                 if ("OVERDUE".equalsIgnoreCase(status) ||
-                                   ("UNPAID".equalsIgnoreCase(status) && remaining > 0)) {
+                                   ("UNPAID".equalsIgnoreCase(status) && remaining > 0 && com.rob.houserental.utils.RentDateUtils.isDueDatePassed(record.getDueDate()))) {
                                     overdueCount++;
                                 }
                             }
@@ -274,8 +288,10 @@ public class DashboardFragment extends Fragment {
             double pending,
             int overdueCount
     ) {
-        if (getActivity() != null) {
+        if (getActivity() != null && isAdded()) {
             getActivity().runOnUiThread(() -> {
+                if (!isAdded()) return;
+
                 if (tvTotalUnits != null) {
                     tvTotalUnits.setText(String.valueOf(total));
                 }
@@ -289,7 +305,7 @@ public class DashboardFragment extends Fragment {
                 // Occupancy Rate Progress
                 int percentage = total > 0 ? (occupied * 100) / total : 0;
                 if (tvOccupancyPercentage != null) {
-                    tvOccupancyPercentage.setText(percentage + "% Occupied");
+                    tvOccupancyPercentage.setText(getString(R.string.occupancy_percentage_format, percentage));
                 }
                 if (pbOccupancyRate != null) {
                     pbOccupancyRate.setProgress(percentage);

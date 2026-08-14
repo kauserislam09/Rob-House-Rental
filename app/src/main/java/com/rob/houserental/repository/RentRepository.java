@@ -69,6 +69,11 @@ public class RentRepository {
                                 continue;
                             }
 
+                            // Skip if billing month is before the tenancy start month
+                            if (RentDateUtils.isBillingMonthBeforeTenancyStart(billingMonth, tenancy.getStartDate())) {
+                                continue;
+                            }
+
                             RentRecord existingRecord = rentDao.getRentRecordByTenancyAndMonth(tenancy.getId(), billingMonth);
                             if (existingRecord != null) {
                                 existing[0]++;
@@ -506,8 +511,13 @@ public class RentRepository {
         databaseExecutor.execute(() -> {
             try {
                 List<RentRecordDisplayItem> list = rentDao.getCumulativeOutstandingRentDisplayItems(maxBillingMonth);
+                List<RentRecordDisplayItem> validList = new ArrayList<>();
                 if (list != null) {
                     for (RentRecordDisplayItem item : list) {
+                        Tenancy tenancy = tenancyDao.getTenancyById(item.tenancyId);
+                        if (tenancy != null && RentDateUtils.isBillingMonthBeforeTenancyStart(item.billingMonth, tenancy.getStartDate())) {
+                            continue;
+                        }
                         item.status = RentDateUtils.calculateStatus(
                                 item.amountDue,
                                 item.amountPaid,
@@ -515,10 +525,11 @@ public class RentRepository {
                                 item.dueDate,
                                 item.status
                         );
+                        validList.add(item);
                     }
                 }
                 if (callback != null) {
-                    callback.onSuccess(list != null ? list : new ArrayList<>());
+                    callback.onSuccess(validList);
                 }
             } catch (Exception e) {
                 if (callback != null) {

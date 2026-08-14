@@ -22,6 +22,26 @@
     <string name="dashboard_welcome">স্বাগতম 👋</string>
     <string name="dashboard_subtitle">আপনার সম্পত্তি সহজে পরিচালনা করুন।</string>
 
+    <string name="greeting_morning">শুভ সকাল ☀️</string>
+    <string name="greeting_afternoon">শুভ অপরাহ্ন 🌤️</string>
+    <string name="greeting_evening">শুভ সন্ধ্যা 🌙</string>
+
+    <string name="section_cashflow">মাসিক ক্যাশ ফ্লো</string>
+    <string name="label_collected">সংগৃহীত</string>
+    <string name="label_pending_due">বকেয়া</string>
+    <string name="view_financials">আর্থিক বিবরণ ›</string>
+
+    <string name="section_needs_attention">জরুরি মনোযোগ</string>
+    <string name="alert_overdue_title">বকেয়া ভাড়ার রেকর্ড</string>
+    <string name="alert_overdue_msg">%1$d জন ভাড়াটিয়ার চলতি মাসে বকেয়া রয়েছে।</string>
+    <string name="btn_send_reminder">রিমাইন্ডার পাঠান</string>
+
+    <string name="occupancy_rate">অকুপেন্সি রেট</string>
+    <string name="occupancy_percentage_format">%1$d%% ভাড়া দেওয়া</string>
+
+    <string name="section_overview">এক নজরে</string>
+    <string name="section_quick_actions">দ্রুত কাজ</string>
+
     <string name="dashboard_total_units">মোট ইউনিট</string>
     <string name="dashboard_occupied">ভাড়া দেওয়া</string>
     <string name="dashboard_vacant">খালি</string>
@@ -29,6 +49,10 @@
     <string name="action_collect_rent">💰  ভাড়া সংগ্রহ করুন</string>
     <string name="action_add_tenant">👤  ভাড়াটিয়া যোগ করুন</string>
     <string name="action_add_bill">🧾  বিল যোগ করুন</string>
+    <string name="action_add_unit_btn">🔑  ইউনিট যোগ করুন</string>
+    <string name="action_add_expense_btn">💸  খরচ যোগ করুন</string>
+    <string name="action_view_reports_btn">📊  আর্থিক রিপোর্ট</string>
+    <string name="search_dashboard_hint">প্রপার্টি, ইউনিট বা ভাড়াটিয়া খুঁজুন...</string>
 
     <!-- Unit Management Strings (Bangla) -->
     <string name="add_unit_title">ইউনিট যোগ করুন</string>

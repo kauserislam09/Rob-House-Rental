@@ -36,6 +36,10 @@
     <string name="btn_send_reminder">Send Reminder</string>
 
     <string name="occupancy_rate">Occupancy Rate</string>
+    <string name="occupancy_percentage_format">%1$d%% Occupied</string>
+
+    <string name="section_overview">Overview</string>
+    <string name="section_quick_actions">Quick Actions</string>
 
     <string name="dashboard_total_units">Total Units</string>
     <string name="dashboard_occupied">Occupied</string>

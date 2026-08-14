@@ -133,4 +133,26 @@ public class RentDateUtils {
         }
         return null;
     }
+
+    /**
+     * Returns true if the given billing month (e.g. "2026-07") is before the tenancy start month (e.g. "2026-08").
+     */
+    public static boolean isBillingMonthBeforeTenancyStart(String billingMonth, String startDateStr) {
+        if (startDateStr == null || startDateStr.trim().isEmpty() || billingMonth == null || billingMonth.trim().isEmpty()) {
+            return false;
+        }
+        Date monthDate = parseDate(billingMonth.trim());
+        Date startDate = parseDate(startDateStr.trim());
+        if (monthDate != null && startDate != null) {
+            Calendar calMonth = Calendar.getInstance();
+            calMonth.setTime(monthDate);
+            Calendar calStart = Calendar.getInstance();
+            calStart.setTime(startDate);
+
+            int monthIndex = calMonth.get(Calendar.YEAR) * 12 + calMonth.get(Calendar.MONTH);
+            int startIndex = calStart.get(Calendar.YEAR) * 12 + calStart.get(Calendar.MONTH);
+            return monthIndex < startIndex;
+        }
+        return false;
+    }
 }

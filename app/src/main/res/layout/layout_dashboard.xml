@@ -290,7 +290,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/menu_dashboard"
+            android:text="@string/section_overview"
             android:textColor="@color/md_theme_onSurface"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -526,7 +526,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/menu_dashboard"
+            android:text="@string/section_quick_actions"
             android:textColor="@color/md_theme_onSurface"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -557,11 +557,12 @@
                 android:layout_height="48dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="1"
+                android:paddingHorizontal="4dp"
                 android:text="@string/action_add_tenant"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_person"
-                app:iconPadding="6dp"
+                app:iconPadding="4dp"
                 app:iconSize="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -571,11 +572,12 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
+                android:paddingHorizontal="4dp"
                 android:text="@string/action_add_bill"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_bill_utility"
-                app:iconPadding="6dp"
+                app:iconPadding="4dp"
                 app:iconSize="18dp" />
 
         </LinearLayout>
@@ -594,11 +596,12 @@
                 android:layout_height="48dp"
                 android:layout_marginEnd="4dp"
                 android:layout_weight="1"
+                android:paddingHorizontal="4dp"
                 android:text="@string/action_add_expense_btn"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_receipt"
-                app:iconPadding="6dp"
+                app:iconPadding="4dp"
                 app:iconSize="18dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -608,11 +611,12 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="4dp"
                 android:layout_weight="1"
+                android:paddingHorizontal="4dp"
                 android:text="@string/action_view_reports_btn"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 app:cornerRadius="12dp"
                 app:icon="@drawable/ic_chart"
-                app:iconPadding="6dp"
+                app:iconPadding="4dp"
                 app:iconSize="18dp" />
 
         </LinearLayout>
