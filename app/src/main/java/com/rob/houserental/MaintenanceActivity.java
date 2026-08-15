@@ -31,7 +31,7 @@ public class MaintenanceActivity extends AppCompatActivity {
     private TextInputEditText etSearch;
     private ChipGroup chipGroupStatus;
     private RecyclerView recyclerMaintenance;
-    private TextView tvEmpty;
+    private View layoutEmpty;
     private ExtendedFloatingActionButton fabAdd;
 
     private MaintenanceAdapter adapter;
@@ -46,7 +46,7 @@ public class MaintenanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maintenance);
 
-        maintenanceRepository = new MaintenanceRepository(this);
+        maintenanceRepository = new MaintenanceRepository(getApplicationContext());
 
         initializeViews();
         setupToolbar();
@@ -61,7 +61,7 @@ public class MaintenanceActivity extends AppCompatActivity {
         etSearch = findViewById(R.id.etSearchMaintenance);
         chipGroupStatus = findViewById(R.id.chipGroupMaintenanceStatus);
         recyclerMaintenance = findViewById(R.id.recyclerMaintenance);
-        tvEmpty = findViewById(R.id.tvEmptyMaintenance);
+        layoutEmpty = findViewById(R.id.layoutEmptyMaintenance);
         fabAdd = findViewById(R.id.fabAddMaintenance);
     }
 
@@ -178,11 +178,11 @@ public class MaintenanceActivity extends AppCompatActivity {
 
     private void updateUI(List<MaintenanceRecord> list) {
         if (list == null || list.isEmpty()) {
-            if (tvEmpty != null) tvEmpty.setVisibility(View.VISIBLE);
+            if (layoutEmpty != null) layoutEmpty.setVisibility(View.VISIBLE);
             if (recyclerMaintenance != null) recyclerMaintenance.setVisibility(View.GONE);
             if (adapter != null) adapter.setItems(null);
         } else {
-            if (tvEmpty != null) tvEmpty.setVisibility(View.GONE);
+            if (layoutEmpty != null) layoutEmpty.setVisibility(View.GONE);
             if (recyclerMaintenance != null) recyclerMaintenance.setVisibility(View.VISIBLE);
             if (adapter != null) adapter.setItems(list);
         }

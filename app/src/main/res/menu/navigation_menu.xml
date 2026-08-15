@@ -11,7 +11,7 @@
 
         <item
             android:id="@+id/nav_properties"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_building"
             android:title="@string/menu_properties" />
 
         <item
@@ -21,7 +21,7 @@
 
         <item
             android:id="@+id/nav_tenancies"
-            android:icon="@drawable/ic_receipt"
+            android:icon="@drawable/ic_agreement"
             android:title="@string/menu_tenancies" />
 
         <item
@@ -31,17 +31,17 @@
 
         <item
             android:id="@+id/nav_bills"
-            android:icon="@drawable/ic_receipt"
+            android:icon="@drawable/ic_bill_utility"
             android:title="@string/menu_bills" />
 
         <item
             android:id="@+id/nav_expenses"
-            android:icon="@drawable/ic_payment"
+            android:icon="@drawable/ic_expense"
             android:title="@string/expenses_title" />
 
         <item
             android:id="@+id/nav_maintenance"
-            android:icon="@drawable/ic_settings"
+            android:icon="@drawable/ic_maintenance"
             android:title="@string/maintenance_title" />
 
         <item
@@ -77,7 +77,7 @@
 
             <item
                 android:id="@+id/nav_subscription"
-                android:icon="@drawable/ic_payment"
+                android:icon="@drawable/ic_crown"
                 android:title="@string/menu_subscription" />
 
             <item

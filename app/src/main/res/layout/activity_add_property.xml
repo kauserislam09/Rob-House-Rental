@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/hint_property_name_req">
+            android:hint="@string/hint_property_name_req"
+            app:startIconDrawable="@drawable/ic_building">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPropertyName"
@@ -45,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_property_address_req">
+            android:hint="@string/hint_property_address_req"
+            app:startIconDrawable="@drawable/ic_location">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPropertyAddress"
@@ -64,7 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint=" @string/hint_property_type">
+            android:hint=" @string/hint_property_type"
+            app:startIconDrawable="@drawable/ic_building">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/autoPropertyType"
@@ -82,7 +85,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_property_floors">
+            android:hint="@string/hint_property_floors"
+            app:startIconDrawable="@drawable/ic_unit_key">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etNumberOfFloors"
@@ -100,7 +104,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_property_notes">
+            android:hint="@string/hint_property_notes"
+            app:startIconDrawable="@drawable/ic_note">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPropertyNotes"
