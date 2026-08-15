@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.rob.houserental.adapter.BackupHistoryAdapter;
@@ -232,14 +233,14 @@ public class BackupActivity extends AppCompatActivity {
 
         if (isConnected) {
             tvDriveStatusBadge.setText(R.string.google_drive_connected);
-            tvDriveStatusBadge.setTextColor(Color.parseColor("#2E7D32"));
+            tvDriveStatusBadge.setTextColor(MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary, Color.parseColor("#2E7D32")));
             tvDriveAccountEmail.setVisibility(View.VISIBLE);
             tvDriveAccountEmail.setText(getString(R.string.prefix_account, savedEmail.trim()));
             btnConnectGoogleDrive.setVisibility(View.GONE);
             btnDisconnectGoogleDrive.setVisibility(View.VISIBLE);
         } else {
             tvDriveStatusBadge.setText(R.string.google_drive_not_connected);
-            tvDriveStatusBadge.setTextColor(Color.parseColor("#757575"));
+            tvDriveStatusBadge.setTextColor(MaterialColors.getColor(this, com.google.android.material.R.attr.colorOnSurfaceVariant, Color.parseColor("#757575")));
             tvDriveAccountEmail.setVisibility(View.GONE);
             btnConnectGoogleDrive.setVisibility(View.VISIBLE);
             btnDisconnectGoogleDrive.setVisibility(View.GONE);
@@ -257,13 +258,13 @@ public class BackupActivity extends AppCompatActivity {
         String status = preferences.getLastBackupStatus();
         if ("SUCCESS".equalsIgnoreCase(status)) {
             tvLastBackupStatus.setText(R.string.status_success);
-            tvLastBackupStatus.setTextColor(Color.parseColor("#2E7D32"));
+            tvLastBackupStatus.setTextColor(MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary, Color.parseColor("#2E7D32")));
         } else if ("LOCAL_ONLY".equalsIgnoreCase(status)) {
             tvLastBackupStatus.setText(R.string.status_local_only);
-            tvLastBackupStatus.setTextColor(Color.parseColor("#EF6C00"));
+            tvLastBackupStatus.setTextColor(MaterialColors.getColor(this, com.google.android.material.R.attr.colorTertiary, Color.parseColor("#EF6C00")));
         } else if ("FAILED".equalsIgnoreCase(status)) {
             tvLastBackupStatus.setText(R.string.status_failed);
-            tvLastBackupStatus.setTextColor(Color.parseColor("#C62828"));
+            tvLastBackupStatus.setTextColor(MaterialColors.getColor(this, androidx.appcompat.R.attr.colorError, Color.parseColor("#C62828")));
         } else if (status != null && !status.isEmpty()) {
             tvLastBackupStatus.setText(status);
         } else {
@@ -380,12 +381,12 @@ public class BackupActivity extends AppCompatActivity {
 
                 if (driveUploadError != null) {
                     // Local package succeeded, but Drive upload failed
-                    history.setStatus("FAILED");
+                    history.setStatus("LOCAL_ONLY");
                     history.setErrorMessage(driveUploadError.getMessage());
                     repository.updateHistory(history, null);
 
                     preferences.setLastBackupTime(endTime);
-                    preferences.setLastBackupStatus("FAILED");
+                    preferences.setLastBackupStatus("LOCAL_ONLY");
                     preferences.setLastBackupSizeBytes(sizeBytes);
                     preferences.setLastBackupType("MANUAL");
 
@@ -393,7 +394,7 @@ public class BackupActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         progressDialog.dismiss();
                         new MaterialAlertDialogBuilder(BackupActivity.this)
-                                .setTitle(R.string.status_failed)
+                                .setTitle(R.string.status_local_only)
                                 .setMessage(getString(R.string.local_backup_created_drive_failed, finalError.getMessage()))
                                 .setPositiveButton(R.string.close, null)
                                 .show();

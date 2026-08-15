@@ -74,7 +74,6 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        tvExpenseDetailsCategoryIcon = findViewById(R.id.tvExpenseDetailsCategoryIcon);
         tvExpenseDetailsCategoryTitle = findViewById(R.id.tvExpenseDetailsCategoryTitle);
         tvExpenseDetailsAmount = findViewById(R.id.tvExpenseDetailsAmount);
         tvExpenseDetailsDate = findViewById(R.id.tvExpenseDetailsDate);
@@ -153,7 +152,6 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
 
     private void populateViews(ExpenseDisplayItem item) {
         String cat = item.category != null ? item.category : "OTHER";
-        tvExpenseDetailsCategoryIcon.setText(ExpenseAdapter.getCategoryIcon(cat));
         tvExpenseDetailsCategoryTitle.setText(ExpenseAdapter.getCategoryTitle(this, cat));
 
         String curr = getString(R.string.currency_symbol);

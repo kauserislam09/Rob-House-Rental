@@ -74,7 +74,6 @@ public class DocumentDetailsActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        tvDocDetailsIcon = findViewById(R.id.tvDocDetailsIcon);
         tvDocDetailsDisplayName = findViewById(R.id.tvDocDetailsDisplayName);
         tvDocDetailsCategoryBadge = findViewById(R.id.tvDocDetailsCategoryBadge);
 
@@ -140,7 +139,6 @@ public class DocumentDetailsActivity extends AppCompatActivity {
     }
 
     private void populateViews(AppDocumentDisplayItem item) {
-        tvDocDetailsIcon.setText(DocumentAdapter.getDocumentIcon(item));
         tvDocDetailsDisplayName.setText(item.displayName != null ? item.displayName : getString(R.string.type_document));
         tvDocDetailsCategoryBadge.setText(DocumentAdapter.getCategoryTitle(this, item.category));
 

@@ -29,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="@string/hint_unit_number_req">
+            android:hint="@string/hint_unit_number_req"
+            app:startIconDrawable="@drawable/ic_unit_key">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUnitNumber"
@@ -47,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_unit_floor">
+            android:hint="@string/hint_unit_floor"
+            app:startIconDrawable="@drawable/ic_building">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/autoUnitFloor"
@@ -66,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_unit_type">
+            android:hint="@string/hint_unit_type"
+            app:startIconDrawable="@drawable/ic_building">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/autoUnitType"
@@ -84,7 +87,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_unit_rent_req">
+            android:hint="@string/hint_unit_rent_req"
+            app:startIconDrawable="@drawable/ic_payment">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMonthlyRent"
@@ -102,7 +106,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/hint_unit_deposit">
+            android:hint="@string/hint_unit_deposit"
+            app:startIconDrawable="@drawable/ic_payment">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSecurityDeposit"

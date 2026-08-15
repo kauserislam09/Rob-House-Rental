@@ -1,6 +1,7 @@
 package com.rob.houserental;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,9 @@ public class SettingsActivity extends AppCompatActivity {
     private TextView tvCurrentLanguage;
     private MaterialCardView cardLanguageSetting;
     private MaterialCardView cardBackupShortcut;
+    private MaterialCardView cardAppUpdates;
+    private TextView tvAboutEmail;
+    private TextView tvAboutWebsite;
 
     private EditText etLandlordName;
     private EditText etLandlordPhone;
@@ -54,6 +58,9 @@ public class SettingsActivity extends AppCompatActivity {
         tvCurrentLanguage = findViewById(R.id.tvCurrentLanguage);
         cardLanguageSetting = findViewById(R.id.cardLanguageSetting);
         cardBackupShortcut = findViewById(R.id.cardBackupShortcut);
+        cardAppUpdates = findViewById(R.id.cardAppUpdates);
+        tvAboutEmail = findViewById(R.id.tvAboutEmail);
+        tvAboutWebsite = findViewById(R.id.tvAboutWebsite);
 
         etLandlordName = findViewById(R.id.etLandlordName);
         etLandlordPhone = findViewById(R.id.etLandlordPhone);
@@ -100,6 +107,30 @@ public class SettingsActivity extends AppCompatActivity {
             Intent intent = new Intent(SettingsActivity.this, BackupActivity.class);
             startActivity(intent);
         });
+
+        if (cardAppUpdates != null) {
+            cardAppUpdates.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://robtech-website.kauserislam09.workers.dev/"));
+                startActivity(intent);
+            });
+        }
+
+        if (tvAboutEmail != null) {
+            tvAboutEmail.setOnClickListener(v -> {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
+                        Uri.parse("mailto:kauserislam109@gmail.com"));
+                startActivity(Intent.createChooser(emailIntent, getString(R.string.send_email)));
+            });
+        }
+
+        if (tvAboutWebsite != null) {
+            tvAboutWebsite.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://robtech-website.kauserislam09.workers.dev/"));
+                startActivity(intent);
+            });
+        }
     }
 
     private void showLanguageSelectionDialog() {

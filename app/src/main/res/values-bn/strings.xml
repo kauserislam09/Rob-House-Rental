@@ -476,9 +476,18 @@
     <string name="select_language_title">ভাষা নির্বাচন করুন / Select Language</string>
     <string name="language_changed_toast">ভাষা সফলভাবে পরিবর্তন হয়েছে।</string>
     <string name="app_version_label">অ্যাপ সংস্করণ</string>
-    <string name="app_version_value">১.০ (অফলাইন-ফার্স্ট)</string>
+    <string name="app_version_value">১.০.০</string>
     <string name="about_section">অ্যাপ সম্পর্কে</string>
-    <string name="about_app_desc">রব হাউস রেন্টাল হল বাড়িওয়ালা ও প্রপার্টি ম্যানেজারদের জন্য সম্পূর্ণ অফলাইন-ফার্স্ট এবং নিরাপদ ভাড়া ও খরচের হিসাব ব্যবস্থাপনা সিস্টেম।</string>
+    <string name="about_app_desc">Rob House Rental হল বাড়িওয়ালা ও প্রপার্টি ম্যানেজারদের জন্য সম্পূর্ণ অফলাইন-ফার্স্ট এবং নিরাপদ ভাড়া ও খরচের হিসাব ব্যবস্থাপনা সিস্টেম।</string>
+    <string name="about_developer_label">ডেভেলপার</string>
+    <string name="about_developer_name">মোঃ কাউছার ইসলাম রুবায়েদ</string>
+    <string name="about_email_label">ইমেইল</string>
+    <string name="about_email_value">kauserislam109@gmail.com</string>
+    <string name="about_website_label">ওয়েবসাইট</string>
+    <string name="about_website_value">robtech-website.kauserislam09.workers.dev</string>
+    <string name="settings_app_updates_title">অ্যাপ আপডেট</string>
+    <string name="settings_app_updates_desc">সর্বশেষ সংস্করণ দেখুন</string>
+    <string name="send_email">ইমেইল পাঠান</string>
     <string name="backup_shortcut_title">ব্যাকআপ ও রিস্টোর</string>
     <string name="backup_shortcut_desc">গুগল ড্রাইভে ব্যাকআপ ও মেমোরি কার্ড/পিসিতে এক্সপোর্ট করুন</string>
 
@@ -823,7 +832,7 @@
     <string name="unable_to_open_property_details">প্রপার্টির বিস্তারিত তথ্য খোলা যাচ্ছে না।</string>
 
     <!-- Mission 12: Maintenance & Central Reminders (Bangla) -->
-    <string name="notification_channel_name">রব হাউস রেন্টাল রিমাইন্ডার</string>
+    <string name="notification_channel_name">Rob House Rental রিমাইন্ডার</string>
     <string name="notification_channel_desc">ভাড়া, বিল, টেন্যান্সি, মেরামত ও ব্যক্তিগত রিমাইন্ডারের নোটিফিকেশন</string>
     <string name="reminder">রিমাইন্ডার</string>
     <string name="reminder_due_text">আপনার একটি নির্ধারিত রিমাইন্ডারের সময় হয়েছে।</string>

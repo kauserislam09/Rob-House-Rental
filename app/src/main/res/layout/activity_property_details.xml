@@ -22,15 +22,25 @@
             android:title="@string/property_details_title"
             app:navigationIcon="@drawable/ic_arrow_back" />
 
-        <!-- Property Icon -->
-        <TextView
-            android:id="@+id/tvPropertyIcon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <!-- Property Icon Badge -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text=""
-            android:textSize="64sp" />
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_building"
+                app:tint="?attr/colorOnPrimaryContainer" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Property Name -->
         <TextView

@@ -54,7 +54,8 @@
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:startIconDrawable="@drawable/ic_building">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoProperty"
@@ -76,7 +77,8 @@
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:startIconDrawable="@drawable/ic_unit_key">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoUnit"
@@ -98,7 +100,8 @@
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:startIconDrawable="@drawable/ic_person">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/autoTenant"

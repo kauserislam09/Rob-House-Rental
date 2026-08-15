@@ -116,7 +116,6 @@ public class BillDetailsActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        tvBillDetailsTypeIcon = findViewById(R.id.tvBillDetailsTypeIcon);
         tvBillDetailsTitle = findViewById(R.id.tvBillDetailsTitle);
         tvBillDetailsPropertyUnit = findViewById(R.id.tvBillDetailsPropertyUnit);
         tvBillDetailsTenant = findViewById(R.id.tvBillDetailsTenant);

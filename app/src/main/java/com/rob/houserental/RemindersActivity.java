@@ -30,7 +30,7 @@ public class RemindersActivity extends AppCompatActivity {
     private MaterialToolbar toolbar;
     private ChipGroup chipGroupState;
     private RecyclerView recyclerReminders;
-    private TextView tvEmptyReminders;
+    private View layoutEmptyReminders;
     private ExtendedFloatingActionButton fabAddReminder;
 
     private ReminderAdapter adapter;
@@ -59,7 +59,7 @@ public class RemindersActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbarReminders);
         chipGroupState = findViewById(R.id.chipGroupReminderState);
         recyclerReminders = findViewById(R.id.recyclerReminders);
-        tvEmptyReminders = findViewById(R.id.tvEmptyReminders);
+        layoutEmptyReminders = findViewById(R.id.layoutEmptyReminders);
         fabAddReminder = findViewById(R.id.fabAddReminder);
     }
 
@@ -171,11 +171,11 @@ public class RemindersActivity extends AppCompatActivity {
 
     private void updateUI(List<Reminder> list) {
         if (list == null || list.isEmpty()) {
-            if (tvEmptyReminders != null) tvEmptyReminders.setVisibility(View.VISIBLE);
+            if (layoutEmptyReminders != null) layoutEmptyReminders.setVisibility(View.VISIBLE);
             if (recyclerReminders != null) recyclerReminders.setVisibility(View.GONE);
             if (adapter != null) adapter.setItems(null);
         } else {
-            if (tvEmptyReminders != null) tvEmptyReminders.setVisibility(View.GONE);
+            if (layoutEmptyReminders != null) layoutEmptyReminders.setVisibility(View.GONE);
             if (recyclerReminders != null) recyclerReminders.setVisibility(View.VISIBLE);
             if (adapter != null) adapter.setItems(list);
         }

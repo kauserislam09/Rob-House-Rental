@@ -477,9 +477,18 @@
     <string name="select_language_title">Select Language / ভাষা নির্বাচন করুন</string>
     <string name="language_changed_toast">Language updated.</string>
     <string name="app_version_label">Application Version</string>
-    <string name="app_version_value">1.0 (Offline-First)</string>
+    <string name="app_version_value">1.0.0</string>
     <string name="about_section">About Application</string>
     <string name="about_app_desc">Rob House Rental is a secure, offline-first property management system for landlords and property managers.</string>
+    <string name="about_developer_label">Developer</string>
+    <string name="about_developer_name">Md Kauser Islam Robayet</string>
+    <string name="about_email_label">Email</string>
+    <string name="about_email_value">kauserislam109@gmail.com</string>
+    <string name="about_website_label">Website</string>
+    <string name="about_website_value">robtech-website.kauserislam09.workers.dev</string>
+    <string name="settings_app_updates_title">App Updates</string>
+    <string name="settings_app_updates_desc">Check for the latest version</string>
+    <string name="send_email">Send Email</string>
     <string name="backup_shortcut_title">Backup &amp; Restore</string>
     <string name="backup_shortcut_desc">Cloud backup to Google Drive &amp; offline export</string>
 

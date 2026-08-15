@@ -18,3 +18,4 @@ local.properties
 client_secret*.json
 *.p12
 *.keystore
+*.apk
