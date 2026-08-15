@@ -330,14 +330,53 @@
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Actions -->
+        <!-- Pay via bKash App Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRecordBillPayment"
+            android:id="@+id/btnPayViaBkash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:minHeight="56dp"
+            android:text="@string/btn_pay_via_bkash"
+            android:textSize="16sp"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_payment" />
+
+        <!-- Send Bill Notice to Tenant Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNotifyTenant"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="52dp"
+            android:text="@string/btn_notify_tenant"
+            android:textSize="15sp"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_bill_utility" />
+
+        <!-- Paste bKash Confirmation SMS Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPasteBkashSms"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="52dp"
+            android:text="@string/btn_paste_bkash_sms"
+            android:textSize="15sp"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/ic_receipt" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRecordBillPayment"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:minHeight="52dp"
             android:text="@string/record_payment"
-            android:textSize="17sp"
+            android:textSize="15sp"
             app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -345,10 +384,10 @@
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minHeight="56dp"
+            android:layout_marginTop="10dp"
+            android:minHeight="52dp"
             android:text="@string/edit_bill_title"
-            android:textSize="17sp"
+            android:textSize="15sp"
             app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton

@@ -48,7 +48,7 @@ import com.rob.houserental.model.UserAccount;
                 SubscriptionEntitlement.class,
                 PaymentOrder.class
         },
-        version = 13,
+        version = 14,
         exportSchema = true
 )
 public abstract class AppDatabase extends RoomDatabase {
@@ -457,6 +457,17 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
+    public static final Migration MIGRATION_13_14 = new Migration(13, 14) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `electricityMeterNumber` TEXT");
+            database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `waterAccountNumber` TEXT");
+            database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `gasAccountNumber` TEXT");
+            database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `internetAccountNumber` TEXT");
+            database.execSQL("ALTER TABLE `tenancies` ADD COLUMN `otherMeterNumber` TEXT");
+        }
+    };
+
     public static AppDatabase getInstance(Context context) {
 
         if (INSTANCE == null) {
@@ -482,7 +493,8 @@ public abstract class AppDatabase extends RoomDatabase {
                                     MIGRATION_9_10,
                                     MIGRATION_10_11,
                                     MIGRATION_11_12,
-                                    MIGRATION_12_13
+                                    MIGRATION_12_13,
+                                    MIGRATION_13_14
                             )
                             .build();
                 }

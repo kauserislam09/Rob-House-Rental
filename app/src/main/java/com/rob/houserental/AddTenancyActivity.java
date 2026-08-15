@@ -61,6 +61,10 @@ public class AddTenancyActivity extends AppCompatActivity {
     private TextInputEditText etServiceCharge;
     private TextInputEditText etSecurityDeposit;
     private TextInputEditText etAdvanceAmount;
+    private TextInputEditText etElectricityMeter;
+    private TextInputEditText etWaterAccount;
+    private TextInputEditText etGasAccount;
+    private TextInputEditText etInternetAccount;
     private TextInputEditText etAgreementNumber;
     private TextInputEditText etTenancyNotes;
 
@@ -146,6 +150,10 @@ public class AddTenancyActivity extends AppCompatActivity {
         etSecurityDeposit = findViewById(R.id.etSecurityDeposit);
         etAdvanceAmount = findViewById(R.id.etAdvanceAmount);
         etAgreementNumber = findViewById(R.id.etAgreementNumber);
+        etElectricityMeter = findViewById(R.id.etElectricityMeter);
+        etWaterAccount = findViewById(R.id.etWaterAccount);
+        etGasAccount = findViewById(R.id.etGasAccount);
+        etInternetAccount = findViewById(R.id.etInternetAccount);
         etTenancyNotes = findViewById(R.id.etTenancyNotes);
 
         btnAddTenantShortcut = findViewById(R.id.btnAddTenantShortcut);
@@ -457,6 +465,22 @@ public class AddTenancyActivity extends AppCompatActivity {
             etAgreementNumber.setText(t.getAgreementNumber());
         }
 
+        if (t.getElectricityMeterNumber() != null) {
+            etElectricityMeter.setText(t.getElectricityMeterNumber());
+        }
+
+        if (t.getWaterAccountNumber() != null) {
+            etWaterAccount.setText(t.getWaterAccountNumber());
+        }
+
+        if (t.getGasAccountNumber() != null) {
+            etGasAccount.setText(t.getGasAccountNumber());
+        }
+
+        if (t.getInternetAccountNumber() != null) {
+            etInternetAccount.setText(t.getInternetAccountNumber());
+        }
+
         if (t.getStatus() != null) {
             autoTenancyStatus.setText(t.getStatus(), false);
         }
@@ -474,12 +498,12 @@ public class AddTenancyActivity extends AppCompatActivity {
             return;
         }
 
-        if (selectedUnit == null) {
+        if (selectedUnit == null && !isEditMode) {
             layoutSelectUnit.setError(getString(R.string.unit_required));
             return;
         }
 
-        if (selectedTenant == null) {
+        if (selectedTenant == null && !isEditMode) {
             layoutSelectTenant.setError(getString(R.string.tenant_required));
             return;
         }
@@ -491,12 +515,12 @@ public class AddTenancyActivity extends AppCompatActivity {
         }
 
         String endDate = getText(etEndDate);
-        if (!TextUtils.isEmpty(startDate) && !TextUtils.isEmpty(endDate)) {
+        if (!TextUtils.isEmpty(endDate)) {
             try {
                 Date start = dateFormat.parse(startDate);
                 Date end = dateFormat.parse(endDate);
                 if (start != null && end != null && end.before(start)) {
-                    layoutEndDate.setError("End date cannot be before start date");
+                    layoutEndDate.setError(getString(R.string.end_date_before_start));
                     return;
                 }
             } catch (ParseException ignored) {
@@ -522,6 +546,10 @@ public class AddTenancyActivity extends AppCompatActivity {
         double securityDeposit = parseDouble(getText(etSecurityDeposit));
         double advanceAmount = parseDouble(getText(etAdvanceAmount));
         String agreementNumber = getText(etAgreementNumber);
+        String electricityMeter = getText(etElectricityMeter);
+        String waterAccount = getText(etWaterAccount);
+        String gasAccount = getText(etGasAccount);
+        String internetAccount = getText(etInternetAccount);
         String status = getText(autoTenancyStatus);
         String notes = getText(etTenancyNotes);
 
@@ -537,6 +565,10 @@ public class AddTenancyActivity extends AppCompatActivity {
             editingTenancy.setSecurityDeposit(securityDeposit);
             editingTenancy.setAdvanceAmount(advanceAmount);
             editingTenancy.setAgreementNumber(agreementNumber);
+            editingTenancy.setElectricityMeterNumber(electricityMeter);
+            editingTenancy.setWaterAccountNumber(waterAccount);
+            editingTenancy.setGasAccountNumber(gasAccount);
+            editingTenancy.setInternetAccountNumber(internetAccount);
             editingTenancy.setStatus(status);
             editingTenancy.setNotes(notes);
             editingTenancy.setUpdatedAt(currentTime);
@@ -578,6 +610,11 @@ public class AddTenancyActivity extends AppCompatActivity {
                     currentTime,
                     currentTime
             );
+
+            tenancy.setElectricityMeterNumber(electricityMeter);
+            tenancy.setWaterAccountNumber(waterAccount);
+            tenancy.setGasAccountNumber(gasAccount);
+            tenancy.setInternetAccountNumber(internetAccount);
 
             repository.createTenancy(tenancy, new TenancyRepository.DatabaseCallback<Long>() {
                 @Override

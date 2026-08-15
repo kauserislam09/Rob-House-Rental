@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.rob.houserental.data.AppDatabase;
 import com.rob.houserental.model.Property;
+import com.rob.houserental.model.Tenancy;
 import com.rob.houserental.model.TenancyWithDetails;
 import com.rob.houserental.model.Unit;
 import com.rob.houserental.model.UtilityBill;
@@ -184,6 +185,7 @@ public class AddBillActivity extends AppCompatActivity {
         autoBillType.setOnItemClickListener((parent, view, position, id) -> {
             selectedBillType = billTypeKeys[position];
             updateMeterSectionVisibility();
+            autoFillMeterFromTenancy();
         });
     }
 
@@ -352,6 +354,8 @@ public class AddBillActivity extends AppCompatActivity {
         });
     }
 
+    private Tenancy activeTenancyForSelectedUnit;
+
     private void checkActiveTenancyForUnit(long unitId) {
         executor.execute(() -> {
             try {
@@ -361,17 +365,41 @@ public class AddBillActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     if (activeTenancy != null && activeTenancy.tenant != null) {
                         selectedTenancyId = activeTenancy.tenancy.getId();
+                        activeTenancyForSelectedUnit = activeTenancy.tenancy;
                         tvOccupiedTenantInfo.setText(getString(R.string.prefix_current_tenant, activeTenancy.tenant.getFullName()) +
                                 (activeTenancy.tenant.getPhoneNumber() != null ? " (" + activeTenancy.tenant.getPhoneNumber() + ")" : ""));
                         tvOccupiedTenantInfo.setVisibility(View.VISIBLE);
+
+                        autoFillMeterFromTenancy();
                     } else {
                         selectedTenancyId = 0;
+                        activeTenancyForSelectedUnit = null;
                         tvOccupiedTenantInfo.setVisibility(View.GONE);
                     }
                 });
             } catch (Exception ignored) {
             }
         });
+    }
+
+    private void autoFillMeterFromTenancy() {
+        if (activeTenancyForSelectedUnit == null || isEditMode) return;
+        String meter = null;
+        if ("ELECTRICITY".equalsIgnoreCase(selectedBillType)) {
+            meter = activeTenancyForSelectedUnit.getElectricityMeterNumber();
+        } else if ("WATER".equalsIgnoreCase(selectedBillType)) {
+            meter = activeTenancyForSelectedUnit.getWaterAccountNumber();
+        } else if ("GAS".equalsIgnoreCase(selectedBillType)) {
+            meter = activeTenancyForSelectedUnit.getGasAccountNumber();
+        } else if ("INTERNET".equalsIgnoreCase(selectedBillType)) {
+            meter = activeTenancyForSelectedUnit.getInternetAccountNumber();
+        } else {
+            meter = activeTenancyForSelectedUnit.getOtherMeterNumber();
+        }
+
+        if (meter != null && !meter.trim().isEmpty()) {
+            etMeterNumber.setText(meter.trim());
+        }
     }
 
     private void checkEditMode() {

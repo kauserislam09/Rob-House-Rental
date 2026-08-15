@@ -143,8 +143,10 @@
     <string name="view_document">দেখুন</string>
     <string name="delete_document">মুছুন</string>
     <string name="delete_document_confirm">আপনি কি নিশ্চিত যে আপনি এই ডকুমেন্টটি মুছতে চান?</string>
-    <string name="select_document_type">ডকুমেন্টের ধরন নির্বাচন করুন</string>
-    <string name="document_name">ডকুমেন্টের নাম</string>
+    <string name="select_document_type">ডকুমেন্টের ধরন</string>
+    <string name="end_date_before_start">শেষ তারিখ শুরু হওয়ার তারিখের আগে হতে পারে না</string>
+    <string name="confirm">নিশ্চিত করুন</string>
+    <string name="payment_failed">পেমেন্ট ব্যর্থ হয়েছে। আবার চেষ্টা করুন।</string>
     <string name="document_name_hint">যেমন: এনআইডি কার্ডের কপি</string>
     <string name="document_type_nid">জাতীয় পরিচয়পত্র (NID)</string>
     <string name="document_type_passport">পাসপোর্ট</string>
@@ -260,6 +262,24 @@
 
     <!-- Utility Bill Management Strings (Bangla) -->
     <string name="bills_title">ইউটিলিটি বিলসমূহ</string>
+
+    <!-- Tenancy Meter & bKash Bill Strings Bangla -->
+    <string name="tenancy_meter_section_title">ইউটিলিটি মিটার ও হিসাব নম্বরসমূহ</string>
+    <string name="meter_electricity">বিদ্যুৎ মিটার / কাস্টমার হিসাব নম্বর</string>
+    <string name="meter_electricity_hint">যেমন: ১০৪৮২৯১০ (ডেসকো/ডিপিডিসি/পল্লী বিদ্যুৎ)</string>
+    <string name="meter_water">পানি গ্রাহক হিসাব নম্বর</string>
+    <string name="meter_gas">গ্যাস হিসাব নম্বর</string>
+    <string name="meter_internet">ইন্টারনেট / আইএসপি কাস্টমার নম্বর</string>
+
+    <string name="btn_pay_via_bkash">বিকাশ অ্যাপে বিল দিন</string>
+    <string name="btn_notify_tenant">ভাড়াটিয়াকে বিল নোটিশ পাঠান</string>
+    <string name="btn_paste_bkash_sms">বিকাশ পেমেন্ট এসএমএস পেস্ট করুন</string>
+    <string name="bkash_copied_toast">মিটার হিসাব নম্বর %1$s কপি হয়েছে! বিকাশ অ্যাপ ওপেন হচ্ছে...</string>
+    <string name="no_meter_found_toast">এই বিলের জন্য কোনো মিটার বা হিসাব নম্বর পাওয়া যায়নি।</string>
+    <string name="bkash_sms_dialog_title">বিকাশ এসএমএস পেস্ট করুন</string>
+    <string name="bkash_sms_dialog_hint">বিল পরিশোধের পর বিকাশ থেকে পাওয়া এসএমএসটি এখানে পেস্ট করুন...</string>
+    <string name="bkash_sms_parsed_success">বিকাশ পেমেন্ট যাচাইকৃত! TrxID: %1$s, পরিমাণ: ৳%2$.2f</string>
+    <string name="bkash_sms_parsed_error">এসএমএস থেকে সঠিক বিকাশ ট্রানজেকশন তথ্য পাওয়া যায়নি।</string>
     <string name="select_file_prompt">ফাইল নির্বাচন করুন (ছবি / পিডিএফ)</string>
     <string name="choose_attachment_source">ডকুমেন্ট সংগ্রহের মাধ্যম নির্বাচন করুন</string>
     <string name="option_open_camera">ক্যামেরা দিয়ে ছবি তুলুন</string>

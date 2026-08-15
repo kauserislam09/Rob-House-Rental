@@ -53,6 +53,13 @@ public class Tenancy {
 
     private String notes;
 
+    // Utility Meter & Account Numbers
+    private String electricityMeterNumber;
+    private String waterAccountNumber;
+    private String gasAccountNumber;
+    private String internetAccountNumber;
+    private String otherMeterNumber;
+
     private long createdAt;
     private long updatedAt;
 
@@ -196,6 +203,46 @@ public class Tenancy {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getElectricityMeterNumber() {
+        return electricityMeterNumber;
+    }
+
+    public void setElectricityMeterNumber(String electricityMeterNumber) {
+        this.electricityMeterNumber = electricityMeterNumber;
+    }
+
+    public String getWaterAccountNumber() {
+        return waterAccountNumber;
+    }
+
+    public void setWaterAccountNumber(String waterAccountNumber) {
+        this.waterAccountNumber = waterAccountNumber;
+    }
+
+    public String getGasAccountNumber() {
+        return gasAccountNumber;
+    }
+
+    public void setGasAccountNumber(String gasAccountNumber) {
+        this.gasAccountNumber = gasAccountNumber;
+    }
+
+    public String getInternetAccountNumber() {
+        return internetAccountNumber;
+    }
+
+    public void setInternetAccountNumber(String internetAccountNumber) {
+        this.internetAccountNumber = internetAccountNumber;
+    }
+
+    public String getOtherMeterNumber() {
+        return otherMeterNumber;
+    }
+
+    public void setOtherMeterNumber(String otherMeterNumber) {
+        this.otherMeterNumber = otherMeterNumber;
     }
 
     public long getCreatedAt() {

@@ -198,6 +198,9 @@
     <string name="tenancy_created_success">Tenancy created successfully. Unit is now OCCUPIED.</string>
     <string name="tenancy_updated_success">Tenancy updated successfully.</string>
     <string name="tenancy_ended_success">Tenancy ended. Unit is now VACANT.</string>
+    <string name="end_date_before_start">End date cannot be before start date</string>
+    <string name="confirm">Confirm</string>
+    <string name="payment_failed">Payment failed. Please try again.</string>
     <string name="current_tenant">Current Tenant</string>
     <string name="currently_vacant">Currently Vacant</string>
     <string name="tenancy_history">Tenancy History</string>
@@ -278,6 +281,24 @@
     <string name="fixed_charge">Demand / Fixed Charge (৳)</string>
     <string name="vat_tax">VAT / Govt Duty (৳)</string>
     <string name="bill_number">Bill / Account Number</string>
+
+    <!-- Tenancy Meter & bKash Bill Strings -->
+    <string name="tenancy_meter_section_title">Utility Meter &amp; Account Numbers</string>
+    <string name="meter_electricity">Electricity Meter / Account No.</string>
+    <string name="meter_electricity_hint">e.g. 10492810 (DESCO/DPDC/BREB)</string>
+    <string name="meter_water">Water Customer Account No.</string>
+    <string name="meter_gas">Gas Account No.</string>
+    <string name="meter_internet">Internet / ISP Customer No.</string>
+
+    <string name="btn_pay_via_bkash">Pay via bKash App</string>
+    <string name="btn_notify_tenant">Send Bill Notice to Tenant</string>
+    <string name="btn_paste_bkash_sms">Paste bKash Confirmation SMS</string>
+    <string name="bkash_copied_toast">Meter Account %1$s copied! Opening bKash app...</string>
+    <string name="no_meter_found_toast">No meter or account number found for this bill.</string>
+    <string name="bkash_sms_dialog_title">Paste bKash SMS</string>
+    <string name="bkash_sms_dialog_hint">Paste the SMS received from bKash after paying bill...</string>
+    <string name="bkash_sms_parsed_success">bKash Payment Verified! TrxID: %1$s, Amount: ৳%2$.2f</string>
+    <string name="bkash_sms_parsed_error">Could not extract valid bKash transaction from SMS text.</string>
     <string name="bill_number_hint">e.g. INV-2026-001 or Consumer #</string>
     <string name="whole_property_option"> Whole Property (Entire Building)</string>
     <string name="select_bill_type">Select Bill Type</string>

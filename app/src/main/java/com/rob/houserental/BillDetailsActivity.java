@@ -1,14 +1,18 @@
 package com.rob.houserental;
 
 import android.app.DatePickerDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +36,7 @@ import com.rob.houserental.model.BillPayment;
 import com.rob.houserental.model.UtilityBill;
 import com.rob.houserental.model.UtilityBillDisplayItem;
 import com.rob.houserental.repository.UtilityBillRepository;
+import com.rob.houserental.utils.BkashSmsParserUtils;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -67,6 +72,9 @@ public class BillDetailsActivity extends AppCompatActivity {
     private TextView tvNoBillPayments;
     private RecyclerView recyclerBillPayments;
 
+    private MaterialButton btnPayViaBkash;
+    private MaterialButton btnNotifyTenant;
+    private MaterialButton btnPasteBkashSms;
     private MaterialButton btnRecordBillPayment;
     private MaterialButton btnEditBill;
     private MaterialButton btnWaiveBill;
@@ -134,6 +142,9 @@ public class BillDetailsActivity extends AppCompatActivity {
         tvNoBillPayments = findViewById(R.id.tvNoBillPayments);
         recyclerBillPayments = findViewById(R.id.recyclerBillPayments);
 
+        btnPayViaBkash = findViewById(R.id.btnPayViaBkash);
+        btnNotifyTenant = findViewById(R.id.btnNotifyTenant);
+        btnPasteBkashSms = findViewById(R.id.btnPasteBkashSms);
         btnRecordBillPayment = findViewById(R.id.btnRecordBillPayment);
         btnEditBill = findViewById(R.id.btnEditBill);
         btnWaiveBill = findViewById(R.id.btnWaiveBill);
@@ -152,6 +163,12 @@ public class BillDetailsActivity extends AppCompatActivity {
     }
 
     private void setupActions() {
+        btnPayViaBkash.setOnClickListener(v -> handlePayViaBkash());
+
+        btnNotifyTenant.setOnClickListener(v -> handleNotifyTenant());
+
+        btnPasteBkashSms.setOnClickListener(v -> showPasteBkashSmsDialog());
+
         btnRecordBillPayment.setOnClickListener(v -> showRecordPaymentDialog());
 
         btnEditBill.setOnClickListener(v -> {
@@ -585,6 +602,121 @@ public class BillDetailsActivity extends AppCompatActivity {
         shape.setColor(bgColor);
         badge.setBackground(shape);
         badge.setTextColor(textColor);
+    }
+
+    private void handlePayViaBkash() {
+        if (currentBill == null && currentDisplayItem == null) return;
+        String meter = currentBill != null ? currentBill.getMeterNumber() : null;
+        if (meter == null || meter.trim().isEmpty()) {
+            if (currentDisplayItem != null && currentDisplayItem.meterNumber != null && !currentDisplayItem.meterNumber.trim().isEmpty()) {
+                meter = currentDisplayItem.meterNumber.trim();
+            } else if (currentBill != null && currentBill.getBillNumber() != null && !currentBill.getBillNumber().trim().isEmpty()) {
+                meter = currentBill.getBillNumber().trim();
+            }
+        }
+
+        if (meter == null || meter.trim().isEmpty()) {
+            Toast.makeText(this, R.string.no_meter_found_toast, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // 1. Copy meter number to clipboard
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Meter Account Number", meter.trim());
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(clip);
+        }
+
+        Toast.makeText(this, getString(R.string.bkash_copied_toast, meter.trim()), Toast.LENGTH_LONG).show();
+
+        // 2. Try launching bKash app
+        Intent bKashIntent = getPackageManager().getLaunchIntentForPackage("com.bKash.customerapp");
+        if (bKashIntent != null) {
+            startActivity(bKashIntent);
+        } else {
+            // Fallback: Open Play Store for bKash
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.bKash.customerapp")));
+            } catch (Exception e) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.bKash.customerapp")));
+            }
+        }
+    }
+
+    private void handleNotifyTenant() {
+        if (currentDisplayItem == null) return;
+        String tenantPhone = currentDisplayItem.tenantPhone;
+        String tenantName = currentDisplayItem.tenantName != null ? currentDisplayItem.tenantName : "ভাড়াটিয়া";
+        String month = currentDisplayItem.billingMonth != null ? currentDisplayItem.billingMonth : "";
+        String typeTitle = getTypeTitle(this, currentDisplayItem.billType);
+        double amount = currentDisplayItem.remainingAmount > 0 ? currentDisplayItem.remainingAmount : currentDisplayItem.amountDue;
+        String meter = currentDisplayItem.meterNumber != null ? currentDisplayItem.meterNumber : "";
+        String dueDate = currentDisplayItem.dueDate != null ? currentDisplayItem.dueDate : "";
+
+        String message = "প্রিয় " + tenantName + ",\n" +
+                month + " মাসের " + typeTitle + " বিল: ৳" + currencyFormatter.format(amount) + "।\n" +
+                (!meter.isEmpty() ? "মিটার/হিসাব নম্বর: " + meter + "।\n" : "") +
+                (!dueDate.isEmpty() ? "পরিশোধের শেষ তারিখ: " + dueDate + "।\n" : "") +
+                "দয়া করে উক্ত বিল পরিশোধ করার ব্যবস্থা করুন।\nধন্যবাদ, রব হাউস রেন্টাল।";
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (tenantPhone != null && !tenantPhone.trim().isEmpty()) {
+            intent.putExtra("address", tenantPhone);
+        }
+        startActivity(Intent.createChooser(intent, getString(R.string.btn_notify_tenant)));
+    }
+
+    private void showPasteBkashSmsDialog() {
+        if (currentBill == null) return;
+
+        final EditText etSmsInput = new EditText(this);
+        etSmsInput.setHint(R.string.bkash_sms_dialog_hint);
+        etSmsInput.setMinLines(3);
+        etSmsInput.setMaxLines(6);
+        etSmsInput.setPadding(32, 32, 32, 32);
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.bkash_sms_dialog_title)
+                .setView(etSmsInput)
+                .setPositiveButton(R.string.confirm, (dialog, which) -> {
+                    String smsText = etSmsInput.getText().toString();
+                    BkashSmsParserUtils.BkashSmsResult result = BkashSmsParserUtils.parseBkashSms(smsText);
+                    if (result.isValid) {
+                        double payAmt = result.amount > 0 ? result.amount : currentBill.getRemainingAmount();
+                        String trxId = result.transactionId != null ? result.transactionId : "bKash SMS";
+
+                        BillPayment payment = new BillPayment(
+                                billId,
+                                payAmt,
+                                paymentDateFormat.format(Calendar.getInstance().getTime()),
+                                "bKash",
+                                trxId,
+                                "Auto-verified via bKash SMS",
+                                System.currentTimeMillis()
+                        );
+
+                        repository.recordBillPayment(billId, payment, new UtilityBillRepository.DatabaseCallback<Void>() {
+                            @Override
+                            public void onSuccess(Void res) {
+                                runOnUiThread(() -> {
+                                    Toast.makeText(BillDetailsActivity.this, getString(R.string.bkash_sms_parsed_success, trxId, payAmt), Toast.LENGTH_LONG).show();
+                                    loadBillDetails();
+                                });
+                            }
+
+                            @Override
+                            public void onError(Exception exception) {
+                                runOnUiThread(() -> Toast.makeText(BillDetailsActivity.this, R.string.payment_failed, Toast.LENGTH_SHORT).show());
+                            }
+                        });
+                    } else {
+                        Toast.makeText(BillDetailsActivity.this, R.string.bkash_sms_parsed_error, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     @Override
